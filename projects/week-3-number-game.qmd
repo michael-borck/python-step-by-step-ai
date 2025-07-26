@@ -1,0 +1,432 @@
+# Week 3 Project: Number Guessing Game {#sec-project-number-game}
+
+::: {.callout-important}
+## Before You Start
+Make sure you've completed:
+- All of Part I: Computational Thinking (Chapters 1-5)
+- Week 1 Project: Fortune Teller
+- Week 2 Project: Mad Libs Generator
+
+You should be comfortable with:
+- Using loops to repeat actions
+- Making complex decisions with if/elif/else
+- Handling user input and validation
+- Building interactive experiences
+:::
+
+## Project Overview
+
+Number guessing games are classic programming challenges that combine strategy, feedback, and game design. Your program will pick a secret number, then guide players through guesses using hints until they win.
+
+This project focuses on game logic, user feedback systems, and creating engaging challenge loops that keep players motivated.
+
+## The Problem to Solve
+
+Players want an engaging guessing challenge! Your game should:
+- Generate unpredictable secret numbers
+- Provide helpful feedback on each guess
+- Track and limit attempts to create urgency
+- Celebrate victories and handle defeats gracefully
+- Be replayable with varying difficulty
+
+## Architect Your Solution First
+
+Before writing any code or consulting AI, design your guessing game:
+
+### 1. Understand the Problem
+- What number range will you use? (1-10, 1-100, 1-1000?)
+- How many guesses should players get?
+- What feedback helps without making it too easy?
+- How do you make it exciting rather than frustrating?
+
+### 2. Design Your Approach
+
+Create a design document that includes:
+- [ ] Number range and difficulty levels
+- [ ] Maximum attempts allowed
+- [ ] Feedback system (higher/lower, hot/cold, etc.)
+- [ ] Win and lose scenarios
+- [ ] Replay mechanism
+- [ ] Any special features (hints, difficulty adjustment)
+
+### 3. Identify Patterns
+
+Which programming patterns will you use?
+- [ ] Loops (main game loop, input validation)
+- [ ] Decisions (checking guesses, providing feedback)
+- [ ] Variables (secret number, attempts, player input)
+- [ ] Expressions (comparisons, calculations)
+- [ ] Input validation (handling bad input)
+
+## Implementation Strategy
+
+### Phase 1: Core Game Mechanics
+
+Start with the absolute minimum:
+1. Generate a secret number (1-10)
+2. Let player guess once
+3. Tell them if they're right or wrong
+4. Test that comparison logic works
+5. Add basic higher/lower feedback
+
+### Phase 2: Game Loop
+
+Once basic mechanics work:
+1. Add a loop to allow multiple guesses
+2. Track number of attempts
+3. Set maximum attempts limit
+4. Add win/lose conditions
+5. Display attempt counter
+
+### Phase 3: Enhanced Experience
+
+If time allows:
+1. Improve feedback system (getting closer/further)
+2. Add difficulty levels
+3. Track statistics (games played, win percentage)
+4. Add celebration and encouragement
+5. Create replay system
+
+## AI Partnership Guidelines
+
+### Effective Prompts for This Project
+
+✅ **Good Learning Prompts**:
+```
+"I'm building a number guessing game. I need to generate a random number between 1 and 100. 
+What's the simplest way to do this in Python?"
+```
+
+```
+"My guessing game works but feels repetitive. Here's my feedback system: [code].
+How can I make the hints more interesting without making it too easy?"
+```
+
+```
+"I want to limit players to 7 guesses. How do I track attempts and stop the game 
+when they run out, using concepts I already know?"
+```
+
+❌ **Avoid These Prompts**:
+- "Write a complete number guessing game for me"
+- "Add AI opponent and machine learning"
+- "Create a graphical interface with advanced features"
+
+### AI Learning Progression
+
+1. **Design Phase**: Use AI to validate game balance
+   ```
+   "For a number guessing game with range 1-100, how many guesses 
+   is fair? What makes it challenging but not frustrating?"
+   ```
+
+2. **Implementation Phase**: Use AI for specific mechanics
+   ```
+   "I need to check if the player's guess is higher, lower, or equal 
+   to the secret number. What's the clearest if statement structure?"
+   ```
+
+3. **Debug Phase**: Use AI to understand logic errors
+   ```
+   "My game sometimes says 'higher' when the guess is already correct. 
+   Here's my code: [code]. What's wrong with my logic?"
+   ```
+
+4. **Enhancement Phase**: Use AI for game feel
+   ```
+   "How can I make victory feel more rewarding and defeat less discouraging 
+   in my number guessing game?"
+   ```
+
+## Requirements Specification
+
+### Functional Requirements
+
+Your guessing game must:
+
+1. **Generate Secret Numbers**
+   - Pick a random number in the chosen range
+   - Keep it secret from the player
+   - Use a different number each game
+
+2. **Accept and Process Guesses**
+   - Get numeric input from player
+   - Handle invalid input gracefully
+   - Track total number of attempts
+
+3. **Provide Strategic Feedback**
+   - Tell player if guess is too high or too low
+   - Show remaining attempts
+   - Give encouraging messages
+
+4. **Manage Game Flow**
+   - Continue until player wins or runs out of attempts
+   - Declare victory or defeat appropriately
+   - Reveal the secret number when game ends
+
+5. **Offer Replay Value**
+   - Ask if player wants to play again
+   - Start fresh game with new secret number
+   - Maybe track overall statistics
+
+### Learning Requirements
+
+Your implementation should:
+- [ ] Use a while loop for the main game
+- [ ] Include if/elif/else for guess evaluation
+- [ ] Handle invalid input without crashing
+- [ ] Use meaningful variable names
+- [ ] Include comments explaining game logic
+
+## Sample Interaction
+
+Here's how your game might work:
+
+```
+🎯 Welcome to the Number Guessing Game! 🎯
+═══════════════════════════════════════════
+
+I'm thinking of a number between 1 and 100.
+You have 7 attempts to guess it. Good luck!
+
+Attempt 1/7
+Enter your guess: 50
+📈 Too high! Try a smaller number.
+
+Attempt 2/7  
+Enter your guess: 25
+📉 Too low! Try a bigger number.
+
+Attempt 3/7
+Enter your guess: 35
+📈 Too high! You're getting warmer...
+
+Attempt 4/7
+Enter your guess: 30
+📉 Too low! So close!
+
+Attempt 5/7
+Enter your guess: 32
+📈 Too high! Almost there!
+
+Attempt 6/7
+Enter your guess: 31
+🎉 CONGRATULATIONS! 🎉
+
+You guessed it! The number was 31.
+You won in 6 attempts - excellent work!
+
+🎮 Play again? (yes/no): yes
+
+🎯 New game starting! 🎯
+I'm thinking of a new number between 1 and 100...
+```
+
+## Development Approach
+
+### Step 1: Start with Random Numbers
+
+First, learn how to generate random numbers:
+```python
+# Ask AI: "How do I generate a random number between 1 and 10 in Python?"
+import random
+secret = random.randint(1, 10)
+```
+
+### Step 2: Build the Comparison Logic
+
+Test your guess-checking logic:
+```python
+# Test with a known secret number first
+secret = 42
+guess = int(input("Guess: "))
+if guess == secret:
+    print("Correct!")
+elif guess > secret:
+    print("Too high!")
+else:
+    print("Too low!")
+```
+
+### Step 3: Add the Game Loop
+
+Once comparison works, add repetition:
+```python
+attempts = 0
+max_attempts = 7
+won = False
+
+while attempts < max_attempts and not won:
+    # Your guessing logic here
+    attempts += 1
+    # Check if they won
+```
+
+### Step 4: Polish the Experience
+
+Add encouragement, formatting, and replay features.
+
+## Game Design Considerations
+
+### Difficulty Balance
+
+**Easy Mode (1-20, 6 guesses)**:
+- Good for beginners
+- Quick games
+- High success rate
+
+**Medium Mode (1-100, 7 guesses)**:
+- Classic balance
+- Requires strategy
+- Reasonable challenge
+
+**Hard Mode (1-1000, 10 guesses)**:
+- For experienced players
+- Needs mathematical thinking
+- High stakes
+
+### Feedback Systems
+
+**Basic Feedback**:
+- "Too high" / "Too low"
+- Simple and clear
+
+**Enhanced Feedback**:
+- "Way too high" vs "A little high"
+- "Getting warmer" / "Getting colder"
+- Distance hints
+
+**Encouraging Messages**:
+- "Great strategy!"
+- "You're really close!"
+- "Nice logical thinking!"
+
+## Debugging Strategy
+
+Common issues and solutions:
+
+### Input Validation
+```python
+# Problem: Crashes on non-numeric input
+guess = int(input("Guess: "))  # Crashes on "hello"
+
+# Solution: Handle gracefully
+try:
+    guess = int(input("Guess: "))
+except ValueError:
+    print("Please enter a number!")
+    continue
+```
+
+### Loop Logic
+```python
+# Problem: Infinite loops
+while True:  # Never ends!
+    # game logic
+
+# Solution: Clear exit conditions
+while attempts < max_attempts and not won:
+    # game logic with proper win/lose checks
+```
+
+### Random Number Issues
+```python
+# Problem: Same number every time
+secret = 42  # Always the same!
+
+# Solution: Use random
+import random
+secret = random.randint(1, 100)  # Different each time
+```
+
+## Reflection Questions
+
+After completing the project:
+
+1. **Game Design Reflection**
+   - What number range and attempt limit felt most balanced?
+   - Which feedback messages were most helpful?
+   - How did you handle player frustration vs. challenge?
+
+2. **Programming Reflection**
+   - How did loops change the feel of your program?
+   - What was challenging about managing game state?
+   - How did you handle edge cases and invalid input?
+
+3. **AI Partnership Reflection**
+   - What random number concepts did AI help explain?
+   - How did AI help with game balance decisions?
+   - When did you simplify AI's complex suggestions?
+
+## Extension Challenges
+
+If you finish early, try these:
+
+### Challenge 1: Difficulty Levels
+Let players choose easy (1-20), medium (1-100), or hard (1-1000) with appropriate attempt limits.
+
+### Challenge 2: Smart Hints
+Provide distance-based feedback:
+- "Ice cold" (more than 50 away)
+- "Cold" (25-50 away)  
+- "Warm" (10-25 away)
+- "Hot" (5-10 away)
+- "Burning!" (1-5 away)
+
+### Challenge 3: Statistics Tracking
+Track across multiple games:
+- Games played
+- Games won
+- Average attempts to win
+- Best game (fewest attempts)
+
+### Challenge 4: Strategy Tips
+After each game, suggest strategy improvements:
+- "Try starting with 50 to divide the range in half"
+- "Great binary search approach!"
+- "Consider the mathematical approach next time"
+
+## Submission Checklist
+
+Before considering your project complete:
+
+- [ ] **Core Gameplay**: Random number, guessing loop, win/lose conditions
+- [ ] **Feedback System**: Clear higher/lower guidance
+- [ ] **Attempt Management**: Limited tries with counter display
+- [ ] **Input Handling**: Graceful handling of invalid input
+- [ ] **User Experience**: Encouraging messages and clear interface
+- [ ] **Replay Feature**: Option to play multiple games
+- [ ] **Code Quality**: Clear logic and meaningful variable names
+
+## Common Pitfalls and How to Avoid Them
+
+### Pitfall 1: Poor Game Balance
+**Problem**: Too easy (1-10, unlimited tries) or too hard (1-1000, 3 tries)
+**Solution**: Test with friends, aim for 50-70% win rate
+
+### Pitfall 2: Confusing Feedback
+**Problem**: Inconsistent or unclear messages
+**Solution**: Use consistent terminology, test with fresh players
+
+### Pitfall 3: Technical Before Fun
+**Problem**: Focusing on perfect code before enjoyable gameplay
+**Solution**: Get the basic game fun first, then improve code
+
+### Pitfall 4: Ignoring Edge Cases
+**Problem**: Crashes on unexpected input
+**Solution**: Test with letters, negative numbers, huge numbers
+
+## Project Learning Outcomes
+
+By completing this project, you've learned:
+- How to create engaging game loops with clear objectives
+- How to generate and use random numbers in programs
+- How to manage complex program state (attempts, win conditions)
+- How to provide meaningful feedback that guides user behavior
+- How to balance challenge and fairness in interactive systems
+
+## Next Week Preview
+
+Excellent gaming! Next week, you'll create the classic Rock Paper Scissors game, which introduces competitive logic and multiple-round gameplay. You'll learn about handling ties, tournament systems, and creating AI opponents.
+
+Your number guessing game shows you can create genuinely engaging interactive experiences! 🎯

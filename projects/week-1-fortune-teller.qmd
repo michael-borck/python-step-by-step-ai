@@ -3,48 +3,336 @@
 ::: {.callout-important}
 ## Before You Start
 Make sure you've completed:
-- Chapter 1: Hello, Python!
-- Chapter 2: Variables
-- Chapter 3: Input
+- Chapter 1: Input, Process, Output
+- Chapter 2: Remembering Things (Variables)
+- Chapter 3: Asking Questions (Input)
+- Chapter 4: Making Decisions (If Statements)
+- Chapter 5: Doing Things Over and Over (Loops)
+- Your Expression Toolkit
+
+You should understand:
+- How to get input from users
+- How to store information in variables
+- How to make decisions with if statements
+- How to repeat actions with loops
 :::
 
 ## Project Overview
 
-Create a simple fortune teller program that asks for the user's name and gives them a personalized fortune.
+Fortune tellers have fascinated people for centuries. They ask questions, consider the answers, and provide mysterious insights. Your digital fortune teller will do the same - but with code!
 
-## Requirements
+You'll create an interactive fortune teller that asks questions, makes decisions based on answers, and delivers personalized fortunes. This is your chance to combine everything you've learned into your first complete program.
 
-Your program should:
-1. Display a welcome message
-2. Ask for the user's name
-3. Display a personalized fortune using their name
+## The Problem to Solve
 
-## Starter Code
+People want to know their future! Your fortune teller should:
+- Feel interactive and personal
+- Ask meaningful questions
+- Provide different fortunes based on their answers
+- Be entertaining and mystical
 
-```python
-# Fortune Teller Program
-# Your code here
+## Architect Your Solution First
+
+Before writing any code or consulting AI, design your fortune teller:
+
+### 1. Understand the Problem
+- What questions will you ask? (name, age, favorite color, etc.)
+- How will answers affect the fortune?
+- What makes a fortune feel "personalized"?
+- How can you make it entertaining?
+
+### 2. Design Your Approach
+
+Create a design document that includes:
+- [ ] List of questions to ask (minimum 3)
+- [ ] How each answer affects the fortune
+- [ ] At least 5 different possible fortunes
+- [ ] The decision logic (which answers lead to which fortunes)
+- [ ] Any special features (asking to try again, etc.)
+
+### 3. Identify Patterns
+
+Which programming patterns will you use?
+- [ ] Input → Process → Output (getting and using answers)
+- [ ] Variables (storing user information)
+- [ ] Decisions (choosing fortunes based on answers)
+- [ ] Loops (maybe asking if they want another fortune?)
+- [ ] Expressions (calculations or text building)
+
+## Implementation Strategy
+
+### Phase 1: Core Functionality
+
+Start with the absolute minimum:
+1. Welcome message
+2. Ask for name
+3. Give one simple fortune using their name
+4. Test that this works!
+
+### Phase 2: Enhancement
+
+Once core works:
+1. Add more questions (age, favorite color, etc.)
+2. Use if statements to give different fortunes
+3. Make fortunes depend on multiple answers
+4. Add personality to your fortune teller
+
+### Phase 3: Polish
+
+If time allows:
+1. Add a loop to let them try again
+2. Count how many fortunes they've received
+3. Add dramatic pauses or effects
+4. Create a mystical atmosphere with your text
+
+## AI Partnership Guidelines
+
+### Effective Prompts for This Project
+
+✅ **Good Learning Prompts**:
+```
+"I'm building a fortune teller. I've designed it to ask for name and age, 
+then give different fortunes for different age groups. 
+Show me how to implement the age checking logic simply."
 ```
 
-## Sample Output
-
 ```
-Welcome to the Fortune Teller!
-What is your name? Alice
-Alice, your fortune is: Great things await you this week!
+"My fortune teller works but feels repetitive. Here's my code: [code].
+How can I add more variety without making it complex?"
 ```
 
-::: {.callout-tip}
-## AI Usage Guidelines
-- You may ask AI to explain concepts you don't understand
-- Do NOT ask AI to write the entire program
-- If you get stuck, ask AI for hints, not solutions
-:::
+```
+"I want to combine the user's favorite color and age to pick a fortune.
+What's a simple way to check both conditions?"
+```
 
-## Reflection
+❌ **Avoid These Prompts**:
+- "Write a fortune teller program for me"
+- "Make my fortune teller professional/production-ready"
+- "Add advanced features like saving fortunes to a file"
 
-After completing this project:
-- [ ] Your program runs without errors
-- [ ] It uses print() statements effectively
-- [ ] It stores the user's name in a variable
-- [ ] It displays a personalized message
+### AI Learning Progression
+
+1. **Design Phase**: Use AI to validate your approach
+   ```
+   "I'm planning a fortune teller that asks 3 questions and has 5 fortunes. 
+   Is this a good scope for a beginner project?"
+   ```
+
+2. **Implementation Phase**: Use AI for specific components
+   ```
+   "I need to check if age is less than 20 for 'young' fortunes. 
+   What's the simplest if statement for this?"
+   ```
+
+3. **Debug Phase**: Use AI to understand errors
+   ```
+   "My program crashes when someone enters text instead of a number for age. 
+   What's happening and how do I handle it simply?"
+   ```
+
+4. **Enhancement Phase**: Use AI to add personality
+   ```
+   "What are some mystical-sounding phrases I could add to make 
+   my fortune teller more atmospheric?"
+   ```
+
+## Requirements Specification
+
+### Functional Requirements
+
+Your fortune teller must:
+
+1. **Welcome the User**
+   - Display an intriguing welcome message
+   - Set the mystical mood
+
+2. **Gather Information**
+   - Ask for user's name (required)
+   - Ask at least 2 more questions
+   - Store all answers in well-named variables
+
+3. **Process and Decide**
+   - Use if/elif/else to choose fortunes
+   - Base decisions on user's answers
+   - Have at least 5 different fortune outcomes
+
+4. **Deliver the Fortune**
+   - Include the user's name in the fortune
+   - Make it feel personalized based on their answers
+   - Be creative and entertaining!
+
+5. **Offer Another Reading** (Optional)
+   - Ask if they want another fortune
+   - Use a loop to repeat the experience
+   - Maybe give different fortunes on repeat visits?
+
+### Learning Requirements
+
+Your implementation should:
+- [ ] Use only concepts from Chapters 1-5
+- [ ] Include clear comments explaining your logic
+- [ ] Follow the I→P→O pattern
+- [ ] Use meaningful variable names
+- [ ] Show decision-making with if statements
+
+## Sample Interaction
+
+Here's how your program might work:
+
+```
+🔮 Welcome to the Mystic Fortune Teller 🔮
+═══════════════════════════════════════
+
+What is your name, seeker? Luna
+Ah, Luna... interesting name.
+
+Tell me, Luna, how old are you? 25
+25 years of wisdom already...
+
+What is your favorite color? purple
+Purple! The color of mystery and magic...
+
+Let me gaze into the crystal ball...
+*The mists are clearing*
+
+✨ LUNA, YOUR FORTUNE: ✨
+Your purple aura shines bright! At 25, you stand at a crossroads.
+The crystal shows a creative opportunity approaching within 7 days.
+Trust your intuition when it arrives!
+
+Would you like another reading? (yes/no): no
+
+May the stars guide your path, Luna!
+```
+
+## Development Approach
+
+### Step 1: Start with Pseudocode
+
+Write your logic in plain English:
+```
+1. Print mystical welcome
+2. Get user's name
+3. Get user's age
+4. Get favorite color
+5. If age < 20 and color is "blue":
+      Give fortune about calm waters ahead
+6. Elif age < 20 and color is "red":
+      Give fortune about passionate adventures
+7. [Continue with more conditions]
+8. Ask if they want another reading
+9. If yes, go back to step 2
+10. If no, print farewell
+```
+
+### Step 2: Implement One Feature at a Time
+
+Don't try to build everything at once:
+1. Make the welcome and name work
+2. Test it thoroughly
+3. Add age question and one fortune
+4. Test again
+5. Keep building incrementally
+
+### Step 3: Test Your Edge Cases
+
+What happens when:
+- [ ] Someone enters a very long name?
+- [ ] Someone says their age is 999?
+- [ ] Someone types "BLUE" instead of "blue"?
+- [ ] Someone wants 10 fortunes in a row?
+
+## Debugging Strategy
+
+When something doesn't work:
+
+1. **Identify**: What exactly isn't working?
+2. **Isolate**: Comment out code until you find the problem
+3. **Understand**: Ask AI to explain the error
+4. **Fix**: Apply the fix step by step
+5. **Learn**: What pattern will help avoid this?
+
+## Reflection Questions
+
+After completing the project:
+
+1. **Design Reflection**
+   - Which questions created the most interesting fortunes?
+   - How did your final program differ from your design?
+   - What would you add with more programming knowledge?
+
+2. **AI Partnership Reflection**
+   - Which AI prompts were most helpful?
+   - When did AI overcomplicate things?
+   - How did you simplify AI's suggestions?
+
+3. **Learning Reflection**
+   - Which concept was most useful (variables, if, loops)?
+   - What pattern emerged in your decision logic?
+   - How did expressions help build personalized messages?
+
+## Extension Challenges
+
+If you finish early, try these:
+
+### Challenge 1: Fortune Categories
+Instead of one fortune, give three insights:
+- Love/Friendship fortune
+- Career/School fortune
+- Lucky number/color
+
+### Challenge 2: Fortune Memory
+Use a variable to track previous fortunes and never give the same one twice in a session.
+
+### Challenge 3: Mystical Math
+Use their age and the length of their name to calculate a "destiny number" that influences the fortune.
+
+### Challenge 4: Time-Based Fortunes
+Give different fortunes for morning/afternoon/evening (ask what time of day it is).
+
+## Submission Checklist
+
+Before considering your project complete:
+
+- [ ] **Functionality**: All requirements work correctly
+- [ ] **Interactivity**: Asks at least 3 questions
+- [ ] **Decisions**: Uses if/elif/else effectively
+- [ ] **Personalization**: Fortunes use the user's information
+- [ ] **Code Quality**: Clear variable names and comments
+- [ ] **Design Document**: Your initial plan is included
+- [ ] **Reflection**: You've answered the reflection questions
+- [ ] **Testing**: You've tried various inputs
+
+## Common Pitfalls and How to Avoid Them
+
+### Pitfall 1: Starting with AI
+**Problem**: Asking AI for a complete fortune teller
+**Solution**: Design your questions and fortunes first, then implement
+
+### Pitfall 2: Too Complex Too Fast
+**Problem**: Trying to add zodiac signs, tarot cards, etc.
+**Solution**: Get basic fortunes working first, enhance later
+
+### Pitfall 3: Boring Fortunes
+**Problem**: "You will be happy" is not engaging
+**Solution**: Use their answers creatively: "Your love of blue suggests calm seas ahead..."
+
+### Pitfall 4: Forgetting User Experience
+**Problem**: No atmosphere or personality
+**Solution**: Add mystical welcome messages, dramatic pauses, emoji if desired
+
+## Project Learning Outcomes
+
+By completing this project, you've learned:
+- How to combine multiple concepts into a complete program
+- How to design before coding
+- How to make programs interactive and personal
+- How to use decisions to create variety
+- How to guide AI to help without taking over
+
+## Next Week Preview
+
+Excellent work, fortune teller! Next week, you'll create a Mad Libs generator that tells hilarious stories. You'll learn more about string manipulation and creative uses of variables.
+
+But for now, bask in the mystical glow of your first complete Python program! 🔮

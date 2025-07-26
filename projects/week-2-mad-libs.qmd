@@ -1,0 +1,383 @@
+# Week 2 Project: Mad Libs Generator {#sec-project-mad-libs}
+
+::: {.callout-important}
+## Before You Start
+Make sure you've completed:
+- All of Part I: Computational Thinking (Chapters 1-5)
+- Week 1 Project: Fortune Teller
+- Your Expression Toolkit
+
+You should be comfortable with:
+- Getting input and storing in variables
+- Making decisions with if statements
+- Using loops for repetition
+- Building text with expressions
+:::
+
+## Project Overview
+
+Mad Libs are hilarious fill-in-the-blank stories where players provide words without knowing the story context. The result is usually absurd and entertaining! Your Mad Libs generator will collect words from users, then reveal the complete silly story.
+
+This project focuses on creative text manipulation, user input validation, and building longer programs with multiple components.
+
+## The Problem to Solve
+
+People want to create funny stories together! Your Mad Libs generator should:
+- Collect specific types of words (nouns, adjectives, verbs, etc.)
+- Keep the story template secret until the end
+- Substitute user words into the story
+- Create multiple story options for variety
+- Be replayable and entertaining
+
+## Architect Your Solution First
+
+Before writing any code or consulting AI, design your Mad Libs generator:
+
+### 1. Understand the Problem
+- How many words will you collect? (aim for 8-12)
+- What types of words make stories funnier?
+- How will you explain word types to users?
+- How can you create suspense before revealing the story?
+
+### 2. Design Your Approach
+
+Create a design document that includes:
+- [ ] Story template(s) with blanks for user words
+- [ ] List of words to collect with clear descriptions
+- [ ] Order of word collection (random vs story order)
+- [ ] How to make the reveal dramatic
+- [ ] Whether to offer multiple stories or replay options
+
+### 3. Identify Patterns
+
+Which programming patterns will you use?
+- [ ] Input → Process → Output (collecting words, building story)
+- [ ] Variables (storing each collected word)
+- [ ] Loops (collecting multiple words or offering replay)
+- [ ] Decisions (choosing between stories or validating input)
+- [ ] String expressions (building the final story)
+
+## Implementation Strategy
+
+### Phase 1: Core Functionality
+
+Start with the absolute minimum:
+1. Create one simple story template
+2. Collect 3-4 words from user
+3. Substitute words into story
+4. Display the completed story
+5. Test that substitution works correctly
+
+### Phase 2: Enhancement
+
+Once core works:
+1. Add more words to make stories funnier
+2. Add word type explanations ("A noun is a person, place, or thing")
+3. Create 2-3 different story templates
+4. Add story selection (random or user choice)
+5. Improve the presentation and timing
+
+### Phase 3: Polish
+
+If time allows:
+1. Add input validation (no empty words)
+2. Create a "story collection" system
+3. Let users play multiple rounds
+4. Add dramatic pauses before the reveal
+5. Create themed story collections (adventure, romance, sci-fi)
+
+## AI Partnership Guidelines
+
+### Effective Prompts for This Project
+
+✅ **Good Learning Prompts**:
+```
+"I'm building a Mad Libs generator. I need to substitute user words into a story template. 
+What's the simplest way to replace placeholders in a string with variables?"
+```
+
+```
+"My Mad Libs asks for 8 words but feels repetitive. Here's my current approach: [code].
+How can I use a loop to collect words more efficiently?"
+```
+
+```
+"I want to randomly choose between 3 different story templates. 
+What's a simple way to pick one randomly using concepts I know?"
+```
+
+❌ **Avoid These Prompts**:
+- "Write a complete Mad Libs program for me"
+- "Create 20 professional story templates"
+- "Add file saving and complex story management"
+
+### AI Learning Progression
+
+1. **Design Phase**: Use AI to improve your stories
+   ```
+   "I'm writing a Mad Libs story about going to school. 
+   What word types would make it funnier?"
+   ```
+
+2. **Implementation Phase**: Use AI for specific techniques
+   ```
+   "I have variables: noun1, verb1, adjective1. 
+   What's the clearest way to put them into a story string?"
+   ```
+
+3. **Debug Phase**: Use AI to understand string issues
+   ```
+   "My story has weird spacing when I substitute words. 
+   Here's my code: [code]. What's happening?"
+   ```
+
+4. **Enhancement Phase**: Use AI for variety
+   ```
+   "How can I make my Mad Libs generator pick randomly between 
+   3 stories without complex code?"
+   ```
+
+## Requirements Specification
+
+### Functional Requirements
+
+Your Mad Libs generator must:
+
+1. **Collect User Words**
+   - Ask for 6-10 different words
+   - Explain each word type clearly
+   - Store each word in a descriptive variable
+   - Give examples if needed ("Like: happy, silly, enormous")
+
+2. **Build the Story**
+   - Have at least one complete story template
+   - Substitute user words into the template
+   - Ensure proper spacing and punctuation
+   - Create a coherent (though silly) narrative
+
+3. **Present Dramatically**
+   - Build suspense before revealing
+   - Display the story clearly and entertainingly
+   - Make the user words stand out in the final story
+
+4. **Offer Variety** (Choose One)
+   - Multiple story templates OR
+   - Ability to play again OR
+   - Different story themes
+
+### Learning Requirements
+
+Your implementation should:
+- [ ] Use descriptive variable names for collected words
+- [ ] Include at least one loop (for collection or replay)
+- [ ] Use if statements for choices or validation
+- [ ] Demonstrate string manipulation with expressions
+- [ ] Include comments explaining your story logic
+
+## Sample Interaction
+
+Here's how your program might work:
+
+```
+🎭 Welcome to the Mad Libs Story Generator! 🎭
+═══════════════════════════════════════════════
+
+Let's create a hilarious story together!
+I'll ask for some words, then reveal the crazy story.
+
+First, I need an adjective (a describing word like 'silly' or 'enormous'): fluffy
+
+Great! Now I need a noun (a person, place or thing): elephant
+
+Perfect! Now a verb (an action word like 'run' or 'dance'): wiggle
+
+Excellent! I need another adjective: purple
+
+Nice! Give me a place (like 'kitchen' or 'Mars'): bathroom
+
+Wonderful! One more noun: sandwich
+
+Amazing! And finally, a number: 42
+
+🎪 AND NOW... YOUR HILARIOUS STORY! 🎪
+
+═══════════════════════════════════════════════
+Last Tuesday, I saw a FLUFFY ELEPHANT trying to WIGGLE 
+in the PURPLE BATHROOM! The elephant was holding a 
+SANDWICH and counting to 42. Everyone laughed when 
+the elephant started to WIGGLE even faster!
+═══════════════════════════════════════════════
+
+😂 Hope that made you laugh! 😂
+
+Want to create another story? (yes/no): no
+
+Thanks for playing Mad Libs!
+```
+
+## Development Approach
+
+### Step 1: Start with One Story
+
+Create your story template first:
+```python
+# Story template with placeholders
+story = f"Last Tuesday, I saw a {adjective1} {noun1} trying to {verb1}..."
+```
+
+### Step 2: Plan Your Word Collection
+
+List all the words you need:
+```python
+# Plan your variables
+adjective1 = input("Give me an adjective: ")
+noun1 = input("Give me a noun: ")
+verb1 = input("Give me a verb: ")
+# ... etc
+```
+
+### Step 3: Test Early and Often
+
+Get the basic story working before adding complexity:
+1. Collect 3 words manually
+2. Build and display the story
+3. Check spacing and punctuation
+4. Only then add more words
+
+### Step 4: Add User Experience
+
+Once the mechanics work:
+- Add clear explanations for word types
+- Create suspense before the reveal
+- Make the final story visually appealing
+
+## Creative Story Ideas
+
+### Adventure Theme
+"Today I went on a [adjective] adventure to [place]. I brought my [noun] and my [adjective] [noun]. When I got there, I had to [verb] across the [adjective] [noun]. Suddenly, a [adjective] [animal] appeared and started to [verb]!"
+
+### School Theme  
+"My [adjective] teacher asked us to [verb] our [noun] for homework. I spent [number] hours working on it in the [place]. My [adjective] friend helped me [verb] the [adjective] parts."
+
+### Food Theme
+"Yesterday I cooked a [adjective] [food] in my [place]. I added [number] cups of [adjective] [ingredient] and mixed it with a [adjective] [utensil]. The result was so [adjective] that my [noun] started to [verb]!"
+
+## Debugging Strategy
+
+Common Mad Libs issues and solutions:
+
+### Spacing Problems
+```python
+# Problem: "I saw afluffy elephant"
+story = f"I saw a{adjective} elephant"
+
+# Solution: Check your spaces!
+story = f"I saw a {adjective} elephant"
+```
+
+### Variable Name Confusion
+```python
+# Problem: Using unclear names
+thing1 = input("Adjective: ")
+thing2 = input("Noun: ")
+
+# Solution: Descriptive names
+size_adjective = input("Adjective for size: ")
+animal_noun = input("Name an animal: ")
+```
+
+### Template Formatting
+```python
+# Problem: Hard to read template
+story = f"I{verb1}to{place}with{noun1}"
+
+# Solution: Break it up or add spaces
+story = f"I {verb1} to {place} with my {noun1}"
+```
+
+## Reflection Questions
+
+After completing the project:
+
+1. **Story Reflection**
+   - Which word combinations created the funniest results?
+   - How did you decide on the story structure?
+   - What made the reveal more dramatic?
+
+2. **Technical Reflection**
+   - How did string manipulation work differently than expected?
+   - What was challenging about collecting multiple inputs?
+   - How did variables help organize the word collection?
+
+3. **AI Partnership Reflection**
+   - What prompts helped improve your stories?
+   - How did AI help with string formatting issues?
+   - When did you simplify AI's suggestions?
+
+## Extension Challenges
+
+If you finish early, try these:
+
+### Challenge 1: Story Themes
+Create 3 themed story collections:
+- Adventure stories
+- Silly school stories  
+- Fantasy tales
+
+### Challenge 2: Smart Word Collection
+Use a loop to collect words from a list:
+```python
+word_types = ["adjective", "noun", "verb", "place", "number"]
+# Collect each type in a loop
+```
+
+### Challenge 3: Story Rating
+After showing the story, ask users to rate it 1-10 and keep track of the average rating.
+
+### Challenge 4: Mad Libs Editor
+Let users create their own story templates by providing a story with blanks, then the program collects the right words.
+
+## Submission Checklist
+
+Before considering your project complete:
+
+- [ ] **Story Quality**: Template creates funny, coherent stories
+- [ ] **Word Collection**: Asks for 6+ words with clear explanations
+- [ ] **Text Manipulation**: Successfully substitutes words into template
+- [ ] **User Experience**: Dramatic presentation and clear instructions
+- [ ] **Code Organization**: Descriptive variables and clear structure
+- [ ] **Testing**: Tried with various word combinations
+- [ ] **Enhancement**: Added at least one extra feature (replay, multiple stories, etc.)
+
+## Common Pitfalls and How to Avoid Them
+
+### Pitfall 1: Confusing Word Types
+**Problem**: Users don't understand "adjective" or "verb"
+**Solution**: Give examples and explanations: "An adjective describes something, like 'funny' or 'huge'"
+
+### Pitfall 2: Boring Stories
+**Problem**: Templates don't create funny results
+**Solution**: Test your template with silly words first, revise for maximum humor
+
+### Pitfall 3: Technical Before Creative
+**Problem**: Focusing on complex features before good stories
+**Solution**: Get one hilarious story working first, then add features
+
+### Pitfall 4: Poor Presentation
+**Problem**: Story revelation feels flat
+**Solution**: Add suspense, formatting, and enthusiasm to the reveal
+
+## Project Learning Outcomes
+
+By completing this project, you've learned:
+- How to manipulate strings creatively with expressions
+- How to collect and organize multiple related inputs
+- How to build longer programs with clear structure
+- How to balance technical functionality with user experience
+- How to debug string formatting and spacing issues
+
+## Next Week Preview
+
+Fantastic storytelling! Next week, you'll create a Number Guessing Game that introduces strategic thinking and game logic. You'll learn about random numbers and creating engaging gameplay loops.
+
+Your Mad Libs generator shows you can combine multiple concepts to create genuinely entertaining programs! 🎭

@@ -212,6 +212,16 @@ Let's trace what happens:
 - `"Hi " + name + "!"` - Combines three text pieces into one
 - `print(message)` - Displays the result on screen
 
+::: {.callout-note}
+## Expression Explorer: Text Joining
+
+Notice the `+` operator in `"Hi " + name + "!"`. In Python:
+- With numbers: `+` adds them (5 + 3 = 8)
+- With text: `+` joins them ("Hi " + "Sam" = "Hi Sam")
+
+Try asking AI: "Why does + work differently for text and numbers?"
+:::
+
 ### Level 3: Trace Different Inputs
 
 If user types "Sam":
@@ -233,6 +243,17 @@ birth_year = input("What year were you born? ")     # INPUT
 age = 2025 - int(birth_year)                        # PROCESS
 print("You are", age, "years old")                  # OUTPUT
 ```
+
+::: {.callout-note}
+## Expression Explorer: Math and Type Conversion
+
+In the process step `2025 - int(birth_year)`:
+- `int()` converts text "1990" to number 1990
+- `-` subtracts: 2025 - 1990 = 35
+- Math operators: `+` (add), `-` (subtract), `*` (multiply), `/` (divide)
+
+Ask AI: "Show me simple examples of each math operator in Python"
+:::
 
 ## Exercises
 

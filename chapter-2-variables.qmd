@@ -228,6 +228,17 @@ total = int(first_number) + int(second_number)
 print("The sum is", total)
 ```
 
+::: {.callout-note}
+## Expression Explorer: Variables in Expressions
+
+Variables can be used in expressions just like values:
+- `int(first_number) + int(second_number)` uses both variables
+- `gold = gold + 10` updates a variable using its current value
+- Variables make expressions dynamic - they can change!
+
+Try asking AI: "Show me how the same expression gives different results with different variable values"
+:::
+
 ## Exercises
 
 ::: {.exercise-container}

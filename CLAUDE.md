@@ -94,6 +94,13 @@ This is a Quarto Book project titled "Python Step by Step: Learning with AI" - a
 - Require design before coding
 - Use AI as a learning partner, not answer generator
 
+### Expression Explorer Callouts
+- Add "Expression Explorer" callout boxes when introducing operators
+- Focus on patterns and behavior, not syntax memorization
+- Encourage AI exploration with specific prompts
+- Show how same operators work differently with different types
+- Keep explanations brief and discovery-oriented
+
 ### Project Structure
 - Students architect solutions first
 - AI assists with implementation

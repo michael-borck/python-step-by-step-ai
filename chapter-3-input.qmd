@@ -238,6 +238,17 @@ total = float(price) + tax              # PROCESS
 print("Total with tax: $" + str(total)) # OUTPUT
 ```
 
+::: {.callout-note}
+## Expression Explorer: Type Conversion in Calculations
+
+Notice how we handle input in calculations:
+- `float(price)` converts text to decimal number
+- `* 0.08` multiplies for percentage (8% = 0.08)
+- `str(total)` converts number back to text for display
+
+Ask AI: "Why do I need float() for calculations but str() for printing?"
+:::
+
 ### Level 4: Building Interactive Programs
 ```python
 # A simple calculator

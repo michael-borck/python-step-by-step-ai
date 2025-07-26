@@ -1,0 +1,477 @@
+# Week 4 Project: Rock Paper Scissors {#sec-project-rock-paper-scissors}
+
+::: {.callout-important}
+## Before You Start
+Make sure you've completed:
+- All of Part I: Computational Thinking (Chapters 1-5)
+- Week 1 Project: Fortune Teller
+- Week 2 Project: Mad Libs Generator  
+- Week 3 Project: Number Guessing Game
+
+You should be comfortable with:
+- Creating complex decision logic with if/elif/else
+- Using loops for multi-round gameplay
+- Handling user input and validation
+- Managing game state and scoring
+:::
+
+## Project Overview
+
+Rock Paper Scissors is the ultimate strategy game that combines simple rules with complex psychology. Your digital version will face players against the computer in epic battles of wit and chance.
+
+This project focuses on competitive game logic, multi-round tournaments, and creating AI opponents that feel challenging but fair.
+
+## The Problem to Solve
+
+Players want an engaging competitive experience! Your game should:
+- Implement the classic Rock Paper Scissors rules correctly
+- Create a computer opponent that makes interesting choices
+- Track scores across multiple rounds
+- Handle ties and edge cases gracefully
+- Provide tournament-style gameplay with clear winners
+
+## Architect Your Solution First
+
+Before writing any code or consulting AI, design your Rock Paper Scissors game:
+
+### 1. Understand the Problem
+- How will players input their choice? (text, numbers, etc.)
+- How should the computer choose? (random, patterns, strategy?)
+- How many rounds make a good game? (best of 3, 5, 7?)
+- What makes victory feel satisfying?
+
+### 2. Design Your Approach
+
+Create a design document that includes:
+- [ ] Player input method and validation
+- [ ] Computer choice algorithm  
+- [ ] Win/lose/tie logic for single rounds
+- [ ] Multi-round tournament structure
+- [ ] Score tracking and display
+- [ ] End-game celebration and summary
+
+### 3. Identify Patterns
+
+Which programming patterns will you use?
+- [ ] Decisions (determining round winners)
+- [ ] Loops (multi-round gameplay)
+- [ ] Variables (player/computer choices, scores)
+- [ ] Input validation (handling invalid choices)
+- [ ] Random selection (computer choices)
+
+## Implementation Strategy
+
+### Phase 1: Single Round Mechanics
+
+Start with the absolute minimum:
+1. Get player choice (rock, paper, or scissors)
+2. Generate computer choice
+3. Determine winner of single round
+4. Display result clearly
+5. Test all 9 possible combinations
+
+### Phase 2: Multi-Round Tournament
+
+Once single rounds work perfectly:
+1. Add score tracking for player and computer
+2. Create a loop for multiple rounds
+3. Add round numbering and status display
+4. Implement tournament winner determination
+5. Add game summary at the end
+
+### Phase 3: Enhanced Experience
+
+If time allows:
+1. Improve computer AI (maybe patterns or adaptation)
+2. Add different tournament formats
+3. Track statistics across multiple games
+4. Add dramatic presentation and animations
+5. Create difficulty levels or game modes
+
+## AI Partnership Guidelines
+
+### Effective Prompts for This Project
+
+✅ **Good Learning Prompts**:
+```
+"I'm building Rock Paper Scissors. I need to check all combinations: 
+rock beats scissors, scissors beats paper, paper beats rock. 
+What's the clearest if statement structure for this?"
+```
+
+```
+"My Rock Paper Scissors works for one round but I want best-of-5 tournament. 
+How do I track wins and determine when someone reaches 3 victories?"
+```
+
+```
+"I want my computer opponent to choose randomly between rock, paper, scissors. 
+What's the simplest way to pick randomly from a list of options?"
+```
+
+❌ **Avoid These Prompts**:
+- "Write a complete Rock Paper Scissors game with AI"
+- "Create machine learning opponent that adapts to player patterns"
+- "Add network multiplayer and advanced tournament brackets"
+
+### AI Learning Progression
+
+1. **Design Phase**: Use AI to verify game rules
+   ```
+   "In Rock Paper Scissors, what beats what? I want to make sure 
+   I have all the winning combinations correct."
+   ```
+
+2. **Implementation Phase**: Use AI for decision logic
+   ```
+   "I have player_choice and computer_choice variables. 
+   What's the most readable way to determine who wins the round?"
+   ```
+
+3. **Debug Phase**: Use AI to find logic errors
+   ```
+   "My game sometimes declares the wrong winner. Here's my winning logic: [code]. 
+   Can you spot what's wrong?"
+   ```
+
+4. **Enhancement Phase**: Use AI for tournament features
+   ```
+   "How can I make my Rock Paper Scissors tournament more exciting 
+   without adding complexity?"
+   ```
+
+## Requirements Specification
+
+### Functional Requirements
+
+Your Rock Paper Scissors game must:
+
+1. **Accept Player Input**
+   - Allow players to choose rock, paper, or scissors
+   - Handle variations in input (uppercase, full words, abbreviations)
+   - Validate input and ask again for invalid choices
+   - Display available options clearly
+
+2. **Generate Computer Choices**
+   - Pick rock, paper, or scissors fairly
+   - Use random selection for unpredictability
+   - Display computer's choice clearly
+
+3. **Determine Round Winners**
+   - Implement correct Rock Paper Scissors rules
+   - Handle all 9 possible combinations
+   - Correctly identify ties
+   - Display round results clearly
+
+4. **Manage Tournament Play**
+   - Track wins for both player and computer
+   - Continue until one side reaches target wins
+   - Display running score after each round
+   - Declare overall tournament winner
+
+5. **Provide Great Experience**
+   - Show clear instructions
+   - Celebrate victories and acknowledge defeats
+   - Offer to play again
+   - Display final statistics
+
+### Learning Requirements
+
+Your implementation should:
+- [ ] Use clear if/elif/else logic for winner determination
+- [ ] Include a loop for multi-round play
+- [ ] Handle input validation without crashing
+- [ ] Use meaningful variable names throughout
+- [ ] Include comments explaining game logic
+
+## Sample Interaction
+
+Here's how your game might work:
+
+```
+🪨📄✂️  ROCK PAPER SCISSORS TOURNAMENT  ✂️📄🪨
+═══════════════════════════════════════════════════
+
+Welcome to the ultimate battle of wits!
+Best of 5 rounds - first to 3 wins takes the trophy!
+
+═══════════════════════════════════════════════════
+ROUND 1                          [Player: 0 | Computer: 0]
+
+Choose your weapon:
+(R)ock  (P)aper  (S)cissors  (or type full word)
+Your choice: rock
+
+🪨 You chose: ROCK
+🔄 Computer thinking...
+📄 Computer chose: PAPER
+
+📄 Paper covers Rock!
+💻 Computer wins this round!
+
+═══════════════════════════════════════════════════
+ROUND 2                          [Player: 0 | Computer: 1]
+
+Choose your weapon:
+(R)ock  (P)aper  (S)cissors  (or type full word)
+Your choice: s
+
+✂️ You chose: SCISSORS  
+🔄 Computer thinking...
+🪨 Computer chose: ROCK
+
+🪨 Rock crushes Scissors!
+💻 Computer wins this round!
+
+═══════════════════════════════════════════════════
+ROUND 3                          [Player: 0 | Computer: 2]
+
+⚠️ CRITICAL ROUND! Computer needs only 1 more win! ⚠️
+
+Choose your weapon:
+(R)ock  (P)aper  (S)cissors  (or type full word)
+Your choice: paper
+
+📄 You chose: PAPER
+🔄 Computer thinking...
+🪨 Computer chose: ROCK
+
+📄 Paper covers Rock!
+🎉 You win this round!
+
+═══════════════════════════════════════════════════
+TOURNAMENT FINAL RESULT
+═══════════════════════════════════════════════════
+
+💻 COMPUTER WINS THE TOURNAMENT! 💻
+Final Score: Player 1 - Computer 3
+
+Computer's victory speech: "I calculated all possibilities! 🤖"
+
+Tournament Statistics:
+- Rounds played: 4
+- Your wins: 1 (25%)
+- Computer wins: 3 (75%)
+- Ties: 0 (0%)
+
+🎮 Play another tournament? (yes/no): no
+
+Thanks for playing! May the odds be ever in your favor! 🎯
+```
+
+## Development Approach
+
+### Step 1: Master the Rules
+
+Start by getting single-round logic perfect:
+```python
+# Test every combination manually first
+def determine_winner(player, computer):
+    if player == computer:
+        return "tie"
+    elif (player == "rock" and computer == "scissors") or \
+         (player == "scissors" and computer == "paper") or \
+         (player == "paper" and computer == "rock"):
+        return "player"
+    else:
+        return "computer"
+```
+
+### Step 2: Handle Input Creatively
+
+Allow flexible input:
+```python
+# Let players type various forms
+choice = input("Your choice: ").lower().strip()
+if choice in ["r", "rock"]:
+    player_choice = "rock"
+elif choice in ["p", "paper"]:
+    player_choice = "paper"
+elif choice in ["s", "scissors"]:
+    player_choice = "scissors"
+else:
+    print("Invalid choice! Try again.")
+```
+
+### Step 3: Build Tournament Structure
+
+Track progress through multiple rounds:
+```python
+player_wins = 0
+computer_wins = 0
+rounds_to_win = 3
+
+while player_wins < rounds_to_win and computer_wins < rounds_to_win:
+    # Play one round
+    # Update win counters
+    # Display progress
+```
+
+### Step 4: Add Personality
+
+Make the computer feel like a real opponent:
+- Dramatic pauses before revealing choice
+- Victory celebrations and defeat acknowledgments
+- Trash talk and encouragement
+- Different "personalities" for the computer
+
+## Game Design Considerations
+
+### Tournament Formats
+
+**Quick Play (Best of 3)**:
+- Fast games
+- Less strategy development
+- Good for casual play
+
+**Classic Tournament (Best of 5)**:
+- Balanced length
+- Allows for comeback strategies
+- Standard competitive format
+
+**Marathon (Best of 7)**:
+- Extended gameplay
+- Pattern recognition becomes important
+- High-stakes finale
+
+### Computer AI Strategies
+
+**Pure Random**:
+- Completely unpredictable
+- Fair but can feel repetitive
+- Good for beginners
+
+**Weighted Random**:
+- Slight preferences for certain choices
+- Feels more human-like
+- Still fundamentally fair
+
+**Anti-Pattern** (Advanced):
+- Remembers player's recent choices
+- Tries to counter common patterns
+- Creates adaptive challenge
+
+## Debugging Strategy
+
+Common issues and solutions:
+
+### Logic Errors
+```python
+# Problem: Wrong winner determination
+if player == "rock" and computer == "paper":
+    return "player"  # Wrong! Paper beats rock
+
+# Solution: Double-check each rule
+if player == "rock" and computer == "scissors":
+    return "player"  # Correct! Rock beats scissors
+```
+
+### Input Handling
+```python
+# Problem: Case sensitivity
+if choice == "Rock":  # Fails if user types "rock"
+
+# Solution: Normalize input
+if choice.lower() == "rock":  # Works for any case
+```
+
+### Tournament Logic
+```python
+# Problem: Game never ends
+while player_wins != 3:  # What if computer wins?
+
+# Solution: Clear exit conditions
+while player_wins < 3 and computer_wins < 3:  # Proper tournament end
+```
+
+## Reflection Questions
+
+After completing the project:
+
+1. **Game Design Reflection**
+   - What tournament length felt most engaging?
+   - How did you balance fairness with challenge?
+   - What made victories feel most satisfying?
+
+2. **Logic Reflection**
+   - Which part of the winner determination was trickiest?
+   - How did you handle the complexity of multiple win conditions?
+   - What input validation challenges did you encounter?
+
+3. **AI Partnership Reflection**
+   - How did AI help with the game rule logic?
+   - What prompts were most helpful for debugging?
+   - When did you choose simpler solutions over AI suggestions?
+
+## Extension Challenges
+
+If you finish early, try these:
+
+### Challenge 1: Rock Paper Scissors Lizard Spock
+Implement the extended version from "The Big Bang Theory":
+- Rock crushes Lizard and Scissors
+- Paper covers Rock and disproves Spock
+- Scissors cuts Paper and decapitates Lizard
+- Lizard poisons Spock and eats Paper
+- Spock smashes Scissors and vaporizes Rock
+
+### Challenge 2: Tournament Brackets
+Create a system where the player faces multiple computer opponents in succession, advancing through brackets.
+
+### Challenge 3: Adaptive AI
+Make the computer track the player's choice patterns and gradually adapt its strategy.
+
+### Challenge 4: Team Tournament
+Allow the player to recruit AI teammates and face off against computer teams.
+
+## Submission Checklist
+
+Before considering your project complete:
+
+- [ ] **Rule Implementation**: All 9 combinations work correctly
+- [ ] **Input Handling**: Accepts various input formats gracefully
+- [ ] **Tournament Structure**: Proper win tracking and game end conditions
+- [ ] **User Experience**: Clear display of choices, scores, and results
+- [ ] **Computer Opponent**: Fair and unpredictable choice generation
+- [ ] **Edge Cases**: Handles ties, invalid input, and unexpected situations
+- [ ] **Code Quality**: Clear logic flow and meaningful variable names
+
+## Common Pitfalls and How to Avoid Them
+
+### Pitfall 1: Incomplete Rule Testing
+**Problem**: Missing edge cases in winner determination
+**Solution**: Test all 9 possible combinations systematically
+
+### Pitfall 2: Poor Input Validation
+**Problem**: Game crashes on unexpected input
+**Solution**: Handle all input gracefully, offer clear guidance
+
+### Pitfall 3: Confusing Score Display
+**Problem**: Players lose track of tournament progress
+**Solution**: Clear, consistent score display after every round
+
+### Pitfall 4: Predictable Computer
+**Problem**: Computer choices follow detectable patterns
+**Solution**: Use proper random selection, test for fairness
+
+## Project Learning Outcomes
+
+By completing this project, you've learned:
+- How to implement complex conditional logic with multiple cases
+- How to create fair and engaging competitive gameplay
+- How to manage multi-round game state and scoring
+- How to handle user input validation robustly
+- How to balance randomness with predictable rules
+
+## Part I Complete! 🎉
+
+Congratulations! You've just completed Part I: Computational Thinking. You now have:
+
+✅ **Fundamental Concepts**: Input/Output, Variables, Decisions, Loops
+✅ **Expression Toolkit**: Understanding operators as tools for exploration
+✅ **Four Complete Projects**: Each building on previous concepts
+✅ **AI Partnership Skills**: How to design first, then implement with AI help
+
+You're now ready for Part II: Building Systems, where you'll learn to break complex problems into manageable pieces and create more sophisticated programs.
+
+Your Rock Paper Scissors game demonstrates you can create engaging, interactive experiences with solid game logic - the hallmark of a true programmer! 🪨📄✂️

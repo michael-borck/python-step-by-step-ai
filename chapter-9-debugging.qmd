@@ -1,0 +1,577 @@
+# When Things Go Wrong: Debugging {#sec-debugging}
+
+## The Concept First
+
+Here's the truth: Every programmer's code breaks. The difference between beginners and experts isn't that experts write perfect code - it's that experts are better at finding and fixing problems.
+
+Debugging is detective work. Each error is a clue, each unexpected behavior a mystery to solve. And like any good detective, you need the right mindset and tools.
+
+## Understanding Through Real Life
+
+### We Debug Constantly
+
+Think about troubleshooting in daily life:
+- **Car won't start**: Check battery, check gas, check keys...
+- **WiFi not working**: Restart router, check password, check device...
+- **Recipe tastes wrong**: Too much salt? Missing ingredient? Wrong temperature?
+- **Phone app crashes**: Restart app, restart phone, check updates...
+
+Each problem requires investigation, hypothesis, and testing.
+
+### Errors Are Information
+
+When something goes wrong, it tells you something:
+- **Smoke detector beeping**: Low battery (not "house broken")
+- **Check engine light**: Specific issue to investigate (not "car ruined")
+- **Recipe fails**: Learn what not to do next time
+- **Game crashes**: Save more often, report bug
+
+Errors guide improvement.
+
+### The Scientific Method
+
+Debugging follows the same process as science:
+1. **Observe**: What exactly is happening?
+2. **Hypothesize**: What might cause this?
+3. **Test**: Try a fix
+4. **Analyze**: Did it work? What did we learn?
+5. **Repeat**: Until solved
+
+## Discovering Debugging with Your AI Partner
+
+Let's explore how to become a code detective.
+
+### Exploration 1: Understanding Error Messages
+
+Ask your AI:
+```
+Show me a simple Python error with a typo, and explain what each part 
+of the error message tells us.
+```
+
+Learn to read errors as helpful clues, not scary warnings.
+
+### Exploration 2: Common Mistake Patterns
+
+Try this prompt:
+```
+What are the 5 most common beginner Python errors? 
+Show simple examples of each.
+```
+
+Recognizing patterns helps you debug faster.
+
+### Exploration 3: Debugging Strategies
+
+Ask:
+```
+My program gives the wrong output but no error. What debugging strategies 
+can I use? Keep it simple.
+```
+
+Sometimes the hardest bugs don't crash - they just do the wrong thing.
+
+## From Concept to Code
+
+Let's see debugging techniques in action.
+
+### Reading Error Messages
+
+Error messages are your friends:
+```python
+# This code has an error
+name = input("What's your name? )
+print("Hello, " + nmae)
+```
+
+Python tells you exactly what's wrong:
+```
+SyntaxError: unterminated string literal
+  File "program.py", line 1
+    name = input("What's your name? )
+                ^
+```
+
+The arrow points to the problem!
+
+### Print Statement Debugging
+
+The simplest debugging tool:
+```python
+# Something's wrong with this calculation
+price = 10
+tax_rate = 0.08
+total = price + tax_rate  # Should be 10.80, but...
+
+# Add print statements to investigate
+print(f"Price: {price}")
+print(f"Tax rate: {tax_rate}")
+print(f"Total: {total}")  # Aha! Shows 10.08, not 10.80
+```
+
+Seeing values helps spot logic errors.
+
+## Mental Model Building
+
+### Model 1: The Detective Board
+```
+Problem: Score shows 0 when it should be 100
+
+Clues:
+├─ Score starts at 0 ✓
+├─ Add 100 to score ✓
+├─ Display score... shows 0? 🤔
+└─ Theory: Not saving the addition?
+```
+
+### Model 2: The Trail of Breadcrumbs
+```python
+print("Step 1: Starting")        # Breadcrumb
+score = 0
+print(f"Step 2: Score = {score}") # Breadcrumb
+score + 100  # Oops! Should be score = score + 100
+print(f"Step 3: Score = {score}") # Reveals the problem!
+```
+
+### Model 3: The Process of Elimination
+```
+Program crashes when:
+❌ User enters name? No, works fine
+❌ User enters age? No, works fine
+✅ User enters "abc" for age? Yes! Need int() error handling
+```
+
+## Prompt Evolution Exercise
+
+Let's practice debugging with AI assistance.
+
+### Round 1: Too Vague
+```
+my code doesn't work
+```
+AI can't help without specifics!
+
+### Round 2: Better but Missing Context
+```
+I get a NameError in my Python code
+```
+Better, but AI needs to see the code.
+
+### Round 3: Good Debugging Request
+```
+My Python code gives "NameError: name 'scroe' is not defined" 
+when I run it. Here's the code: [code]
+What's wrong and how do I fix it?
+```
+Now AI can help effectively!
+
+### Round 4: Learning from Errors
+```
+I fixed the NameError, but now I understand why it happened. 
+What other similar typos should I watch out for?
+```
+This builds debugging intuition.
+
+## Common AI Complications
+
+When you ask AI about debugging, it often gives you:
+
+```python
+import logging
+import traceback
+import sys
+from functools import wraps
+
+# Configure logging
+logging.basicConfig(
+    level=logging.DEBUG,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.FileHandler('debug.log'),
+        logging.StreamHandler(sys.stdout)
+    ]
+)
+
+def debug_decorator(func):
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        logging.debug(f"Calling {func.__name__} with args: {args}, kwargs: {kwargs}")
+        try:
+            result = func(*args, **kwargs)
+            logging.debug(f"{func.__name__} returned: {result}")
+            return result
+        except Exception as e:
+            logging.error(f"Error in {func.__name__}: {str(e)}")
+            logging.error(traceback.format_exc())
+            raise
+    return wrapper
+
+@debug_decorator
+def calculate_total(items, tax_rate=0.08):
+    subtotal = sum(item['price'] for item in items)
+    tax = subtotal * tax_rate
+    return subtotal + tax
+```
+
+Logging frameworks! Decorators! Stack traces! This is professional debugging infrastructure, not learning to debug!
+
+## The Learning Approach
+
+Build debugging skills step by step:
+
+### Level 1: Read Error Messages
+```python
+# This has an error
+greeting = "Hello"
+print(greting)  # Typo!
+
+# Error message:
+# NameError: name 'greting' is not defined
+# 
+# Translation: You typed 'greting' but never created that variable
+# Solution: Fix the typo to 'greeting'
+```
+
+### Level 2: Use Print for Investigation
+```python
+# Why doesn't this work correctly?
+total = 0
+prices = [10, 20, 30]
+
+for price in prices:
+    total + price  # Bug here!
+    
+print(f"Total should be 60 but is: {total}")
+
+# Add debug prints
+for price in prices:
+    print(f"Adding {price} to {total}")
+    total + price  # Still wrong!
+    print(f"Total is now: {total}")  # Never changes!
+```
+
+### Level 3: Test with Simple Cases
+```python
+# Complex calculation not working?
+def calculate_discount(price, percent):
+    # Start with simple test
+    print(f"Testing: price={price}, percent={percent}")
+    discount = price * percent  # Should be percent/100!
+    print(f"Discount calculated: {discount}")
+    return price - discount
+
+# Test with easy numbers
+result = calculate_discount(100, 10)  # Expect 90
+print(f"Result: {result}")  # Gets -900! Obviously wrong
+```
+
+### Level 4: Isolate the Problem
+```python
+# Big program not working? Isolate parts
+# Instead of debugging all at once:
+name = input("Name: ")
+age = int(input("Age: "))
+score = calculate_score(age, bonus_points)
+display_result(name, score)
+
+# Test each part separately:
+# 1. Does input work?
+name = "Test"
+print(name)  # ✓
+
+# 2. Does age conversion work?
+age = int("25")
+print(age)  # ✓
+
+# 3. Does calculate_score work?
+# Test it alone...
+```
+
+::: {.callout-note}
+## Expression Explorer: Common Error Types
+
+Python's error names tell you what went wrong:
+- `NameError`: Variable doesn't exist (typo?)
+- `TypeError`: Wrong type (string instead of number?)
+- `ValueError`: Right type, wrong value ("abc" for int())
+- `SyntaxError`: Python doesn't understand (missing : or quotes?)
+- `IndentationError`: Spacing is wrong
+
+Ask AI: "Show me simple examples of each Python error type"
+:::
+
+## Exercises
+
+::: {.exercise-container}
+::: {.exercise-level-badge .level-1-badge}
+Exercise 9.1: Concept Recognition
+:::
+
+### Identifying Bug Types
+
+For each problem, identify the likely bug type:
+
+1. Program shows: `NameError: name 'socre' is not defined`
+2. Program crashes when user enters their name for age
+3. Calculator always gives 0 regardless of input
+4. Loop runs forever and never stops
+5. If statement never runs even when condition should be true
+
+<details>
+<summary>Check Your Analysis</summary>
+1. Typo in variable name (socre vs score)
+2. Type conversion issue (string to int)
+3. Logic error (forgetting to update variable)
+4. Infinite loop (condition never becomes false)
+5. Comparison error (= vs ==, or wrong logic)
+</details>
+:::
+
+::: {.exercise-container}
+::: {.exercise-level-badge .level-2-badge}
+Exercise 9.2: Prompt Engineering
+:::
+
+### Getting Debug Help
+
+Your code shows wrong output. Create prompts that:
+1. Clearly describe the expected vs actual behavior
+2. Include the relevant code
+3. Ask for debugging steps, not just the fix
+4. Request explanation of why it happened
+
+Document what makes a good debugging prompt.
+
+<details>
+<summary>Effective Debug Prompt Template</summary>
+"My [type of program] should [expected behavior] but instead [actual behavior].
+Here's the code: [code]
+Can you help me understand:
+1. Why this is happening
+2. How to debug it step by step
+3. How to fix it
+4. How to avoid this in the future"
+</details>
+:::
+
+::: {.exercise-container}
+::: {.exercise-level-badge .level-3-badge}
+Exercise 9.3: Pattern Matching
+:::
+
+### Finding Bugs in Complex Code
+
+Ask AI for a "professional inventory system with a bug". In the code:
+1. Use print statements to trace execution
+2. Identify where expected and actual behavior diverge
+3. Isolate the buggy section
+4. Fix with minimal changes
+
+<details>
+<summary>Debugging Strategy</summary>
+1. Add prints at major checkpoints
+2. Test with simple inputs (1 item, not 100)
+3. Check each calculation step
+4. Compare expected vs actual at each stage
+5. Focus on first point of divergence
+</details>
+:::
+
+::: {.exercise-container}
+::: {.exercise-level-badge .level-4-badge}
+Exercise 9.4: Build a Model
+:::
+
+### Visualizing Debug Processes
+
+Create debugging guides for:
+1. A flowchart for debugging any error message
+2. A checklist for "works but gives wrong result"
+3. A diagram showing how print debugging works
+
+Make them clear enough to help future you!
+:::
+
+::: {.exercise-container}
+::: {.exercise-level-badge .level-5-badge}
+Exercise 9.5: Architect First
+:::
+
+### Design Debugging-Friendly Code
+
+Redesign these programs to be easier to debug:
+
+1. **Score Calculator**
+   ```python
+   # Hard to debug version:
+   score = int(input()) * 2 + bonus - penalty / 2
+   ```
+   Design: Break into steps with prints
+
+2. **List Processor**
+   ```python
+   # Hard to debug version:
+   result = [x*2 for x in data if x > 0]
+   ```
+   Design: Use loop with debug prints
+
+3. **Decision Maker**
+   ```python
+   # Hard to debug version:
+   if age > 18 and score > 80 or special_case:
+   ```
+   Design: Break complex conditions into parts
+
+For each, show:
+- Why original is hard to debug
+- How your design makes debugging easier
+- Where you'd add print statements
+
+<details>
+<summary>Design Example</summary>
+**Score Calculator - Debuggable Version**:
+```python
+base_score = int(input("Enter base score: "))
+print(f"Base: {base_score}")
+
+doubled = base_score * 2
+print(f"After doubling: {doubled}")
+
+with_bonus = doubled + bonus
+print(f"After bonus: {with_bonus}")
+
+penalty_amount = penalty / 2
+final_score = with_bonus - penalty_amount
+print(f"Final score: {final_score}")
+```
+Each step is visible and testable!
+</details>
+:::
+
+## AI Partnership Patterns
+
+### Pattern 1: Error Translation
+When you get errors:
+- "What does this error mean in simple terms?"
+- "Show me the simplest code that causes this error"
+- "How do I fix this specific error?"
+
+### Pattern 2: Debugging Strategies
+For logic problems:
+- "My program should [expected] but does [actual]"
+- "What debugging strategies would help?"
+- "Where should I add print statements?"
+
+### Pattern 3: Learning from Bugs
+After fixing:
+- "Why did this bug happen?"
+- "How can I avoid this pattern?"
+- "What similar bugs should I watch for?"
+
+## Common Misconceptions
+
+### "Good programmers don't make mistakes"
+**Reality**: Everyone makes mistakes. Good programmers are good at finding and fixing them:
+```python
+# Even experts make typos
+prinnt("Hello")  # Oops!
+
+# The difference is they:
+# 1. Read the error message
+# 2. Fix it quickly
+# 3. Maybe add a spell-checker to their editor
+```
+
+### "Errors mean I'm bad at programming"
+**Reality**: Errors are teachers:
+```python
+# This error:
+int("abc")  # ValueError
+
+# Teaches you:
+# - int() needs number-like strings
+# - You might need input validation
+# - Users type unexpected things
+```
+
+### "Print debugging is unprofessional"
+**Reality**: Print debugging is often the fastest way:
+```python
+# Fancy debugging tools exist, but often:
+print(f"DEBUG: variable = {variable}")
+# Is all you need!
+```
+
+## Real-World Connection
+
+How professionals debug:
+
+**Web Developer**:
+```python
+print(f"User ID: {user_id}")
+print(f"Request data: {request_data}")
+print(f"Database result: {result}")
+# Find where data goes wrong
+```
+
+**Game Developer**:
+```python
+print(f"Player position: {x}, {y}")
+print(f"Collision detected: {collision}")
+print(f"Health before: {health}")
+print(f"Health after: {health}")
+# Track game state
+```
+
+**Data Scientist**:
+```python
+print(f"Data shape: {data.shape}")
+print(f"First few rows: {data.head()}")
+print(f"Missing values: {data.isnull().sum()}")
+# Understand data issues
+```
+
+## Chapter Summary
+
+You've learned:
+- Errors are clues, not failures
+- Error messages tell you exactly what's wrong
+- Print debugging helps you see program flow
+- Simple test cases reveal complex bugs
+- Debugging is a skill that improves with practice
+
+## Reflection Checklist
+
+Before moving to Week 5 Project, ensure you:
+
+- [ ] Can read and understand basic error messages
+- [ ] Know how to use print statements for debugging
+- [ ] Understand the process: observe, hypothesize, test
+- [ ] Can isolate problems in complex code
+- [ ] See debugging as detective work, not failure
+
+## Your Learning Journal
+
+For this chapter, record:
+
+1. **Bug Collection**: List 5 bugs you've encountered and how you solved them
+2. **Error Dictionary**: Write what each error type means in your own words
+3. **Debugging Flowchart**: Create your personal debugging process
+4. **Success Story**: Describe a bug you're proud of fixing
+
+::: {.callout-tip}
+## Debugging Mindset
+- Bugs are puzzles, not problems
+- Every error teaches something
+- Start with simple tests
+- One small fix at a time
+- Celebrate when you find the bug - you're learning!
+:::
+
+## Next Steps
+
+Congratulations on completing Part II! You've learned to build systems with functions, organize data with collections, create persistent programs with files, and debug when things go wrong. 
+
+In your Week 5 Project, you'll combine all these skills to build a Temperature Converter with memory - a useful tool that demonstrates real system building!
+
+Remember: Debugging isn't about avoiding errors. It's about developing the confidence and skills to fix anything that goes wrong. Every bug you fix makes you a better programmer!

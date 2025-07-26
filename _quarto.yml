@@ -33,23 +33,25 @@ book:
     - part: "Part I: Computational Thinking (Weeks 1-4)"
       chapters:
         - chapter-1-input-process-output.qmd
-        - chapter-2-storing-information.qmd
-        - chapter-3-making-decisions.qmd
-        - chapter-4-repetition-patterns.qmd
-        - projects/week-1-temperature-converter.qmd
-        - projects/week-2-grade-calculator.qmd
-        - projects/week-3-shopping-list.qmd
-        - projects/week-4-word-game.qmd
+        - chapter-2-variables.qmd
+        - chapter-3-input.qmd
+        - chapter-4-making-decisions.qmd
+        - chapter-5-loops.qmd
+        - expression-toolkit.qmd
+        - projects/week-1-fortune-teller.qmd
+        - projects/week-2-mad-libs.qmd
+        - projects/week-3-number-game.qmd
+        - projects/week-4-rock-paper-scissors.qmd
     - part: "Part II: Building Systems (Weeks 5-8)"
       chapters:
-        - chapter-5-breaking-problems-apart.qmd
-        - chapter-6-organizing-complex-data.qmd
-        - chapter-7-programs-that-remember.qmd
-        - chapter-8-putting-it-together.qmd
-        - projects/week-5-calculator-functions.qmd
+        - chapter-6-functions.qmd
+        - chapter-7-organizing-information.qmd
+        - chapter-8-saving-work.qmd
+        - chapter-9-debugging.qmd
+        - projects/week-5-temperature-converter.qmd
         - projects/week-6-contact-book.qmd
-        - projects/week-7-note-taking-app.qmd
-        - projects/week-8-quiz-game-files.qmd
+        - projects/week-7-journal-app.qmd
+        - projects/week-8-quiz-game.qmd
     - part: "Part III: Real-World Programming (Weeks 9-12)"
       chapters:
         - chapter-9-working-with-data.qmd
