@@ -54,17 +54,17 @@ book:
         - projects/week-8-quiz-game.qmd
     - part: "Part III: Real-World Programming (Weeks 9-12)"
       chapters:
-        - chapter-9-working-with-data.qmd
-        - chapter-10-connected-programs.qmd
-        - chapter-11-interactive-systems.qmd
-        - chapter-12-becoming-architect.qmd
+        - chapter-10-working-with-data.qmd
+        - chapter-11-connected-programs.qmd
+        - chapter-12-interactive-systems.qmd
+        - chapter-13-becoming-architect.qmd
         - projects/week-9-grade-analysis.qmd
         - projects/week-10-weather-app.qmd
         - projects/week-11-text-adventure.qmd
         - projects/week-12-todo-gui.qmd
     - part: "Part IV: Your Journey Forward"
       chapters:
-        - chapter-13-next-steps.qmd
+        - chapter-14-next-steps.qmd
     - summary.qmd
     - references.qmd
   

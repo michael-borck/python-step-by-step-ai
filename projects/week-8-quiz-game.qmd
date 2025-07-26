@@ -1,0 +1,599 @@
+# Week 8 Project: Quiz Game {#sec-project-quiz-game}
+
+::: {.callout-important}
+## Before You Start
+Make sure you've completed:
+- All of Part I and Part II concepts
+- All previous projects
+- You understand functions, data structures, files, and debugging
+
+You should be ready to:
+- Combine all your skills into one project
+- Design complex program flow
+- Manage multiple data structures
+- Create an engaging user experience
+:::
+
+## Project Overview
+
+A quiz game is the perfect culmination of Part II. You'll combine functions for game logic, dictionaries for question storage, lists for tracking scores, and files for question banks and high scores.
+
+This project demonstrates how all the pieces you've learned work together to create engaging, educational software.
+
+## The Problem to Solve
+
+Students and learners need fun ways to test knowledge! Your quiz game should:
+- Support multiple quiz topics
+- Track scores and progress
+- Save high scores between sessions
+- Provide immediate feedback
+- Make learning enjoyable
+- Be easily extendable with new questions
+
+## Architect Your Solution First
+
+Before writing any code or consulting AI, design your quiz game:
+
+### 1. Understand the Problem
+- How should questions be structured?
+- What makes a quiz engaging vs tedious?
+- How can you make wrong answers educational?
+- What motivates players to continue?
+
+### 2. Design Your Approach
+
+Create a design document that includes:
+- [ ] Question data structure (dictionary format)
+- [ ] Quiz categories/topics system
+- [ ] Scoring mechanism
+- [ ] High score tracking
+- [ ] Game flow and user experience
+- [ ] File organization for questions
+
+### 3. Identify Patterns
+
+Which programming patterns will you use?
+- [ ] Functions for game logic (ask question, check answer, etc.)
+- [ ] Dictionaries for question/answer pairs
+- [ ] Lists for question banks and scores
+- [ ] Files for persistent questions and high scores
+- [ ] Loops for game flow
+
+## Implementation Strategy
+
+### Phase 1: Core Quiz Mechanics
+
+Start with basics:
+1. Create question dictionary structure
+2. Function to display question
+3. Function to check answer
+4. Basic score tracking
+5. Single quiz round
+
+### Phase 2: Full Game System
+
+Build complete experience:
+1. Multiple choice or true/false options
+2. Question categories
+3. Score calculation with feedback
+4. High score system
+5. Play again functionality
+
+### Phase 3: Professional Polish
+
+Add engagement features:
+1. Difficulty levels
+2. Timer for questions
+3. Lifelines (50/50, skip)
+4. Progress tracking
+5. Educational explanations
+
+## AI Partnership Guidelines
+
+### Effective Prompts for This Project
+
+✅ **Good Learning Prompts**:
+```
+"I'm building a quiz game where each question is a dictionary. 
+What fields should it have? Show me a simple structure for 
+multiple choice questions."
+```
+
+```
+"I have a list of question dictionaries. How do I randomly select 
+questions without repeating until all are used?"
+```
+
+```
+"I want to save quiz questions in a text file that's easy to edit. 
+What's a good format that I can parse back into dictionaries?"
+```
+
+❌ **Avoid These Prompts**:
+- "Build a complete quiz game system"
+- "Add AI-generated questions and adaptive difficulty"
+- "Create a multiplayer quiz platform"
+
+### AI Learning Progression
+
+1. **Design Phase**: Question structure
+   ```
+   "What information does a quiz question need? 
+   Design a simple dictionary structure for multiple choice."
+   ```
+
+2. **Logic Phase**: Game flow
+   ```
+   "How should I structure the main game loop for a quiz? 
+   Show me the basic flow without the full implementation."
+   ```
+
+3. **Storage Phase**: File formats
+   ```
+   "What's a simple text format for storing quiz questions 
+   that's both human-editable and easy to parse?"
+   ```
+
+4. **Feature Phase**: Enhancements
+   ```
+   "How can I implement a simple timer for each question 
+   using basic Python?"
+   ```
+
+## Requirements Specification
+
+### Functional Requirements
+
+Your quiz game must:
+
+1. **Question Management**
+   - At least 10 questions per category
+   - Multiple choice format (4 options)
+   - Correct answer tracking
+   - Optional explanations
+
+2. **Game Flow**
+   - Welcome screen
+   - Category selection
+   - Question presentation
+   - Answer feedback
+   - Score display
+   - High score tracking
+
+3. **User Experience**
+   - Clear question display
+   - Easy answer selection (A, B, C, D)
+   - Immediate feedback
+   - Running score visible
+   - Encouraging messages
+
+4. **Data Persistence**
+   - Load questions from file
+   - Save high scores
+   - Add new questions easily
+   - Handle missing files gracefully
+
+### Learning Requirements
+
+Your implementation should:
+- [ ] Use functions to organize game logic
+- [ ] Use dictionaries for question structure
+- [ ] Use lists for question banks
+- [ ] Use files for persistence
+- [ ] Demonstrate all Part II concepts
+
+## Sample Interaction
+
+Here's how your quiz game might work:
+
+```
+🎯 ULTIMATE QUIZ GAME 🎯
+Test your knowledge and beat the high score!
+
+════════════════════════════════════════════
+MAIN MENU
+════════════════════════════════════════════
+1. Start New Quiz
+2. View High Scores
+3. Add Questions
+4. Exit
+
+Choose option: 1
+
+SELECT CATEGORY
+═══════════════
+1. Python Programming (15 questions)
+2. General Science (12 questions)
+3. World Geography (10 questions)
+4. Mixed Topics (all questions)
+
+Choose category: 1
+
+════════════════════════════════════════════
+PYTHON PROGRAMMING QUIZ
+Question 1 of 10                    Score: 0
+════════════════════════════════════════════
+
+What keyword is used to create a function in Python?
+
+A) func
+B) define  
+C) def
+D) function
+
+Your answer (A-D): C
+
+✅ CORRECT! Well done!
+
+💡 Explanation: The 'def' keyword is used to define 
+functions in Python, followed by the function name 
+and parentheses.
+
+Press Enter to continue...
+
+════════════════════════════════════════════
+Question 2 of 10                   Score: 10
+════════════════════════════════════════════
+
+Which of these is NOT a valid Python data type?
+
+A) integer
+B) string
+C) array
+D) dictionary
+
+Your answer (A-D): C
+
+✅ CORRECT! 
+
+💡 Explanation: Python has lists, not arrays (unless 
+you import the array module). The basic types are 
+int, str, list, dict, etc.
+
+[Game continues...]
+
+════════════════════════════════════════════
+QUIZ COMPLETE!
+════════════════════════════════════════════
+Final Score: 80/100
+Correct: 8/10
+Percentage: 80%
+
+🎉 Great job! That's a new high score!
+
+Enter your name for the leaderboard: Alice
+
+HIGH SCORES - Python Programming
+════════════════════════════════════════
+1. Alice     - 80 points (Today)
+2. Bob       - 70 points (March 14)
+3. Charlie   - 65 points (March 10)
+
+Play again? (yes/no): no
+
+Thanks for playing! Keep learning! 🌟
+```
+
+## Development Approach
+
+### Step 1: Design Question Structure
+
+Create a clear format:
+```python
+def create_question(text, options, correct, explanation=""):
+    """Create a question dictionary"""
+    return {
+        "question": text,
+        "options": options,  # List of 4 options
+        "correct": correct,  # Index of correct option (0-3)
+        "explanation": explanation,
+        "answered": False,
+        "user_answer": None
+    }
+
+# Example question
+q1 = create_question(
+    "What is the capital of France?",
+    ["London", "Berlin", "Paris", "Madrid"],
+    2,  # Paris is at index 2
+    "Paris has been the capital of France for over 1000 years."
+)
+```
+
+### Step 2: Core Game Functions
+
+Build essential mechanics:
+```python
+def display_question(question, question_num, total_questions):
+    """Display a question nicely formatted"""
+    print(f"\nQuestion {question_num} of {total_questions}")
+    print("=" * 40)
+    print(f"\n{question['question']}\n")
+    
+    for i, option in enumerate(question['options']):
+        letter = chr(65 + i)  # Convert 0,1,2,3 to A,B,C,D
+        print(f"{letter}) {option}")
+
+def get_user_answer():
+    """Get and validate user's answer"""
+    while True:
+        answer = input("\nYour answer (A-D): ").upper()
+        if answer in ['A', 'B', 'C', 'D']:
+            return ord(answer) - 65  # Convert A,B,C,D to 0,1,2,3
+        print("Please enter A, B, C, or D.")
+
+def check_answer(question, user_answer):
+    """Check if answer is correct and show feedback"""
+    question['answered'] = True
+    question['user_answer'] = user_answer
+    
+    if user_answer == question['correct']:
+        print("\n✅ CORRECT! Well done!")
+        if question['explanation']:
+            print(f"\n💡 {question['explanation']}")
+        return True
+    else:
+        correct_letter = chr(65 + question['correct'])
+        print(f"\n❌ Sorry, the correct answer was {correct_letter}.")
+        if question['explanation']:
+            print(f"\n💡 {question['explanation']}")
+        return False
+```
+
+### Step 3: Question Bank Management
+
+Load questions from files:
+```python
+def load_questions(filename):
+    """Load questions from a text file"""
+    questions = []
+    
+    try:
+        with open(filename, 'r') as file:
+            lines = file.readlines()
+            
+        i = 0
+        while i < len(lines):
+            if lines[i].strip() and not lines[i].startswith('#'):
+                # Parse question format
+                question_text = lines[i].strip()
+                options = []
+                
+                # Next 4 lines are options
+                for j in range(4):
+                    if i + j + 1 < len(lines):
+                        options.append(lines[i + j + 1].strip())
+                
+                # Next line is correct answer (A, B, C, or D)
+                if i + 5 < len(lines):
+                    correct = ord(lines[i + 5].strip()[0]) - 65
+                
+                # Optional explanation
+                explanation = ""
+                if i + 6 < len(lines) and lines[i + 6].strip():
+                    explanation = lines[i + 6].strip()
+                
+                question = create_question(
+                    question_text, options, correct, explanation
+                )
+                questions.append(question)
+                
+                i += 7  # Move to next question
+            else:
+                i += 1
+                
+    except FileNotFoundError:
+        print(f"Question file {filename} not found!")
+        
+    return questions
+```
+
+### Step 4: High Score System
+
+Track and save achievements:
+```python
+def load_high_scores(filename="highscores.txt"):
+    """Load high scores from file"""
+    scores = {}
+    
+    try:
+        with open(filename, 'r') as file:
+            for line in file:
+                parts = line.strip().split('|')
+                if len(parts) == 3:
+                    category, name, score = parts
+                    if category not in scores:
+                        scores[category] = []
+                    scores[category].append({
+                        'name': name,
+                        'score': int(score)
+                    })
+    except FileNotFoundError:
+        pass
+        
+    return scores
+
+def save_high_score(category, name, score, filename="highscores.txt"):
+    """Add a new high score"""
+    with open(filename, 'a') as file:
+        file.write(f"{category}|{name}|{score}\n")
+```
+
+## Question File Format
+
+Create readable question files:
+```
+# Python Programming Questions
+# Format: Question, 4 options, correct letter, explanation
+
+What does the len() function do?
+Returns the length of an object
+Deletes an object
+Creates a new list
+Joins two strings
+A
+The len() function returns the number of items in an object like a string or list.
+
+Which symbol is used for comments in Python?
+//
+#
+/* */
+--
+B
+Python uses the # symbol for single-line comments.
+```
+
+## Game Features
+
+### Randomization
+```python
+import random
+
+def get_quiz_questions(all_questions, num_questions=10):
+    """Select random questions for quiz"""
+    if len(all_questions) <= num_questions:
+        return all_questions[:]
+    
+    return random.sample(all_questions, num_questions)
+```
+
+### Score Calculation
+```python
+def calculate_score(questions, points_per_question=10):
+    """Calculate final score"""
+    correct = sum(1 for q in questions if q['answered'] and 
+                  q['user_answer'] == q['correct'])
+    total = len(questions)
+    score = correct * points_per_question
+    percentage = (correct / total) * 100
+    
+    return {
+        'correct': correct,
+        'total': total,
+        'score': score,
+        'percentage': percentage
+    }
+```
+
+## Debugging Strategy
+
+Common issues and solutions:
+
+### File Format Errors
+```python
+# Problem: Questions don't load correctly
+# Solution: Add debug prints
+print(f"Loading question: {question_text}")
+print(f"Options: {options}")
+print(f"Correct: {correct}")
+```
+
+### Index Errors
+```python
+# Problem: Letter conversion fails
+user_input = 'E'  # Out of range!
+
+# Solution: Validate input range
+if answer in ['A', 'B', 'C', 'D']:
+    index = ord(answer) - 65
+```
+
+## Reflection Questions
+
+After completing the project:
+
+1. **System Design Reflection**
+   - How do all the pieces work together?
+   - Which part was most challenging to integrate?
+   - How does this compare to Part I projects?
+
+2. **Data Structure Reflection**
+   - Why are dictionaries perfect for questions?
+   - How do lists and dictionaries complement each other?
+   - What other data would benefit from this structure?
+
+3. **User Experience Reflection**
+   - What makes the quiz engaging?
+   - How does immediate feedback help learning?
+   - What features would you add next?
+
+## Extension Challenges
+
+If you finish early, try these:
+
+### Challenge 1: Timer Feature
+Add a countdown timer:
+- 30 seconds per question
+- Bonus points for quick answers
+- Skip to next if time runs out
+
+### Challenge 2: Difficulty Levels
+Implement difficulty:
+- Easy: Show 2 options instead of 4
+- Medium: Normal 4 options
+- Hard: No multiple choice, type answer
+
+### Challenge 3: Study Mode
+Create a learning mode:
+- Review questions without scoring
+- Show explanations before answering
+- Track which topics need work
+
+### Challenge 4: Question Editor
+Build an in-app editor:
+- Add new questions through the game
+- Edit existing questions
+- Validate question format
+
+## Submission Checklist
+
+Before considering your project complete:
+
+- [ ] **Core Gameplay**: Questions display, answers checked, score tracked
+- [ ] **Multiple Categories**: At least 2 topic categories
+- [ ] **File Integration**: Questions load from files
+- [ ] **High Scores**: Persistent leaderboard
+- [ ] **User Experience**: Clear interface and feedback
+- [ ] **Error Handling**: Graceful file and input handling
+- [ ] **Code Organization**: Well-structured functions
+
+## Common Pitfalls and How to Avoid Them
+
+### Pitfall 1: Hardcoded Questions
+**Problem**: Questions embedded in code
+**Solution**: Always load from external files
+
+### Pitfall 2: Poor Randomization
+**Problem**: Same questions in same order
+**Solution**: Use random.shuffle() or random.sample()
+
+### Pitfall 3: Confusing Feedback
+**Problem**: Unclear if answer was right/wrong
+**Solution**: Clear visual feedback and explanations
+
+### Pitfall 4: Lost Progress
+**Problem**: Scores not saved properly
+**Solution**: Save immediately after game ends
+
+## Project Learning Outcomes
+
+By completing this project, you've learned:
+- How to integrate all Part II concepts into one system
+- How to design complex program architecture
+- How to create engaging educational software
+- How to manage multiple interacting components
+- How to build extensible, maintainable programs
+
+## Part II Complete! 🎉
+
+Congratulations! You've finished Part II: Building Systems. Your quiz game demonstrates mastery of:
+
+✅ **Functions**: Organized, reusable game logic
+✅ **Data Structures**: Questions as dictionaries, banks as lists
+✅ **Files**: Persistent questions and scores
+✅ **Debugging**: Handling complex interactions
+✅ **System Design**: Multiple components working together
+
+You're now ready for Part III: Real-World Programming, where you'll learn to work with external data, connect to the internet, and create programs that interact with the wider world!
+
+Your quiz game proves you can build complete, useful applications. You're no longer just writing code - you're creating software! 🌟

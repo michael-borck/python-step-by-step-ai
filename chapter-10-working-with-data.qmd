@@ -1,0 +1,418 @@
+# Chapter 10: Working with Data {#sec-working-with-data}
+
+::: {.callout-note}
+## Chapter Summary
+In this chapter, you'll learn how to work with real-world data files. You'll discover how to read CSV files, process JSON data, and analyze information - skills that transform your programs from toys to tools. This is where programming becomes practical!
+:::
+
+## Introduction: Data Is Everywhere
+
+Up until now, your programs have worked with data you typed in or created yourself. But the real world runs on data files - spreadsheets of grades, lists of products, weather records, and more. Learning to work with these files opens up endless possibilities.
+
+Think of data files like different types of containers:
+- **CSV files** are like spreadsheets - rows and columns of information
+- **JSON files** are like nested folders - organized hierarchies of data
+- **Text files** are like notebooks - free-form information
+
+## CSV Files: Your Gateway to Spreadsheet Data
+
+CSV stands for "Comma-Separated Values" - it's the simplest way to store table-like data. Every spreadsheet program can export to CSV, making it a universal data format.
+
+### Understanding CSV Structure
+
+Imagine a grade book:
+```
+Name,Quiz1,Quiz2,MidTerm,Final
+Alice,85,92,88,91
+Bob,78,85,82,79
+Charlie,91,88,94,96
+```
+
+Each line is a row, commas separate columns. Simple, but powerful!
+
+### The AI Partnership Approach
+
+Let's explore CSV files together:
+
+::: {.callout-tip}
+## Prompt Engineering for CSV
+"I have a CSV file with student grades. Show me how to read it and calculate each student's average. Keep it simple - just the basics."
+:::
+
+AI will likely show you Python's `csv` module. But here's the learning approach:
+
+1. **First, understand the structure** - Read the file as plain text first
+2. **Then, parse manually** - Split by commas yourself  
+3. **Finally, use the tools** - Apply the csv module
+
+### Building a Grade Analyzer
+
+Let's design a program that reads student grades and provides insights:
+
+```python
+def read_grades_simple(filename):
+    """Read grades from CSV - learning version"""
+    grades = []
+    
+    with open(filename, 'r') as file:
+        # Skip header line
+        header = file.readline()
+        
+        # Read each student
+        for line in file:
+            parts = line.strip().split(',')
+            student = {
+                'name': parts[0],
+                'grades': [int(parts[i]) for i in range(1, len(parts))]
+            }
+            grades.append(student)
+    
+    return grades
+
+def calculate_average(grades):
+    """Calculate average grade"""
+    return sum(grades) / len(grades)
+
+# Use the functions
+students = read_grades_simple('grades.csv')
+for student in students:
+    avg = calculate_average(student['grades'])
+    print(f"{student['name']}: {avg:.1f}")
+```
+
+::: {.callout-warning}
+## Expression Explorer: List Comprehension
+The line `[int(parts[i]) for i in range(1, len(parts))]` is a list comprehension. Ask AI: "Explain this list comprehension by showing me the loop version first."
+:::
+
+### Common CSV Patterns
+
+When working with CSV files, you'll often need to:
+
+1. **Skip headers** - First line often contains column names
+2. **Handle missing data** - Empty cells are common
+3. **Convert types** - Everything starts as text
+4. **Deal with special characters** - Commas in data, quotes, etc.
+
+## JSON: When Data Gets Interesting
+
+JSON (JavaScript Object Notation) is how modern applications share data. It's like Python dictionaries written as text - perfect for complex, nested information.
+
+### Understanding JSON Structure
+
+Here's a contact list in JSON:
+```json
+{
+    "contacts": [
+        {
+            "name": "Alice Smith",
+            "phone": "555-1234",
+            "email": "alice@email.com",
+            "tags": ["friend", "work"]
+        },
+        {
+            "name": "Bob Jones",
+            "phone": "555-5678",
+            "email": "bob@email.com",
+            "tags": ["family"]
+        }
+    ],
+    "last_updated": "2024-03-15"
+}
+```
+
+Look familiar? It's like the dictionaries you've been using!
+
+### Working with JSON Data
+
+Python makes JSON easy:
+
+```python
+import json
+
+def load_contacts(filename):
+    """Load contacts from JSON file"""
+    with open(filename, 'r') as file:
+        data = json.load(file)
+    return data
+
+def save_contacts(contacts, filename):
+    """Save contacts to JSON file"""
+    with open(filename, 'w') as file:
+        json.dump(contacts, file, indent=4)
+
+# Use it
+data = load_contacts('contacts.json')
+print(f"You have {len(data['contacts'])} contacts")
+```
+
+::: {.callout-tip}
+## AI Learning Pattern
+Ask AI: "I have a JSON file with nested data. Show me how to navigate through it step by step, printing what's at each level."
+:::
+
+### JSON vs CSV: Choosing the Right Format
+
+Use CSV when:
+- Data is tabular (rows and columns)
+- You need Excel compatibility
+- Structure is simple and flat
+
+Use JSON when:
+- Data has nested relationships
+- You need flexible structure
+- Working with web APIs
+
+## Real-World Data Analysis
+
+Let's combine everything into a practical example - analyzing weather data:
+
+### The Weather Data Project
+
+Imagine you have weather data in CSV format:
+```
+Date,Temperature,Humidity,Conditions
+2024-03-01,72,65,Sunny
+2024-03-02,68,70,Cloudy
+2024-03-03,65,80,Rainy
+```
+
+Let's build an analyzer:
+
+```python
+def analyze_weather(filename):
+    """Analyze weather patterns"""
+    data = []
+    
+    # Read the data
+    with open(filename, 'r') as file:
+        header = file.readline()
+        for line in file:
+            parts = line.strip().split(',')
+            data.append({
+                'date': parts[0],
+                'temp': int(parts[1]),
+                'humidity': int(parts[2]),
+                'conditions': parts[3]
+            })
+    
+    # Find patterns
+    temps = [day['temp'] for day in data]
+    avg_temp = sum(temps) / len(temps)
+    
+    rainy_days = [day for day in data if day['conditions'] == 'Rainy']
+    
+    return {
+        'average_temperature': avg_temp,
+        'total_days': len(data),
+        'rainy_days': len(rainy_days),
+        'data': data
+    }
+```
+
+## Data Cleaning: The Hidden Challenge
+
+Real-world data is messy! Here's what you'll encounter:
+
+### Common Data Problems
+
+1. **Missing values** - Empty cells or "N/A"
+2. **Inconsistent formats** - "3/15/24" vs "2024-03-15"
+3. **Extra spaces** - " Alice " vs "Alice"
+4. **Wrong types** - "123" stored as text
+
+### Cleaning Strategies
+
+```python
+def clean_value(value):
+    """Clean a data value"""
+    # Remove extra spaces
+    value = value.strip()
+    
+    # Handle empty values
+    if value == "" or value == "N/A":
+        return None
+    
+    return value
+
+def safe_int(value):
+    """Convert to int safely"""
+    try:
+        return int(value)
+    except ValueError:
+        return 0
+```
+
+::: {.callout-important}
+## Data Cleaning Reality
+Professional programmers spend 80% of their time cleaning data! When working with AI, always ask: "What could go wrong with this data? Show me how to handle those cases."
+:::
+
+## Building a Data Pipeline
+
+A data pipeline is a series of steps that transform raw data into useful information:
+
+1. **Load** - Read from file
+2. **Clean** - Fix problems
+3. **Transform** - Calculate new values
+4. **Analyze** - Find patterns
+5. **Report** - Present results
+
+### Example: Student Performance Pipeline
+
+```python
+def process_student_data(csv_file):
+    """Complete pipeline for student data"""
+    # Load
+    students = load_csv(csv_file)
+    
+    # Clean
+    for student in students:
+        student['grades'] = [safe_int(g) for g in student['grades']]
+    
+    # Transform
+    for student in students:
+        student['average'] = calculate_average(student['grades'])
+        student['letter_grade'] = get_letter_grade(student['average'])
+    
+    # Analyze
+    class_average = sum(s['average'] for s in students) / len(students)
+    
+    # Report
+    print(f"Class Average: {class_average:.1f}")
+    print("\nTop Students:")
+    top_students = sorted(students, key=lambda s: s['average'], reverse=True)[:3]
+    for student in top_students:
+        print(f"  {student['name']}: {student['average']:.1f}")
+```
+
+## Working with Large Files
+
+Sometimes data files are huge - millions of rows! Here's how to handle them:
+
+### Reading Files in Chunks
+
+```python
+def process_large_file(filename, chunk_size=1000):
+    """Process a large file in chunks"""
+    with open(filename, 'r') as file:
+        header = file.readline()
+        
+        chunk = []
+        for line in file:
+            chunk.append(line.strip())
+            
+            if len(chunk) >= chunk_size:
+                process_chunk(chunk)
+                chunk = []
+        
+        # Don't forget the last chunk!
+        if chunk:
+            process_chunk(chunk)
+```
+
+::: {.callout-tip}
+## Memory Management
+When AI suggests loading entire files into memory, ask: "What if this file had a million rows? Show me how to process it in chunks."
+:::
+
+## Data Formats Quick Reference
+
+### CSV Quick Reference
+```python
+# Read CSV
+with open('data.csv', 'r') as file:
+    lines = file.readlines()
+
+# Write CSV
+with open('output.csv', 'w') as file:
+    file.write('Name,Score\n')
+    file.write('Alice,95\n')
+```
+
+### JSON Quick Reference
+```python
+# Read JSON
+import json
+with open('data.json', 'r') as file:
+    data = json.load(file)
+
+# Write JSON
+with open('output.json', 'w') as file:
+    json.dump(data, file, indent=4)
+```
+
+## Common Pitfalls and Solutions
+
+### Pitfall 1: Assuming Clean Data
+**Problem**: Your code crashes on real data
+**Solution**: Always validate and clean first
+
+### Pitfall 2: Loading Everything at Once
+**Problem**: Program runs out of memory
+**Solution**: Process in chunks
+
+### Pitfall 3: Hardcoding Column Positions
+**Problem**: Code breaks when columns change
+**Solution**: Use header row to find columns
+
+### Pitfall 4: Ignoring Encoding Issues
+**Problem**: Special characters appear as ???
+**Solution**: Specify encoding when opening files
+
+## Practice Projects
+
+### Project 1: Grade Book Analyzer
+Create a program that:
+- Reads student grades from CSV
+- Calculates averages and letter grades
+- Identifies struggling students
+- Generates a summary report
+
+### Project 2: Weather Tracker
+Build a system that:
+- Loads historical weather data
+- Finds temperature trends
+- Identifies extreme weather days
+- Exports summaries to JSON
+
+### Project 3: Sales Data Processor
+Develop a tool that:
+- Processes sales transactions (CSV)
+- Calculates daily/monthly totals
+- Finds best-selling products
+- Handles refunds and errors
+
+## Connecting to the Real World
+
+Working with data files is your bridge to real-world programming. Every business runs on data:
+- **Scientists** analyze research data
+- **Teachers** track student progress
+- **Businesses** monitor sales and inventory
+- **Developers** process application logs
+
+The skills you've learned here apply everywhere!
+
+## Looking Ahead
+
+Next chapter, you'll learn to get data from the internet using APIs - taking your programs from working with static files to live, updating information. Imagine weather data that's always current, or stock prices that update in real-time!
+
+## Chapter Summary
+
+You've learned to:
+- Read and write CSV files for tabular data
+- Work with JSON for complex, nested data
+- Clean and validate real-world data
+- Process large files efficiently
+- Build complete data pipelines
+
+These aren't just programming skills - they're data literacy skills that apply whether you're coding, using spreadsheets, or just understanding how modern applications work.
+
+## Reflection Prompts
+
+1. **Data Format Choice**: When would you choose CSV vs JSON for a project?
+2. **Error Handling**: What could go wrong when reading data files?
+3. **Real Applications**: What data would you like to analyze with these skills?
+4. **Pipeline Thinking**: How does breaking processing into steps help?
+
+Remember: Every major application works with data files. You now have the foundation to build real tools that solve real problems!

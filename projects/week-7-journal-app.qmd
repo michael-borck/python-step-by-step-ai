@@ -1,0 +1,504 @@
+# Week 7 Project: Personal Journal {#sec-project-journal-app}
+
+::: {.callout-important}
+## Before You Start
+Make sure you've completed:
+- All previous projects
+- Chapter 8: Saving Your Work (Files)
+- Chapter 9: When Things Go Wrong (Debugging)
+
+You should understand:
+- Working with files (read, write, append)
+- Managing dates and time-based data
+- Creating persistent applications
+- Basic debugging techniques
+:::
+
+## Project Overview
+
+A personal journal is one of the most meaningful applications you can build. It combines file handling, date management, and thoughtful user experience to create a tool that becomes more valuable over time.
+
+This project demonstrates how simple file operations can create powerful, personal applications that users return to daily.
+
+## The Problem to Solve
+
+People need a private, digital space for reflection! Your journal should:
+- Make daily entries quick and easy
+- Timestamp each entry automatically
+- Allow viewing past entries
+- Search through journal history
+- Protect against accidental data loss
+- Create a pleasant writing experience
+
+## Architect Your Solution First
+
+Before writing any code or consulting AI, design your journal:
+
+### 1. Understand the Problem
+- How should entries be organized? (by date? topics?)
+- What makes journaling feel natural vs. forced?
+- How can the app encourage regular use?
+- What would make you want to use this daily?
+
+### 2. Design Your Approach
+
+Create a design document that includes:
+- [ ] File organization strategy
+- [ ] Entry format (how to store date, text)
+- [ ] Viewing options (recent, by date, search)
+- [ ] User interface flow
+- [ ] Data safety measures
+
+### 3. Identify Patterns
+
+Which programming patterns will you use?
+- [ ] File append for adding entries
+- [ ] File read for viewing history
+- [ ] Date/time handling for timestamps
+- [ ] Search algorithms for finding entries
+- [ ] Input validation for dates
+
+## Implementation Strategy
+
+### Phase 1: Core Journaling
+
+Start with essentials:
+1. Write today's entry
+2. Automatically add timestamp
+3. Save to journal file
+4. View recent entries
+5. Ensure data persists
+
+### Phase 2: Journal Navigation
+
+Add ways to explore:
+1. View entries by date
+2. Search entries by keyword
+3. Count total entries
+4. Show journal statistics
+5. Navigate between entries
+
+### Phase 3: Enhanced Experience
+
+Make it delightful to use:
+1. Daily prompts or questions
+2. Mood tracking
+3. Entry templates
+4. Export capabilities
+5. Backup reminders
+
+## AI Partnership Guidelines
+
+### Effective Prompts for This Project
+
+✅ **Good Learning Prompts**:
+```
+"I'm building a journal app. How can I get today's date and format it 
+nicely for a journal entry header? Show me simple Python code."
+```
+
+```
+"My journal stores entries with dates. What's a good file format that's 
+human-readable and easy to search? Show me an example entry."
+```
+
+```
+"I want to search through a journal file for entries containing a keyword. 
+How do I read the file and find matching entries?"
+```
+
+❌ **Avoid These Prompts**:
+- "Build a complete journaling application"
+- "Add encryption and cloud sync to my journal"
+- "Create a multi-user journal with authentication"
+
+### AI Learning Progression
+
+1. **Design Phase**: Entry format planning
+   ```
+   "What information should each journal entry include? 
+   Show me a simple, readable format for storing entries."
+   ```
+
+2. **Date Handling**: Working with time
+   ```
+   "How do I get the current date and time in Python 
+   and format it like 'Monday, January 15, 2024 - 2:30 PM'?"
+   ```
+
+3. **File Strategy**: Append vs overwrite
+   ```
+   "For a journal app, should I use one big file or separate files? 
+   What are the trade-offs?"
+   ```
+
+4. **Search Implementation**: Finding content
+   ```
+   "How can I search through a text file line by line 
+   to find entries containing specific words?"
+   ```
+
+## Requirements Specification
+
+### Functional Requirements
+
+Your journal must:
+
+1. **Entry Creation**
+   - Quick entry for today
+   - Automatic timestamp
+   - Multi-line text support
+   - Save confirmation
+
+2. **Entry Viewing**
+   - View recent entries (last 5-10)
+   - View entry by specific date
+   - Scroll through all entries
+   - Clear formatting
+
+3. **Search & Navigation**
+   - Search by keyword
+   - Jump to date
+   - Show entry count
+   - Navigation between results
+
+4. **Data Management**
+   - Append new entries safely
+   - Preserve all past entries
+   - Handle large journal files
+   - Backup reminder system
+
+### Learning Requirements
+
+Your implementation should:
+- [ ] Use file append mode for new entries
+- [ ] Read files efficiently for viewing
+- [ ] Format dates consistently
+- [ ] Handle multi-line input gracefully
+- [ ] Include error handling for file operations
+
+## Sample Interaction
+
+Here's how your journal might work:
+
+```
+📖 PERSONAL JOURNAL 📖
+You have 47 entries since January 1, 2024
+
+════════════════════════════════════════
+1. Write Today's Entry
+2. View Recent Entries
+3. Search Journal
+4. View Entry by Date
+5. Journal Statistics
+6. Exit
+════════════════════════════════════════
+
+Choose option: 1
+
+📝 NEW JOURNAL ENTRY
+Monday, March 15, 2024 - 3:45 PM
+
+How was your day? (Press Enter twice to finish)
+
+Today was incredible! I finally understood how functions 
+work in Python. The temperature converter project really 
+helped cement the concepts. I'm excited to keep building
+more complex programs.
+
+Also went for a nice walk in the park. Spring is here!
+
+✅ Entry saved! (67 words)
+
+Choose option: 2
+
+📖 RECENT ENTRIES
+════════════════════════════════════════
+
+Monday, March 15, 2024 - 3:45 PM
+--------------------------------
+Today was incredible! I finally understood how functions 
+work in Python. The temperature converter project really 
+helped cement the concepts...
+
+Sunday, March 14, 2024 - 9:20 PM
+--------------------------------
+Quiet Sunday. Worked on the contact book project.
+Having some trouble with the search function but I'll
+figure it out tomorrow...
+
+Saturday, March 13, 2024 - 11:00 AM
+--------------------------------
+Weekend! Time to catch up on coding projects. Goal is
+to finish Part II of the Python book...
+
+[Showing 3 of 47 entries]
+
+Choose option: 3
+
+🔍 SEARCH JOURNAL
+Enter search term: Python
+
+Found 12 entries containing "Python":
+
+1. March 15, 2024 - "...understood how functions work in Python..."
+2. March 10, 2024 - "...Started learning Python with AI book..."
+3. March 8, 2024 - "...Python makes so much more sense now..."
+
+View full entry number (1-12) or 0 to return: 1
+
+[Shows full March 15 entry]
+```
+
+## Development Approach
+
+### Step 1: Date and Time Handling
+
+Learn to work with timestamps:
+```python
+from datetime import datetime
+
+def get_timestamp():
+    """Get formatted current date and time"""
+    now = datetime.now()
+    return now.strftime("%A, %B %d, %Y - %I:%M %p")
+
+# Test it
+print(get_timestamp())  # Monday, March 15, 2024 - 3:45 PM
+```
+
+### Step 2: Entry Format Design
+
+Create a consistent structure:
+```python
+def format_entry(timestamp, content):
+    """Format a journal entry for storage"""
+    separator = "=" * 50
+    entry = f"\n{separator}\n"
+    entry += f"{timestamp}\n"
+    entry += f"{separator}\n"
+    entry += f"{content}\n"
+    return entry
+```
+
+### Step 3: Multi-line Input
+
+Handle extended writing:
+```python
+def get_journal_entry():
+    """Get multi-line journal entry from user"""
+    print("How was your day? (Press Enter twice to finish)")
+    
+    lines = []
+    empty_count = 0
+    
+    while empty_count < 2:
+        line = input()
+        if line == "":
+            empty_count += 1
+        else:
+            empty_count = 0
+            lines.append(line)
+    
+    return "\n".join(lines)
+```
+
+### Step 4: File Operations
+
+Safe append operations:
+```python
+def save_entry(entry, filename="journal.txt"):
+    """Save entry to journal file"""
+    try:
+        with open(filename, "a") as file:
+            file.write(entry)
+        return True
+    except Exception as e:
+        print(f"Error saving entry: {e}")
+        return False
+
+def read_recent_entries(filename="journal.txt", count=5):
+    """Read the most recent journal entries"""
+    try:
+        with open(filename, "r") as file:
+            content = file.read()
+            
+        # Split by entry separator
+        entries = content.split("=" * 50)
+        # Filter out empty entries
+        entries = [e.strip() for e in entries if e.strip()]
+        
+        # Return last 'count' entries
+        return entries[-count:] if len(entries) > count else entries
+        
+    except FileNotFoundError:
+        return []
+```
+
+## User Experience Enhancements
+
+### Daily Prompts
+```python
+import random
+
+def get_daily_prompt():
+    """Return a random journaling prompt"""
+    prompts = [
+        "What made you smile today?",
+        "What's one thing you learned?",
+        "What are you grateful for?",
+        "What challenged you today?",
+        "What would you do differently?"
+    ]
+    return random.choice(prompts)
+```
+
+### Entry Statistics
+```python
+def get_journal_stats(filename="journal.txt"):
+    """Calculate journal statistics"""
+    try:
+        with open(filename, "r") as file:
+            content = file.read()
+            
+        entries = content.split("=" * 50)
+        entries = [e for e in entries if e.strip()]
+        
+        word_count = sum(len(entry.split()) for entry in entries)
+        
+        return {
+            "total_entries": len(entries),
+            "total_words": word_count,
+            "avg_words": word_count // len(entries) if entries else 0
+        }
+    except FileNotFoundError:
+        return {"total_entries": 0, "total_words": 0, "avg_words": 0}
+```
+
+## Debugging Strategy
+
+Common issues and solutions:
+
+### Date Format Issues
+```python
+# Problem: Inconsistent date formats make searching hard
+timestamp1 = "3/15/24"
+timestamp2 = "March 15, 2024"
+
+# Solution: Always use consistent format
+timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+display = datetime.now().strftime("%A, %B %d, %Y - %I:%M %p")
+```
+
+### Large File Handling
+```python
+# Problem: Reading entire file gets slow
+content = file.read()  # Loads everything!
+
+# Solution: Read in chunks or lines
+for line in file:
+    # Process one line at a time
+```
+
+### Entry Separation
+```python
+# Problem: Entries blend together
+file.write(content)
+file.write(next_content)  # No separation!
+
+# Solution: Clear separators
+file.write(f"\n{'='*50}\n{content}\n")
+```
+
+## Reflection Questions
+
+After completing the project:
+
+1. **Design Reflection**
+   - What entry format works best for searching?
+   - How does file organization affect performance?
+   - What would you add to make journaling more engaging?
+
+2. **Technical Reflection**
+   - Why is append mode perfect for journals?
+   - How did you handle the multi-line input challenge?
+   - What debugging techniques helped most?
+
+3. **User Experience Reflection**
+   - What makes a journal app feel personal?
+   - How can prompts encourage reflection?
+   - What features would make you use this daily?
+
+## Extension Challenges
+
+If you finish early, try these:
+
+### Challenge 1: Mood Tracking
+Add the ability to:
+- Tag entries with mood (happy, sad, excited, etc.)
+- View mood patterns over time
+- Search by mood
+
+### Challenge 2: Entry Templates
+Create templates for:
+- Daily reflection
+- Goal tracking
+- Gratitude journal
+- Dream journal
+
+### Challenge 3: Export Features
+Implement:
+- Export to PDF format
+- Email backup
+- Monthly summaries
+
+### Challenge 4: Smart Search
+Enhance search with:
+- Date range filtering
+- Multiple keyword search
+- Highlight search terms in results
+
+## Submission Checklist
+
+Before considering your project complete:
+
+- [ ] **Core Features**: Write, view, search entries
+- [ ] **Date Handling**: Consistent timestamp format
+- [ ] **File Management**: Reliable append and read
+- [ ] **User Experience**: Clear interface and prompts
+- [ ] **Data Safety**: No risk of losing entries
+- [ ] **Search Function**: Can find entries by keyword
+- [ ] **Error Handling**: Graceful file error handling
+
+## Common Pitfalls and How to Avoid Them
+
+### Pitfall 1: Overwriting Instead of Appending
+**Problem**: Using 'w' mode destroys previous entries
+**Solution**: Always use 'a' (append) for new entries
+
+### Pitfall 2: Unreadable Date Formats
+**Problem**: "1678901234" timestamp
+**Solution**: Human-friendly format like "March 15, 2024"
+
+### Pitfall 3: Lost Input
+**Problem**: Single-line input for journal entries
+**Solution**: Multi-line input with clear end signal
+
+### Pitfall 4: Slow Performance
+**Problem**: Reading entire file for every operation
+**Solution**: Read only what's needed
+
+## Project Learning Outcomes
+
+By completing this project, you've learned:
+- How to create meaningful persistent applications
+- How to handle dates and timestamps effectively
+- How to manage growing text files efficiently
+- How to build tools that improve with use
+- How to create engaging user experiences
+
+## Next Week Preview
+
+Excellent journaling! Next week, you'll build a Quiz Game that combines everything you've learned - functions, data structures, files, and user interaction - into an educational game that can quiz on any topic.
+
+Your journal demonstrates that simple file operations can create deeply personal and valuable applications. Keep journaling - both in life and in code! 📖

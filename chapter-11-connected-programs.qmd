@@ -1,0 +1,481 @@
+# Chapter 11: Connected Programs {#sec-connected-programs}
+
+::: {.callout-note}
+## Chapter Summary
+In this chapter, you'll learn how to connect your programs to the internet. You'll discover APIs (Application Programming Interfaces), make web requests, and process real-time data. This is where your programs join the global conversation!
+:::
+
+## Introduction: Your Programs Go Online
+
+Remember when your programs could only work with data you typed in or saved in files? Those days are over! The internet is full of live data waiting for your programs to use:
+- Current weather from anywhere in the world
+- Live stock prices and currency rates
+- News headlines as they happen
+- Social media updates
+- And millions more data sources
+
+This chapter teaches you to tap into this river of information.
+
+## Understanding APIs: How Programs Talk
+
+An API (Application Programming Interface) is like a restaurant menu for programs. Just as a menu tells you what dishes you can order and how much they cost, an API tells your program what data it can request and how to ask for it.
+
+### The Restaurant Analogy
+
+Think of APIs like this:
+1. **Menu** (API Documentation) - Lists what's available
+2. **Order** (Request) - You ask for specific items
+3. **Kitchen** (Server) - Prepares your data
+4. **Delivery** (Response) - You receive what you ordered
+
+### Your First API Call
+
+Let's start with something fun - getting a random joke:
+
+```python
+import requests
+
+# Make a request to the joke API
+response = requests.get("https://official-joke-api.appspot.com/random_joke")
+
+# Convert the response to Python data
+joke_data = response.json()
+
+# Display the joke
+print(joke_data['setup'])
+print(joke_data['punchline'])
+```
+
+::: {.callout-important}
+## Installing Libraries
+This chapter uses the `requests` library. When AI suggests libraries, always ask: "How do I install this library? What does it do that Python can't do by itself?"
+:::
+
+## How Web Requests Work
+
+When your program "talks" to the internet, it follows a conversation pattern:
+
+1. **Request**: "Hey weather service, what's the temperature in Boston?"
+2. **Response**: "It's 72°F, partly cloudy"
+
+### The Request-Response Cycle
+
+```python
+def get_weather(city):
+    """Get current weather for a city"""
+    # 1. Build the request URL
+    base_url = "http://api.weatherapi.com/v1/current.json"
+    params = {
+        'key': 'your_api_key_here',
+        'q': city
+    }
+    
+    # 2. Send the request
+    response = requests.get(base_url, params=params)
+    
+    # 3. Check if it worked
+    if response.status_code == 200:
+        # 4. Extract the data
+        data = response.json()
+        return data['current']['temp_f']
+    else:
+        return None
+```
+
+::: {.callout-tip}
+## AI Partnership Pattern
+When working with new APIs, ask AI: "I want to use the [service] API. Show me the simplest possible example that gets one piece of data."
+:::
+
+## Working with JSON Responses
+
+Most APIs return data in JSON format - the same format you learned in Chapter 10! This makes it easy to work with.
+
+### Exploring API Responses
+
+When you get data from an API, explore it first:
+
+```python
+def explore_api_response(url):
+    """Explore what an API returns"""
+    response = requests.get(url)
+    data = response.json()
+    
+    # Print the structure
+    print("Response contains:")
+    for key in data.keys():
+        print(f"  - {key}: {type(data[key])}")
+    
+    return data
+
+# Try it with a quote API
+quote_data = explore_api_response("https://api.quotable.io/random")
+```
+
+::: {.callout-warning}
+## Expression Explorer: Dictionary Access
+When you see `data['current']['temp_f']`, you're accessing nested dictionaries. Ask AI: "Show me how to safely access nested dictionary values when keys might not exist."
+:::
+
+## API Keys: Your Program's ID Card
+
+Many APIs require a key - like a password that identifies your program. Here's how to handle them safely:
+
+### Getting and Using API Keys
+
+1. **Sign up** at the API provider's website
+2. **Get your key** from your account dashboard
+3. **Keep it secret** - never put keys in your code!
+4. **Use it in requests** as shown below
+
+```python
+def get_news_headlines():
+    """Get top news headlines"""
+    # DON'T DO THIS - key exposed in code!
+    # api_key = "abc123mysecretkey"
+    
+    # DO THIS - read from environment or file
+    with open('api_keys.txt', 'r') as f:
+        api_key = f.readline().strip()
+    
+    url = "https://newsapi.org/v2/top-headlines"
+    params = {
+        'apiKey': api_key,
+        'country': 'us',
+        'pageSize': 5
+    }
+    
+    response = requests.get(url, params=params)
+    return response.json()
+```
+
+## Building a Weather Dashboard
+
+Let's create something useful - a weather comparison tool:
+
+```python
+def create_weather_dashboard(cities):
+    """Compare weather across multiple cities"""
+    api_key = load_api_key('weather_key.txt')
+    weather_data = []
+    
+    for city in cities:
+        url = f"http://api.weatherapi.com/v1/current.json"
+        params = {'key': api_key, 'q': city}
+        
+        response = requests.get(url, params=params)
+        if response.status_code == 200:
+            data = response.json()
+            weather_data.append({
+                'city': city,
+                'temp': data['current']['temp_f'],
+                'condition': data['current']['condition']['text'],
+                'humidity': data['current']['humidity']
+            })
+    
+    # Display the dashboard
+    print("\n🌤️  WEATHER DASHBOARD  🌤️")
+    print("=" * 40)
+    for weather in weather_data:
+        print(f"\n{weather['city']}:")
+        print(f"  Temperature: {weather['temp']}°F")
+        print(f"  Condition: {weather['condition']}")
+        print(f"  Humidity: {weather['humidity']}%")
+```
+
+## Handling API Errors Gracefully
+
+APIs can fail for many reasons. Your program needs to handle these gracefully:
+
+### Common API Problems
+
+1. **No Internet Connection** - Can't reach the server
+2. **Invalid API Key** - Authentication failed
+3. **Rate Limiting** - Too many requests
+4. **Server Errors** - API is down
+5. **Invalid Data** - Unexpected response format
+
+### Error Handling Strategies
+
+```python
+def safe_api_call(url, params=None):
+    """Make an API call with error handling"""
+    try:
+        response = requests.get(url, params=params, timeout=5)
+        
+        # Check status code
+        if response.status_code == 200:
+            return response.json()
+        elif response.status_code == 401:
+            print("Error: Invalid API key")
+        elif response.status_code == 429:
+            print("Error: Too many requests - slow down!")
+        else:
+            print(f"Error: {response.status_code}")
+            
+    except requests.ConnectionError:
+        print("Error: No internet connection")
+    except requests.Timeout:
+        print("Error: Request timed out")
+    except Exception as e:
+        print(f"Unexpected error: {e}")
+    
+    return None
+```
+
+::: {.callout-important}
+## Rate Limiting Reality
+Most free APIs limit how many requests you can make. Always check the documentation and add delays between requests if needed:
+```python
+import time
+time.sleep(1)  # Wait 1 second between requests
+```
+:::
+
+## Creating a Currency Converter
+
+Let's build something practical - a live currency converter:
+
+```python
+def get_exchange_rate(from_currency, to_currency):
+    """Get current exchange rate"""
+    url = "https://api.exchangerate-api.com/v4/latest/" + from_currency
+    
+    response = requests.get(url)
+    if response.status_code == 200:
+        data = response.json()
+        rate = data['rates'].get(to_currency)
+        return rate
+    return None
+
+def convert_currency(amount, from_currency, to_currency):
+    """Convert between currencies"""
+    rate = get_exchange_rate(from_currency, to_currency)
+    
+    if rate:
+        converted = amount * rate
+        print(f"{amount} {from_currency} = {converted:.2f} {to_currency}")
+        print(f"Exchange rate: 1 {from_currency} = {rate} {to_currency}")
+    else:
+        print("Could not get exchange rate")
+
+# Use it
+convert_currency(100, "USD", "EUR")
+```
+
+## Working with Different API Types
+
+### REST APIs (Most Common)
+- Request specific URLs
+- Get JSON responses
+- Like ordering from a menu
+
+### Real-time APIs
+- Continuous data streams
+- Like a news ticker
+- More complex to handle
+
+### GraphQL APIs
+- Request exactly what you need
+- Like a customizable menu
+- Growing in popularity
+
+## Building a News Aggregator
+
+Let's create a program that collects news from multiple sources:
+
+```python
+def get_tech_news():
+    """Get latest technology news"""
+    api_key = load_api_key('news_key.txt')
+    
+    # Get news from API
+    url = "https://newsapi.org/v2/top-headlines"
+    params = {
+        'apiKey': api_key,
+        'category': 'technology',
+        'pageSize': 10
+    }
+    
+    response = requests.get(url, params=params)
+    if response.status_code == 200:
+        articles = response.json()['articles']
+        
+        # Display headlines
+        print("\n📰 LATEST TECH NEWS")
+        print("=" * 50)
+        for i, article in enumerate(articles, 1):
+            print(f"\n{i}. {article['title']}")
+            print(f"   Source: {article['source']['name']}")
+            print(f"   {article['description'][:100]}...")
+
+# Run the aggregator
+get_tech_news()
+```
+
+## API Best Practices
+
+### 1. Cache Responses
+Don't request the same data repeatedly:
+```python
+cache = {}
+
+def get_cached_weather(city):
+    if city not in cache:
+        cache[city] = fetch_weather_from_api(city)
+    return cache[city]
+```
+
+### 2. Handle Timeouts
+Networks can be slow:
+```python
+response = requests.get(url, timeout=5)  # 5 second timeout
+```
+
+### 3. Validate Data
+APIs can return unexpected data:
+```python
+def safe_get(data, *keys):
+    """Safely navigate nested dictionaries"""
+    for key in keys:
+        if isinstance(data, dict):
+            data = data.get(key)
+        else:
+            return None
+    return data
+
+# Use: safe_get(data, 'current', 'temp_f')
+```
+
+## Creating Your API Toolkit
+
+Build reusable functions for common patterns:
+
+```python
+class APIClient:
+    """Reusable API client"""
+    
+    def __init__(self, base_url, api_key=None):
+        self.base_url = base_url
+        self.api_key = api_key
+        self.session = requests.Session()
+    
+    def get(self, endpoint, params=None):
+        """Make a GET request"""
+        url = self.base_url + endpoint
+        
+        if self.api_key:
+            if params is None:
+                params = {}
+            params['api_key'] = self.api_key
+        
+        try:
+            response = self.session.get(url, params=params)
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            print(f"API Error: {e}")
+            return None
+
+# Use your toolkit
+weather_client = APIClient("http://api.weatherapi.com/v1/", api_key="your_key")
+data = weather_client.get("current.json", {"q": "Boston"})
+```
+
+## Real Project: Multi-Source Dashboard
+
+Let's combine multiple APIs into one useful program:
+
+```python
+def create_morning_briefing():
+    """Get weather, news, and quote for the day"""
+    print("\n☀️ GOOD MORNING! Here's your briefing:\n")
+    
+    # Weather
+    weather = get_weather("New York")
+    if weather:
+        print(f"🌡️ Weather: {weather['temp']}°F, {weather['condition']}")
+    
+    # Motivational quote
+    quote = get_daily_quote()
+    if quote:
+        print(f"\n💭 Quote of the day: \"{quote['content']}\"")
+        print(f"   - {quote['author']}")
+    
+    # Top news
+    news = get_headlines(3)
+    if news:
+        print("\n📰 Top Headlines:")
+        for headline in news:
+            print(f"  • {headline}")
+    
+    # Currency rates
+    rates = get_currency_rates("USD", ["EUR", "GBP", "JPY"])
+    if rates:
+        print("\n💱 Currency Rates:")
+        for currency, rate in rates.items():
+            print(f"  • 1 USD = {rate} {currency}")
+```
+
+## Common Pitfalls and Solutions
+
+### Pitfall 1: Hardcoding API Keys
+**Problem**: Keys in code are security risks
+**Solution**: Use environment variables or secure files
+
+### Pitfall 2: No Error Handling
+**Problem**: Program crashes when API fails
+**Solution**: Always use try/except blocks
+
+### Pitfall 3: Ignoring Rate Limits
+**Problem**: API blocks your requests
+**Solution**: Add delays and check documentation
+
+### Pitfall 4: Not Checking Response Status
+**Problem**: Assuming all requests succeed
+**Solution**: Always check status_code
+
+## Practice Projects
+
+### Project 1: Weather Tracker
+- Track weather for multiple cities
+- Store historical data
+- Find weather patterns
+- Alert for extreme conditions
+
+### Project 2: Stock Portfolio Monitor
+- Track stock prices
+- Calculate gains/losses
+- Set price alerts
+- Generate reports
+
+### Project 3: News Sentiment Analyzer
+- Collect news articles
+- Analyze headlines
+- Track topics over time
+- Create summaries
+
+## Looking Ahead
+
+Next chapter, you'll learn to create interactive programs with graphical interfaces. Instead of just printing to the console, your programs will have buttons, windows, and visual elements that users can click and interact with!
+
+## Chapter Summary
+
+You've learned to:
+- Understand how APIs work
+- Make web requests from Python
+- Handle JSON responses
+- Manage API keys securely
+- Build programs that use live data
+- Handle errors gracefully
+
+Your programs are no longer isolated - they're connected to the world's information!
+
+## Reflection Prompts
+
+1. **API Design**: What makes a good API vs a frustrating one?
+2. **Error Planning**: What could go wrong with internet-connected programs?
+3. **Privacy Concerns**: What data should programs be careful about?
+4. **Future APIs**: What APIs would you like to exist?
+
+Remember: The internet is your program's library. APIs are the librarians that help you find exactly what you need!

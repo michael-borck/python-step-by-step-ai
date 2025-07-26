@@ -1,0 +1,427 @@
+# Week 5 Project: Temperature Converter {#sec-project-temperature-converter}
+
+::: {.callout-important}
+## Before You Start
+Make sure you've completed:
+- Part I: All concepts and projects
+- Chapter 6: Creating Your Own Commands (Functions)
+- Chapter 7: Organizing Information (Lists & Dictionaries)
+
+You should understand:
+- How to create and use functions
+- How to work with lists and dictionaries
+- How to build modular programs
+- How to organize code effectively
+:::
+
+## Project Overview
+
+Temperature conversion is a perfect example of where functions shine. Instead of writing the same conversion formula repeatedly, you'll create a smart converter that remembers conversions, supports multiple units, and can be extended easily.
+
+This project demonstrates the power of functions to create reusable, organized code that's easy to understand and maintain.
+
+## The Problem to Solve
+
+Scientists, cooks, and travelers need temperature conversions constantly! Your converter should:
+- Convert between Celsius, Fahrenheit, and Kelvin
+- Use functions to avoid repeating formulas
+- Remember recent conversions
+- Provide a clean, organized interface
+- Be easily extendable for new temperature scales
+
+## Architect Your Solution First
+
+Before writing any code or consulting AI, design your temperature converter:
+
+### 1. Understand the Problem
+- What temperature scales will you support?
+- How should users select conversions?
+- What makes a converter "smart" vs basic?
+- How can functions make this cleaner?
+
+### 2. Design Your Approach
+
+Create a design document that includes:
+- [ ] List of conversion functions needed
+- [ ] Menu system for user interaction
+- [ ] Data structure for conversion history
+- [ ] Input validation approach
+- [ ] How functions will work together
+
+### 3. Identify Patterns
+
+Which programming patterns will you use?
+- [ ] Functions for each conversion formula
+- [ ] Functions for user interface elements
+- [ ] Lists/dictionaries for storing history
+- [ ] Main loop for continuous operation
+- [ ] Error handling for invalid inputs
+
+## Implementation Strategy
+
+### Phase 1: Core Conversion Functions
+
+Start with the essential functions:
+1. `celsius_to_fahrenheit(celsius)`
+2. `fahrenheit_to_celsius(fahrenheit)`
+3. `celsius_to_kelvin(celsius)`
+4. Test each function with known values
+5. Ensure accuracy
+
+### Phase 2: User Interface Functions
+
+Build the interaction layer:
+1. `display_menu()` - Show conversion options
+2. `get_temperature_input()` - Get and validate input
+3. `display_result(original, converted, units)` - Show results
+4. `main()` - Coordinate everything
+
+### Phase 3: Enhancement Features
+
+Add value through functions:
+1. History tracking with list/dictionary
+2. Batch conversion capability
+3. Favorite conversions
+4. Round-trip verification
+5. Scientific notation for extreme values
+
+## AI Partnership Guidelines
+
+### Effective Prompts for This Project
+
+✅ **Good Learning Prompts**:
+```
+"I'm building a temperature converter using functions. I need a function 
+that converts Celsius to Fahrenheit. Show me the simplest implementation 
+with clear parameter and return value."
+```
+
+```
+"My converter has 6 conversion functions. How can I organize them to avoid 
+a massive if/elif chain? Show me a clean approach using what I know."
+```
+
+```
+"I want to store conversion history as a list of dictionaries. 
+What's a simple structure that captures all relevant information?"
+```
+
+❌ **Avoid These Prompts**:
+- "Write a complete temperature converter program"
+- "Add GUI interface and graphing capabilities"
+- "Implement scientific temperature scales like Rankine"
+
+### AI Learning Progression
+
+1. **Design Phase**: Validate conversion formulas
+   ```
+   "What's the correct formula for Celsius to Kelvin? 
+   Show me with an example calculation."
+   ```
+
+2. **Implementation Phase**: Build focused functions
+   ```
+   "I need a function that takes Fahrenheit and returns Celsius. 
+   It should handle negative temperatures correctly."
+   ```
+
+3. **Organization Phase**: Connect functions cleanly
+   ```
+   "I have 6 conversion functions. Show me how to call the right one 
+   based on user's choice without complex if statements."
+   ```
+
+4. **Enhancement Phase**: Add useful features
+   ```
+   "How can I modify my display_result function to also show 
+   the conversion formula used?"
+   ```
+
+## Requirements Specification
+
+### Functional Requirements
+
+Your temperature converter must:
+
+1. **Conversion Functions** (Minimum 6)
+   - Celsius → Fahrenheit
+   - Fahrenheit → Celsius
+   - Celsius → Kelvin
+   - Kelvin → Celsius
+   - Fahrenheit → Kelvin
+   - Kelvin → Fahrenheit
+
+2. **Interface Functions**
+   - Clear menu display
+   - Input validation (numeric, reasonable ranges)
+   - Formatted result display
+   - Error message display
+
+3. **Program Flow**
+   - Continuous operation until user quits
+   - Clear navigation between conversions
+   - Option to see conversion history
+   - Graceful exit
+
+4. **Data Management**
+   - Store at least last 10 conversions
+   - Display history on request
+   - Clear history option
+
+### Learning Requirements
+
+Your implementation should:
+- [ ] Use a separate function for each conversion formula
+- [ ] Use functions to organize UI elements
+- [ ] Demonstrate function parameters and return values
+- [ ] Show functions calling other functions
+- [ ] Include clear function names and comments
+
+## Sample Interaction
+
+Here's how your converter might work:
+
+```
+🌡️  SMART TEMPERATURE CONVERTER  🌡️
+════════════════════════════════════
+
+1. Celsius to Fahrenheit
+2. Fahrenheit to Celsius  
+3. Celsius to Kelvin
+4. Kelvin to Celsius
+5. Fahrenheit to Kelvin
+6. Kelvin to Fahrenheit
+7. View History
+8. Quit
+
+Select conversion (1-8): 1
+
+Enter temperature in Celsius: 100
+
+🔄 Converting...
+
+RESULT: 100.0°C = 212.0°F
+
+Formula used: °F = (°C × 9/5) + 32
+
+Press Enter to continue...
+
+[Shows menu again]
+
+Select conversion (1-8): 7
+
+📊 CONVERSION HISTORY
+═══════════════════════
+1. 100.0°C → 212.0°F
+2. 32.0°F → 0.0°C
+3. 0.0°C → 273.15K
+[...]
+
+Press Enter to continue...
+```
+
+## Development Approach
+
+### Step 1: Build Core Functions
+
+Start with the conversion functions:
+```python
+def celsius_to_fahrenheit(celsius):
+    """Convert Celsius to Fahrenheit"""
+    return (celsius * 9/5) + 32
+
+def fahrenheit_to_celsius(fahrenheit):
+    """Convert Fahrenheit to Celsius"""
+    return (fahrenheit - 32) * 5/9
+
+# Test immediately!
+print(celsius_to_fahrenheit(0))    # Should be 32
+print(celsius_to_fahrenheit(100))  # Should be 212
+```
+
+### Step 2: Create Interface Functions
+
+Build reusable UI components:
+```python
+def display_menu():
+    """Show conversion options"""
+    print("\n🌡️  TEMPERATURE CONVERTER  🌡️")
+    print("1. Celsius to Fahrenheit")
+    # ... more options
+    
+def get_user_choice():
+    """Get and validate menu selection"""
+    choice = input("Select (1-8): ")
+    # Validation logic
+    return choice
+```
+
+### Step 3: Connect Everything
+
+Use a main function to coordinate:
+```python
+def main():
+    """Run the temperature converter"""
+    history = []  # Store conversions
+    
+    while True:
+        display_menu()
+        choice = get_user_choice()
+        
+        if choice == "8":
+            break
+        elif choice == "1":
+            temp = get_temperature_input("Celsius")
+            result = celsius_to_fahrenheit(temp)
+            display_result(temp, result, "°C", "°F")
+            history.append({"from": temp, "to": result, "type": "C→F"})
+```
+
+### Step 4: Add Polish
+
+Enhance with helpful features:
+- Formula display in results
+- Boundary warnings (absolute zero, boiling points)
+- Quick convert for common temperatures
+- Reverse conversion verification
+
+## Function Design Tips
+
+### Good Function Design
+```python
+# Clear purpose, one job
+def celsius_to_kelvin(celsius):
+    return celsius + 273.15
+
+# Reusable display function  
+def display_result(original, converted, from_unit, to_unit):
+    print(f"\nRESULT: {original}{from_unit} = {converted}{to_unit}")
+```
+
+### Avoid These Patterns
+```python
+# Too many responsibilities
+def do_everything(choice, temp, history, settings):
+    # Hundreds of lines...
+    
+# Unclear purpose
+def process(x, y, z):
+    # What does this do?
+```
+
+## Debugging Strategy
+
+Common issues and solutions:
+
+### Function Returns None
+```python
+# Problem
+def celsius_to_fahrenheit(c):
+    result = (c * 9/5) + 32
+    # Forgot return!
+
+# Solution  
+def celsius_to_fahrenheit(c):
+    result = (c * 9/5) + 32
+    return result  # Don't forget!
+```
+
+### Scope Issues
+```python
+# Problem - history not accessible
+def add_to_history(conversion):
+    history.append(conversion)  # Error!
+
+# Solution - pass as parameter
+def add_to_history(history, conversion):
+    history.append(conversion)
+    return history
+```
+
+## Reflection Questions
+
+After completing the project:
+
+1. **Function Design Reflection**
+   - Which functions were most reusable?
+   - How did functions simplify your main program?
+   - What would this look like without functions?
+
+2. **Organization Reflection**
+   - How did you decide what deserved its own function?
+   - Which functions call other functions?
+   - How does this compare to your Part I projects?
+
+3. **AI Partnership Reflection**
+   - Which functions did AI tend to overcomplicate?
+   - How did you simplify AI's suggestions?
+   - What patterns emerged in good function design?
+
+## Extension Challenges
+
+If you finish early, try these:
+
+### Challenge 1: Smart Converter
+Add functions that:
+- Detect likely input mistakes (32C probably meant 32F)
+- Suggest common conversions
+- Remember user's preferred conversions
+
+### Challenge 2: Conversion Chains
+Create a function that converts through multiple steps:
+- Fahrenheit → Celsius → Kelvin
+- Show each step in the chain
+
+### Challenge 3: Reference Points
+Add a function that shows important temperatures:
+- Water freezing/boiling in all scales
+- Human body temperature
+- Absolute zero
+
+### Challenge 4: Batch Processing
+Let users convert multiple temperatures at once using lists.
+
+## Submission Checklist
+
+Before considering your project complete:
+
+- [ ] **Core Functions**: All 6 conversion functions work correctly
+- [ ] **Interface Functions**: Clean, reusable UI components
+- [ ] **Program Structure**: Clear main() function coordinating everything
+- [ ] **History Feature**: Stores and displays past conversions
+- [ ] **Error Handling**: Graceful handling of invalid input
+- [ ] **Code Organization**: Functions have single, clear purposes
+- [ ] **Documentation**: Each function has a clear docstring
+
+## Common Pitfalls and How to Avoid Them
+
+### Pitfall 1: Monolithic Functions
+**Problem**: One giant function doing everything
+**Solution**: Break into smaller, focused functions
+
+### Pitfall 2: Repeating Code
+**Problem**: Same formula written multiple times
+**Solution**: That's exactly what functions prevent!
+
+### Pitfall 3: Confusing Names
+**Problem**: `convert()`, `process()`, `do_thing()`
+**Solution**: `celsius_to_fahrenheit()` - be specific!
+
+### Pitfall 4: No Testing
+**Problem**: Assuming conversions are correct
+**Solution**: Test each function with known values
+
+## Project Learning Outcomes
+
+By completing this project, you've learned:
+- How to design programs as collections of functions
+- How to create reusable, modular code
+- How to organize complex programs clearly
+- How functions calling functions creates powerful systems
+- How to build maintainable, extendable programs
+
+## Next Week Preview
+
+Excellent work! Next week, you'll build a Contact Book that uses dictionaries to store structured information and functions to manage it. You'll see how functions and data structures work together to create useful applications.
+
+Your temperature converter shows you understand the power of functions - breaking complex problems into simple, reusable pieces! 🌡️

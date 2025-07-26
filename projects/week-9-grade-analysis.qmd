@@ -1,0 +1,532 @@
+# Week 9 Project: Grade Analysis Tool {#sec-project-grade-analysis}
+
+::: {.callout-important}
+## Before You Start
+Make sure you've completed:
+- All of Part I and Part II
+- Chapter 10: Working with Data
+- Understanding of CSV files and data processing
+
+You should be ready to:
+- Process real-world data files
+- Calculate statistics and insights
+- Handle messy, imperfect data
+- Create meaningful reports
+:::
+
+## Project Overview
+
+This project combines everything you've learned about data processing to create a real tool that teachers and students can use. You'll analyze grade data from CSV files, calculate statistics, identify trends, and generate actionable insights.
+
+This is where programming becomes genuinely useful - solving real problems with real data.
+
+## The Problem to Solve
+
+Educators need to understand their students' performance! Your grade analyzer should:
+- Read grade data from CSV files
+- Calculate class averages, medians, and ranges
+- Identify struggling students
+- Find grade distribution patterns
+- Generate progress reports
+- Handle missing or invalid data gracefully
+
+## Architect Your Solution First
+
+Before writing any code or consulting AI, design your grade analyzer:
+
+### 1. Understand the Data
+
+What might a gradebook CSV look like?
+```csv
+StudentID,Name,Quiz1,Quiz2,MidTerm,Project1,Quiz3,Final,Attendance
+001,Alice Johnson,85,92,88,91,89,94,95
+002,Bob Smith,78,65,82,79,81,77,88
+003,Charlie Brown,91,88,94,96,93,89,100
+004,Diana Prince,,85,90,88,87,92,92
+005,Eve Wilson,45,52,48,65,58,61,75
+```
+
+### 2. Design Your Analysis Features
+
+Plan what insights you'll generate:
+- [ ] Individual student summaries
+- [ ] Class performance statistics
+- [ ] Grade distribution analysis
+- [ ] Improvement/decline trends
+- [ ] Missing assignment identification
+- [ ] At-risk student alerts
+
+### 3. Identify Data Challenges
+
+Real gradebook data has problems:
+- [ ] Missing grades (empty cells)
+- [ ] Invalid entries ("absent", "N/A", "103%")
+- [ ] Inconsistent formatting
+- [ ] Extra or missing columns
+- [ ] Student names with special characters
+
+## Implementation Strategy
+
+### Phase 1: Basic Data Loading
+1. Read CSV file safely
+2. Handle missing values
+3. Convert grades to numbers
+4. Validate data ranges
+
+### Phase 2: Core Analytics
+1. Calculate averages per student
+2. Compute class statistics
+3. Identify grade distributions
+4. Generate basic reports
+
+### Phase 3: Advanced Insights
+1. Trend analysis (improvement/decline)
+2. Correlation between assignments
+3. At-risk student identification
+4. Visual data representation
+
+## AI Partnership Guidelines
+
+### Effective Prompts for This Project
+
+✅ **Good Learning Prompts**:
+```
+"I'm analyzing grade data from CSV. Some cells are empty or contain 
+'N/A'. Show me how to safely convert grade values to numbers, 
+handling these edge cases."
+```
+
+```
+"I have a list of student grade dictionaries. How do I calculate 
+the median grade for the class? Show me both sorted and 
+statistics module approaches."
+```
+
+❌ **Avoid These Prompts**:
+- "Build a complete grade analysis system"
+- "Create a machine learning model for grade prediction"
+- "Add database integration and web interface"
+
+### AI Learning Progression
+
+1. **Data Cleaning Phase**: Handling messy data
+   ```
+   "My CSV has grades like '85', '92.5', 'N/A', '', and '102'. 
+   How do I clean and validate these values?"
+   ```
+
+2. **Statistics Phase**: Mathematical analysis
+   ```
+   "I need to calculate mean, median, and standard deviation 
+   for a list of grades. Show me simple implementations."
+   ```
+
+3. **Pattern Recognition**: Finding insights
+   ```
+   "How can I compare a student's recent grades to their 
+   earlier grades to detect improvement or decline?"
+   ```
+
+## Requirements Specification
+
+### Functional Requirements
+
+Your grade analyzer must:
+
+1. **Data Processing**
+   - Read standard CSV grade files
+   - Handle missing or invalid grades
+   - Support multiple assignment types
+   - Validate grade ranges (0-100)
+
+2. **Statistical Analysis**
+   - Calculate student averages
+   - Compute class statistics (mean, median, mode)
+   - Find grade distributions
+   - Identify outliers
+
+3. **Reporting Features**
+   - Individual student reports
+   - Class summary statistics
+   - At-risk student alerts
+   - Grade trend analysis
+
+4. **Error Handling**
+   - Graceful handling of bad data
+   - Clear error messages
+   - Data validation warnings
+   - Missing file handling
+
+### Learning Requirements
+
+Your implementation should:
+- [ ] Use file I/O for CSV processing
+- [ ] Demonstrate data cleaning techniques
+- [ ] Apply statistical calculations
+- [ ] Show real-world data handling
+- [ ] Include comprehensive error handling
+
+## Sample Interaction
+
+Here's how your analyzer might work:
+
+```
+📊 GRADE ANALYSIS TOOL 📊
+════════════════════════════
+
+Loading grades from 'class_grades.csv'...
+✅ Found 25 students with 7 assignments each
+
+CLASS SUMMARY
+═════════════
+Total Students: 25
+Assignments: Quiz1, Quiz2, MidTerm, Project1, Quiz3, Final, Attendance
+
+Overall Class Statistics:
+- Average: 84.2%
+- Median: 86.0%
+- Highest: 98.5% (Alice Johnson)
+- Lowest: 52.3% (Eve Wilson)
+- Standard Deviation: 12.4
+
+ASSIGNMENT BREAKDOWN
+═══════════════════
+Quiz1:     Avg 82.1% | Range: 45-98
+Quiz2:     Avg 79.8% | Range: 52-97
+MidTerm:   Avg 85.3% | Range: 48-96
+Project1:  Avg 87.2% | Range: 65-98
+Quiz3:     Avg 84.6% | Range: 58-95
+Final:     Avg 83.9% | Range: 61-94
+Attendance:Avg 91.2% | Range: 75-100
+
+AT-RISK STUDENTS
+═══════════════
+⚠️  Eve Wilson (Student ID: 005)
+   - Current Average: 52.3%
+   - Missing: 0 assignments
+   - Trend: Improving (+8% from early to recent grades)
+   - Recommendation: Schedule tutoring session
+
+GRADE DISTRIBUTION
+═════════════════
+A (90-100): 6 students (24%)
+B (80-89):  11 students (44%)
+C (70-79):  5 students (20%)
+D (60-69):  2 students (8%)
+F (0-59):   1 student (4%)
+
+INDIVIDUAL REPORTS
+═════════════════
+[Showing top 3 students]
+
+1. Alice Johnson (ID: 001)
+   Average: 91.4% | Grade: A
+   Strongest: Final (94%), Quiz2 (92%)
+   Needs work: Quiz1 (85%)
+   
+2. Charlie Brown (ID: 003)
+   Average: 91.3% | Grade: A
+   Strongest: Project1 (96%), MidTerm (94%)
+   Needs work: Final (89%)
+
+[Full reports available - press Enter to see all students]
+```
+
+## Development Approach
+
+### Step 1: Safe CSV Reading
+
+Start with robust file handling:
+```python
+import csv
+
+def load_grades(filename):
+    """Load grades from CSV file with error handling"""
+    students = []
+    
+    try:
+        with open(filename, 'r') as file:
+            reader = csv.DictReader(file)
+            for row in reader:
+                students.append(row)
+    except FileNotFoundError:
+        print(f"Error: Could not find file '{filename}'")
+        return None
+    except Exception as e:
+        print(f"Error reading file: {e}")
+        return None
+    
+    print(f"Loaded {len(students)} student records")
+    return students
+```
+
+### Step 2: Data Cleaning Functions
+
+Handle messy real-world data:
+```python
+def clean_grade(grade_str):
+    """Convert grade string to float, handling edge cases"""
+    if not grade_str or grade_str.strip() == "":
+        return None
+    
+    # Remove common non-numeric characters
+    cleaned = grade_str.strip().replace('%', '')
+    
+    # Handle common text values
+    if cleaned.lower() in ['n/a', 'na', 'absent', 'missing']:
+        return None
+    
+    try:
+        grade = float(cleaned)
+        # Validate range
+        if 0 <= grade <= 100:
+            return grade
+        else:
+            print(f"Warning: Grade {grade} outside valid range")
+            return None
+    except ValueError:
+        print(f"Warning: Could not parse grade '{grade_str}'")
+        return None
+
+def clean_student_grades(student):
+    """Clean all grades for a student"""
+    cleaned = {}
+    cleaned['name'] = student.get('Name', 'Unknown')
+    cleaned['id'] = student.get('StudentID', 'Unknown')
+    
+    # Get all assignment columns (skip Name and StudentID)
+    assignment_columns = [col for col in student.keys() 
+                         if col not in ['Name', 'StudentID']]
+    
+    cleaned['assignments'] = {}
+    for assignment in assignment_columns:
+        grade = clean_grade(student.get(assignment, ''))
+        cleaned['assignments'][assignment] = grade
+    
+    return cleaned
+```
+
+### Step 3: Statistical Analysis
+
+Build your analysis toolkit:
+```python
+def calculate_student_average(student):
+    """Calculate average grade for a student"""
+    grades = [g for g in student['assignments'].values() if g is not None]
+    
+    if not grades:
+        return None
+    
+    return sum(grades) / len(grades)
+
+def calculate_class_statistics(students):
+    """Calculate class-wide statistics"""
+    all_averages = []
+    
+    for student in students:
+        avg = calculate_student_average(student)
+        if avg is not None:
+            all_averages.append(avg)
+    
+    if not all_averages:
+        return None
+    
+    all_averages.sort()
+    n = len(all_averages)
+    
+    stats = {
+        'count': n,
+        'mean': sum(all_averages) / n,
+        'median': all_averages[n//2] if n % 2 == 1 else 
+                 (all_averages[n//2-1] + all_averages[n//2]) / 2,
+        'min': min(all_averages),
+        'max': max(all_averages)
+    }
+    
+    # Calculate standard deviation
+    mean = stats['mean']
+    variance = sum((x - mean) ** 2 for x in all_averages) / n
+    stats['std_dev'] = variance ** 0.5
+    
+    return stats
+```
+
+### Step 4: Trend Analysis
+
+Identify patterns in performance:
+```python
+def analyze_student_trend(student):
+    """Analyze if student is improving or declining"""
+    grades = []
+    assignments = student['assignments']
+    
+    # Get grades in chronological order (assuming column order)
+    for assignment, grade in assignments.items():
+        if grade is not None:
+            grades.append(grade)
+    
+    if len(grades) < 3:  # Need enough data points
+        return "Insufficient data"
+    
+    # Compare first third vs last third
+    third = len(grades) // 3
+    early_avg = sum(grades[:third+1]) / (third+1)
+    late_avg = sum(grades[-third-1:]) / (third+1)
+    
+    improvement = late_avg - early_avg
+    
+    if improvement > 5:
+        return f"Improving (+{improvement:.1f}%)"
+    elif improvement < -5:
+        return f"Declining ({improvement:.1f}%)"
+    else:
+        return "Stable"
+```
+
+## Advanced Features
+
+### Grade Distribution Analysis
+
+```python
+def analyze_grade_distribution(students):
+    """Analyze how grades are distributed"""
+    distribution = {'A': 0, 'B': 0, 'C': 0, 'D': 0, 'F': 0}
+    
+    for student in students:
+        avg = calculate_student_average(student)
+        if avg is not None:
+            if avg >= 90:
+                distribution['A'] += 1
+            elif avg >= 80:
+                distribution['B'] += 1
+            elif avg >= 70:
+                distribution['C'] += 1
+            elif avg >= 60:
+                distribution['D'] += 1
+            else:
+                distribution['F'] += 1
+    
+    total = sum(distribution.values())
+    if total > 0:
+        for grade in distribution:
+            count = distribution[grade]
+            percentage = (count / total) * 100
+            print(f"{grade} ({grade_ranges[grade]}): {count} students ({percentage:.1f}%)")
+```
+
+### At-Risk Student Identification
+
+```python
+def identify_at_risk_students(students, threshold=70):
+    """Find students who might need help"""
+    at_risk = []
+    
+    for student in students:
+        avg = calculate_student_average(student)
+        if avg is not None and avg < threshold:
+            # Count missing assignments
+            missing_count = sum(1 for g in student['assignments'].values() 
+                              if g is None)
+            
+            trend = analyze_student_trend(student)
+            
+            at_risk.append({
+                'student': student,
+                'average': avg,
+                'missing_assignments': missing_count,
+                'trend': trend
+            })
+    
+    return sorted(at_risk, key=lambda x: x['average'])
+```
+
+## Real-World Data Challenges
+
+### Challenge 1: Extra Credit Handling
+```python
+def handle_extra_credit(grade):
+    """Handle grades over 100% properly"""
+    if grade > 100:
+        return min(grade, 110)  # Cap at 110%
+    return grade
+```
+
+### Challenge 2: Different Grading Scales
+```python
+def normalize_grade(grade, scale='100'):
+    """Convert different grading scales to 100-point scale"""
+    if scale == '4.0':
+        return (grade / 4.0) * 100
+    elif scale == 'letter':
+        letter_to_number = {'A': 95, 'B': 85, 'C': 75, 'D': 65, 'F': 50}
+        return letter_to_number.get(grade.upper(), 0)
+    return grade
+```
+
+## Testing with Sample Data
+
+Create test data to verify your analyzer:
+
+```python
+def create_sample_data():
+    """Generate sample grade data for testing"""
+    sample_csv = """StudentID,Name,Quiz1,Quiz2,MidTerm,Project1,Final
+001,Alice Johnson,85,92,88,91,94
+002,Bob Smith,78,,82,79,77
+003,Charlie Brown,91,88,94,96,89
+004,Diana Prince,N/A,85,90,88,92
+005,Eve Wilson,45,52,48,65,61"""
+    
+    with open('sample_grades.csv', 'w') as f:
+        f.write(sample_csv)
+```
+
+## Practice Extensions
+
+### Extension 1: Progress Tracking
+- Compare current grades to previous semesters
+- Track improvement over time
+- Generate progress charts
+
+### Extension 2: Assignment Analysis
+- Identify which assignments are most difficult
+- Find correlations between different assignments
+- Suggest which assignments to review
+
+### Extension 3: Class Comparison
+- Compare multiple class sections
+- Identify teaching effectiveness
+- Benchmark against standards
+
+## Common Pitfalls and Solutions
+
+### Pitfall 1: Assuming Clean Data
+**Problem**: Real data is messy with missing values
+**Solution**: Always validate and clean first
+
+### Pitfall 2: Division by Zero
+**Problem**: Calculating averages with no valid grades
+**Solution**: Check for empty lists before dividing
+
+### Pitfall 3: Hardcoded Column Names
+**Problem**: Code breaks when CSV format changes
+**Solution**: Dynamically detect assignment columns
+
+### Pitfall 4: No Data Validation
+**Problem**: Grades of 150% or -20% crash calculations
+**Solution**: Validate ranges and handle outliers
+
+## Reflection Questions
+
+After completing the project:
+
+1. **Data Quality**: What surprised you about real-world data?
+2. **Statistics Understanding**: Which calculations were most insightful?
+3. **Error Handling**: How did you make your code robust?
+4. **User Value**: How would teachers actually use this tool?
+
+## Next Week Preview
+
+Excellent work! Next week, you'll build a Weather Dashboard that pulls live data from APIs, creating a real-time application that connects to the internet. You'll see how external data sources make programs dynamic and current!
+
+Your grade analyzer proves you can turn raw data into actionable insights - a skill valuable in any field! 📊

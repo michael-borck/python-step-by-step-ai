@@ -1,0 +1,684 @@
+# Week 10 Project: Weather Dashboard {#sec-project-weather-app}
+
+::: {.callout-important}
+## Before You Start
+Make sure you've completed:
+- All previous projects
+- Chapter 10: Working with Data
+- Chapter 11: Connected Programs
+- Chapter 12: Interactive Systems
+
+You should understand:
+- Making API requests with `requests`
+- Processing JSON responses
+- Creating GUI applications with tkinter
+- Handling errors gracefully
+:::
+
+## Project Overview
+
+This project combines APIs and GUIs to create a live weather dashboard. You'll pull real weather data from the internet and display it in an attractive, interactive interface that updates in real-time.
+
+This is where programming becomes magical - your desktop application connects to the world!
+
+## The Problem to Solve
+
+People need current weather information with visual appeal! Your weather dashboard should:
+- Display current weather for multiple cities
+- Show extended forecasts
+- Update automatically
+- Handle network failures gracefully
+- Provide an intuitive, attractive interface
+- Save user preferences between sessions
+
+## Architect Your Solution First
+
+Before writing any code or consulting AI, design your weather dashboard:
+
+### 1. Understand the Requirements
+- Which weather data is most important?
+- How often should data refresh?
+- What happens when internet is down?
+- How should multiple cities be displayed?
+
+### 2. Design Your Interface
+
+Sketch your dashboard layout:
+```
+┌─────────────────────────────────────────────┐
+│  🌤️  Weather Dashboard                      │
+├─────────────────────────────────────────────┤
+│ [Add City] [Refresh] [Settings]   Updated: 3:45 PM │
+├─────────────────────────────────────────────┤
+│ ┌─────────────┐ ┌─────────────┐ ┌─────────────┐ │
+│ │   Boston    │ │   Tokyo     │ │   London    │ │
+│ │    72°F     │ │    18°C     │ │    15°C     │ │
+│ │   Sunny     │ │   Cloudy    │ │   Rainy     │ │
+│ │ 💧 65%      │ │ 💧 80%      │ │ 💧 95%      │ │
+│ │ 💨 8mph     │ │ 💨 12km/h   │ │ 💨 15km/h   │ │
+│ │ [Remove]    │ │ [Remove]    │ │ [Remove]    │ │
+│ └─────────────┘ └─────────────┘ └─────────────┘ │
+├─────────────────────────────────────────────┤
+│                5-Day Forecast                │
+│ Wed  Thu  Fri  Sat  Sun                     │
+│ 75°  68°  71°  69°  74°                     │
+│ ☀️   🌧️   ⛅   🌧️   ☀️                        │
+└─────────────────────────────────────────────┘
+```
+
+### 3. Plan Your Data Structure
+
+```python
+# Weather data structure
+weather_data = {
+    'city': 'Boston',
+    'country': 'US',
+    'current': {
+        'temperature': 72,
+        'condition': 'Sunny',
+        'humidity': 65,
+        'wind_speed': 8,
+        'icon': 'sunny'
+    },
+    'forecast': [
+        {'day': 'Wed', 'high': 75, 'low': 62, 'condition': 'sunny'},
+        {'day': 'Thu', 'high': 68, 'low': 58, 'condition': 'rainy'},
+        # ...
+    ],
+    'last_updated': '2024-03-15 15:45:00'
+}
+```
+
+## Implementation Strategy
+
+### Phase 1: API Integration
+1. Choose a weather API (OpenWeatherMap, WeatherAPI)
+2. Create functions to fetch weather data
+3. Parse JSON responses
+4. Handle API errors
+
+### Phase 2: Basic GUI
+1. Create main window layout
+2. Display weather for one city
+3. Add refresh button
+4. Show loading states
+
+### Phase 3: Multi-City Dashboard
+1. Support multiple cities
+2. Add/remove city functionality
+3. Auto-refresh timer
+4. Save preferences
+
+### Phase 4: Enhanced Features
+1. 5-day forecast display
+2. Weather icons/emojis
+3. Unit conversion (°F/°C)
+4. Dark/light themes
+
+## AI Partnership Guidelines
+
+### Effective Prompts for This Project
+
+✅ **Good Learning Prompts**:
+```
+"I'm building a weather app with tkinter. I need to display current 
+weather data in a card-like widget. Show me how to create a Frame 
+with temperature, condition, and humidity nicely formatted."
+```
+
+```
+"My weather API returns temperature in Kelvin. Show me a simple 
+function to convert Kelvin to both Fahrenheit and Celsius."
+```
+
+```
+"I want to update my GUI every 10 minutes with new weather data. 
+How do I use tkinter's after() method to schedule updates?"
+```
+
+❌ **Avoid These Prompts**:
+- "Build a complete weather application with machine learning"
+- "Add satellite imagery and radar data"
+- "Create a mobile app with push notifications"
+
+### AI Learning Progression
+
+1. **API Integration Phase**: Data fetching
+   ```
+   "I'm using OpenWeatherMap API. Show me how to make a request 
+   for current weather and safely extract temperature and condition."
+   ```
+
+2. **GUI Building Phase**: Interface creation
+   ```
+   "I need to create a grid of weather cards in tkinter. Each card 
+   shows one city. How do I use Frame and grid layout?"
+   ```
+
+3. **Real-time Updates**: Live data
+   ```
+   "How do I update tkinter Labels with new weather data without 
+   recreating the entire interface?"
+   ```
+
+## Requirements Specification
+
+### Functional Requirements
+
+Your weather dashboard must:
+
+1. **Data Integration**
+   - Connect to weather API
+   - Fetch current conditions
+   - Get 5-day forecast
+   - Handle API failures gracefully
+
+2. **User Interface**
+   - Display multiple cities simultaneously
+   - Show current temperature, condition, humidity
+   - Display forecast information
+   - Provide add/remove city functionality
+
+3. **Real-time Updates**
+   - Refresh data automatically
+   - Show last update time
+   - Manual refresh option
+   - Loading indicators
+
+4. **Data Persistence**
+   - Remember user's cities
+   - Save preferences (units, theme)
+   - Restore on startup
+
+### Learning Requirements
+
+Your implementation should:
+- [ ] Use `requests` library for API calls
+- [ ] Create responsive tkinter GUI
+- [ ] Handle JSON data processing
+- [ ] Implement error handling for network issues
+- [ ] Show real-time programming concepts
+
+## Sample Interaction
+
+Here's how your weather dashboard might work:
+
+```
+Starting Weather Dashboard...
+Loading saved cities: Boston, Tokyo, London
+Fetching weather data...
+
+🌤️ WEATHER DASHBOARD - Last Updated: 3:45 PM
+═══════════════════════════════════════════════
+
+┌─────────────┐ ┌─────────────┐ ┌─────────────┐
+│   BOSTON    │ │   TOKYO     │ │   LONDON    │
+│             │ │             │ │             │
+│    72°F     │ │    64°F     │ │    59°F     │
+│   ☀️ Sunny   │ │  ⛅ Cloudy   │ │  🌧️ Rainy   │
+│             │ │             │ │             │
+│ 💧 Humidity: 65% │ 💧 Humidity: 80% │ 💧 Humidity: 95% │
+│ 💨 Wind: 8 mph   │ 💨 Wind: 12 mph  │ 💨 Wind: 15 mph  │
+│ 👁️ Visibility: High │ 👁️ Visibility: Med │ 👁️ Visibility: Low │
+│             │ │             │ │             │
+│ [Remove City] │ │ [Remove City] │ │ [Remove City] │
+└─────────────┘ └─────────────┘ └─────────────┘
+
+                    5-DAY FORECAST - BOSTON
+    ┌─────┬─────┬─────┬─────┬─────┐
+    │ Wed │ Thu │ Fri │ Sat │ Sun │
+    ├─────┼─────┼─────┼─────┼─────┤
+    │ 75° │ 68° │ 71° │ 69° │ 74° │
+    │ 62° │ 55° │ 58° │ 56° │ 61° │
+    │ ☀️  │ 🌧️  │ ⛅  │ 🌧️  │ ☀️  │
+    └─────┴─────┴─────┴─────┴─────┘
+
+[Add City] [Refresh Now] [Settings] [°F/°C]
+
+Enter city name: _______________ [Add]
+```
+
+## Development Approach
+
+### Step 1: API Integration
+
+Start with weather data fetching:
+```python
+import requests
+import json
+from datetime import datetime
+
+class WeatherAPI:
+    def __init__(self, api_key):
+        self.api_key = api_key
+        self.base_url = "http://api.openweathermap.org/data/2.5"
+    
+    def get_current_weather(self, city):
+        """Get current weather for a city"""
+        endpoint = f"{self.base_url}/weather"
+        params = {
+            'q': city,
+            'appid': self.api_key,
+            'units': 'imperial'  # Fahrenheit
+        }
+        
+        try:
+            response = requests.get(endpoint, params=params, timeout=5)
+            response.raise_for_status()
+            data = response.json()
+            
+            return {
+                'city': data['name'],
+                'country': data['sys']['country'],
+                'temperature': round(data['main']['temp']),
+                'condition': data['weather'][0]['main'],
+                'description': data['weather'][0]['description'],
+                'humidity': data['main']['humidity'],
+                'wind_speed': round(data['wind']['speed']),
+                'icon': data['weather'][0]['icon'],
+                'timestamp': datetime.now()
+            }
+        except requests.RequestException as e:
+            print(f"Error fetching weather for {city}: {e}")
+            return None
+    
+    def get_forecast(self, city, days=5):
+        """Get forecast for a city"""
+        endpoint = f"{self.base_url}/forecast"
+        params = {
+            'q': city,
+            'appid': self.api_key,
+            'units': 'imperial'
+        }
+        
+        try:
+            response = requests.get(endpoint, params=params)
+            response.raise_for_status()
+            data = response.json()
+            
+            # Process forecast data (simplified)
+            forecast = []
+            for item in data['list'][:days]:
+                forecast.append({
+                    'date': item['dt_txt'],
+                    'temperature': round(item['main']['temp']),
+                    'condition': item['weather'][0]['main'],
+                    'icon': item['weather'][0]['icon']
+                })
+            
+            return forecast
+        except requests.RequestException as e:
+            print(f"Error fetching forecast for {city}: {e}")
+            return []
+```
+
+### Step 2: Weather Card Widget
+
+Create reusable city display:
+```python
+import tkinter as tk
+from tkinter import ttk
+
+class WeatherCard:
+    def __init__(self, parent, weather_data, on_remove=None):
+        self.parent = parent
+        self.weather_data = weather_data
+        self.on_remove = on_remove
+        
+        self.frame = tk.Frame(parent, relief='raised', borderwidth=2, 
+                             bg='lightblue', padx=10, pady=10)
+        self.create_widgets()
+    
+    def create_widgets(self):
+        # City name
+        city_label = tk.Label(self.frame, 
+                             text=self.weather_data['city'].upper(),
+                             font=('Arial', 14, 'bold'), 
+                             bg='lightblue')
+        city_label.pack()
+        
+        # Temperature
+        temp_label = tk.Label(self.frame,
+                             text=f"{self.weather_data['temperature']}°F",
+                             font=('Arial', 24, 'bold'),
+                             bg='lightblue')
+        temp_label.pack()
+        
+        # Condition with emoji
+        condition_text = self.get_weather_emoji() + " " + self.weather_data['condition']
+        condition_label = tk.Label(self.frame, text=condition_text,
+                                  font=('Arial', 12), bg='lightblue')
+        condition_label.pack()
+        
+        # Details
+        details = [
+            f"💧 {self.weather_data['humidity']}%",
+            f"💨 {self.weather_data['wind_speed']} mph"
+        ]
+        
+        for detail in details:
+            detail_label = tk.Label(self.frame, text=detail, 
+                                   font=('Arial', 10), bg='lightblue')
+            detail_label.pack()
+        
+        # Remove button
+        if self.on_remove:
+            remove_btn = tk.Button(self.frame, text="Remove City",
+                                  command=lambda: self.on_remove(self.weather_data['city']))
+            remove_btn.pack(pady=(5, 0))
+    
+    def get_weather_emoji(self):
+        """Convert weather condition to emoji"""
+        condition = self.weather_data['condition'].lower()
+        emoji_map = {
+            'clear': '☀️',
+            'sunny': '☀️', 
+            'clouds': '⛅',
+            'cloudy': '⛅',
+            'rain': '🌧️',
+            'rainy': '🌧️',
+            'snow': '🌨️',
+            'thunderstorm': '⛈️',
+            'mist': '🌫️',
+            'fog': '🌫️'
+        }
+        return emoji_map.get(condition, '🌤️')
+    
+    def pack(self, **kwargs):
+        """Pack the weather card"""
+        self.frame.pack(**kwargs)
+    
+    def grid(self, **kwargs):
+        """Grid the weather card"""
+        self.frame.grid(**kwargs)
+```
+
+### Step 3: Main Dashboard Application
+
+Coordinate everything:
+```python
+class WeatherDashboard:
+    def __init__(self, root):
+        self.root = root
+        self.root.title("Weather Dashboard")
+        self.root.geometry("800x600")
+        
+        # Initialize components
+        self.weather_api = WeatherAPI("your_api_key_here")
+        self.cities = self.load_saved_cities()
+        self.weather_cards = []
+        
+        self.create_interface()
+        self.refresh_all_weather()
+        self.schedule_auto_refresh()
+    
+    def create_interface(self):
+        # Title
+        title = tk.Label(self.root, text="🌤️ Weather Dashboard", 
+                        font=('Arial', 20, 'bold'))
+        title.pack(pady=10)
+        
+        # Controls frame
+        controls = tk.Frame(self.root)
+        controls.pack(pady=5)
+        
+        tk.Button(controls, text="Add City", 
+                 command=self.show_add_city_dialog).pack(side='left', padx=5)
+        tk.Button(controls, text="Refresh All", 
+                 command=self.refresh_all_weather).pack(side='left', padx=5)
+        
+        self.last_update_label = tk.Label(controls, text="")
+        self.last_update_label.pack(side='right', padx=5)
+        
+        # Cities frame
+        self.cities_frame = tk.Frame(self.root)
+        self.cities_frame.pack(fill='both', expand=True, padx=10, pady=10)
+    
+    def show_add_city_dialog(self):
+        """Show dialog to add new city"""
+        dialog = tk.Toplevel(self.root)
+        dialog.title("Add City")
+        dialog.geometry("300x150")
+        
+        tk.Label(dialog, text="Enter city name:").pack(pady=10)
+        
+        city_entry = tk.Entry(dialog, width=20)
+        city_entry.pack(pady=5)
+        city_entry.focus()
+        
+        def add_city():
+            city = city_entry.get().strip()
+            if city:
+                self.add_city(city)
+                dialog.destroy()
+        
+        tk.Button(dialog, text="Add", command=add_city).pack(pady=10)
+        
+        # Allow Enter key to add
+        dialog.bind('<Return>', lambda e: add_city())
+    
+    def add_city(self, city_name):
+        """Add a new city to the dashboard"""
+        if city_name not in self.cities:
+            weather_data = self.weather_api.get_current_weather(city_name)
+            if weather_data:
+                self.cities.append(city_name)
+                self.save_cities()
+                self.refresh_display()
+            else:
+                tk.messagebox.showerror("Error", f"Could not find weather for {city_name}")
+    
+    def remove_city(self, city_name):
+        """Remove a city from the dashboard"""
+        if city_name in self.cities:
+            self.cities.remove(city_name)
+            self.save_cities()
+            self.refresh_display()
+    
+    def refresh_all_weather(self):
+        """Refresh weather data for all cities"""
+        self.last_update_label.config(text="Updating...")
+        self.root.update()
+        
+        self.refresh_display()
+        
+        now = datetime.now().strftime("%I:%M %p")
+        self.last_update_label.config(text=f"Updated: {now}")
+    
+    def refresh_display(self):
+        """Refresh the display with current weather data"""
+        # Clear existing cards
+        for widget in self.cities_frame.winfo_children():
+            widget.destroy()
+        
+        # Create new cards
+        row = 0
+        col = 0
+        max_cols = 3
+        
+        for city in self.cities:
+            weather_data = self.weather_api.get_current_weather(city)
+            if weather_data:
+                card = WeatherCard(self.cities_frame, weather_data, self.remove_city)
+                card.grid(row=row, column=col, padx=10, pady=10, sticky='nsew')
+                
+                col += 1
+                if col >= max_cols:
+                    col = 0
+                    row += 1
+        
+        # Configure grid weights for responsive layout
+        for i in range(max_cols):
+            self.cities_frame.columnconfigure(i, weight=1)
+    
+    def schedule_auto_refresh(self):
+        """Schedule automatic refresh every 10 minutes"""
+        self.refresh_all_weather()
+        self.root.after(600000, self.schedule_auto_refresh)  # 10 minutes
+    
+    def load_saved_cities(self):
+        """Load saved cities from file"""
+        try:
+            with open('weather_cities.txt', 'r') as f:
+                return [city.strip() for city in f.readlines() if city.strip()]
+        except FileNotFoundError:
+            return ['New York']  # Default city
+    
+    def save_cities(self):
+        """Save current cities to file"""
+        with open('weather_cities.txt', 'w') as f:
+            for city in self.cities:
+                f.write(city + '\n')
+
+# Run the application
+if __name__ == "__main__":
+    root = tk.Tk()
+    app = WeatherDashboard(root)
+    root.mainloop()
+```
+
+## Advanced Features
+
+### Feature 1: Forecast Display
+
+```python
+class ForecastDisplay:
+    def __init__(self, parent, forecast_data):
+        self.parent = parent
+        self.forecast_data = forecast_data
+        
+        self.frame = tk.Frame(parent, relief='sunken', borderwidth=1)
+        self.create_forecast()
+    
+    def create_forecast(self):
+        title = tk.Label(self.frame, text="5-Day Forecast", 
+                        font=('Arial', 14, 'bold'))
+        title.pack()
+        
+        forecast_frame = tk.Frame(self.frame)
+        forecast_frame.pack()
+        
+        for i, day_data in enumerate(self.forecast_data[:5]):
+            day_frame = tk.Frame(forecast_frame)
+            day_frame.grid(row=0, column=i, padx=5)
+            
+            # Day name
+            day_name = datetime.strptime(day_data['date'], '%Y-%m-%d %H:%M:%S').strftime('%a')
+            tk.Label(day_frame, text=day_name).pack()
+            
+            # Temperature
+            tk.Label(day_frame, text=f"{day_data['temperature']}°").pack()
+            
+            # Icon/condition
+            emoji = self.get_condition_emoji(day_data['condition'])
+            tk.Label(day_frame, text=emoji, font=('Arial', 16)).pack()
+```
+
+### Feature 2: Settings Panel
+
+```python
+def create_settings_panel(self):
+    """Create settings configuration panel"""
+    settings_window = tk.Toplevel(self.root)
+    settings_window.title("Settings")
+    settings_window.geometry("300x200")
+    
+    # Unit selection
+    tk.Label(settings_window, text="Temperature Unit:").pack(pady=5)
+    
+    self.unit_var = tk.StringVar(value=self.current_unit)
+    tk.Radiobutton(settings_window, text="Fahrenheit (°F)", 
+                  variable=self.unit_var, value="imperial").pack()
+    tk.Radiobutton(settings_window, text="Celsius (°C)", 
+                  variable=self.unit_var, value="metric").pack()
+    
+    # Auto-refresh interval
+    tk.Label(settings_window, text="Auto-refresh interval:").pack(pady=5)
+    
+    self.refresh_var = tk.StringVar(value="10")
+    refresh_frame = tk.Frame(settings_window)
+    refresh_frame.pack()
+    
+    tk.Entry(refresh_frame, textvariable=self.refresh_var, width=5).pack(side='left')
+    tk.Label(refresh_frame, text="minutes").pack(side='left')
+    
+    # Save button
+    tk.Button(settings_window, text="Save", 
+             command=lambda: self.save_settings(settings_window)).pack(pady=10)
+```
+
+## Error Handling and Edge Cases
+
+### Network Error Handling
+
+```python
+def safe_api_call(self, func, *args, **kwargs):
+    """Safely call API with error handling"""
+    try:
+        return func(*args, **kwargs)
+    except requests.ConnectionError:
+        self.show_error("No internet connection")
+        return None
+    except requests.Timeout:
+        self.show_error("Request timed out")
+        return None
+    except requests.HTTPError as e:
+        self.show_error(f"API error: {e}")
+        return None
+    except Exception as e:
+        self.show_error(f"Unexpected error: {e}")
+        return None
+
+def show_error(self, message):
+    """Show error message to user"""
+    error_label = tk.Label(self.root, text=f"⚠️ {message}", 
+                          fg='red', font=('Arial', 10))
+    error_label.pack()
+    
+    # Remove error after 5 seconds
+    self.root.after(5000, error_label.destroy)
+```
+
+## Common Pitfalls and Solutions
+
+### Pitfall 1: API Key Exposure
+**Problem**: Hardcoding API keys in source code
+**Solution**: Use environment variables or config files
+
+### Pitfall 2: Blocking GUI Updates
+**Problem**: Long API calls freeze the interface
+**Solution**: Use threading or async operations
+
+### Pitfall 3: No Offline Mode
+**Problem**: App is useless without internet
+**Solution**: Cache last known data
+
+### Pitfall 4: Poor Error Messages
+**Problem**: Generic "Error" messages confuse users
+**Solution**: Specific, actionable error messages
+
+## Testing Your Dashboard
+
+### Test Cases to Verify
+
+1. **Valid Cities**: Add major cities worldwide
+2. **Invalid Cities**: Try "XYZ123" or gibberish
+3. **Network Issues**: Disconnect internet during use
+4. **Data Persistence**: Close and reopen app
+5. **Multiple Cities**: Add 5+ cities
+6. **Long City Names**: "San Francisco" vs "NYC"
+
+## Reflection Questions
+
+After completing the project:
+
+1. **API Integration**: What challenges did real-time data present?
+2. **GUI Design**: How did you balance information density with clarity?
+3. **Error Handling**: What edge cases surprised you?
+4. **User Experience**: What would make this more useful daily?
+
+## Next Week Preview
+
+Fantastic work! Next week, you'll build a Text Adventure Game that showcases interactive systems and complex state management. You'll create an engaging, story-driven application that responds dynamically to user choices!
+
+Your weather dashboard proves you can integrate external data sources with polished user interfaces - a skill at the heart of modern app development! 🌤️

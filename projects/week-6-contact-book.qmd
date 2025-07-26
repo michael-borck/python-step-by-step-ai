@@ -1,0 +1,508 @@
+# Week 6 Project: Contact Book {#sec-project-contact-book}
+
+::: {.callout-important}
+## Before You Start
+Make sure you've completed:
+- All previous projects
+- Chapter 6: Functions
+- Chapter 7: Organizing Information (Lists & Dictionaries)
+- Chapter 8: Saving Your Work (Files)
+
+You should understand:
+- Creating and using functions
+- Working with dictionaries for structured data
+- Managing lists of items
+- Basic file operations
+:::
+
+## Project Overview
+
+A contact book is the perfect project for combining dictionaries, lists, and functions. You'll build a system that stores detailed contact information, provides search capabilities, and persists data between sessions.
+
+This project demonstrates real-world data management - how professional applications organize, search, and maintain information.
+
+## The Problem to Solve
+
+People need to manage their growing contact lists! Your contact book should:
+- Store multiple pieces of information per contact
+- Provide easy ways to add, view, and search contacts
+- Organize contacts sensibly
+- Save contacts between program runs
+- Handle real-world scenarios (duplicate names, missing info)
+
+## Architect Your Solution First
+
+Before writing any code or consulting AI, design your contact book:
+
+### 1. Understand the Problem
+- What information should each contact have?
+- How will users search for contacts?
+- What happens with duplicate names?
+- How should contacts be displayed?
+
+### 2. Design Your Approach
+
+Create a design document that includes:
+- [ ] Contact data structure (what fields to store)
+- [ ] Storage approach (list of dictionaries?)
+- [ ] Function breakdown (add, search, display, etc.)
+- [ ] File format for saving contacts
+- [ ] User interface flow
+
+### 3. Identify Patterns
+
+Which programming patterns will you use?
+- [ ] Dictionary for each contact's information
+- [ ] List to hold all contacts
+- [ ] Functions for each major operation
+- [ ] File I/O for persistence
+- [ ] Search algorithms for finding contacts
+
+## Implementation Strategy
+
+### Phase 1: Core Data Structure
+
+Start with the basics:
+1. Design contact dictionary structure
+2. Create function to add a contact
+3. Create function to display a contact
+4. Test with a few manual contacts
+5. Ensure data structure works well
+
+### Phase 2: Essential Operations
+
+Build key functionality:
+1. `add_contact()` - Get info and add to list
+2. `view_all_contacts()` - Display nicely formatted
+3. `search_contacts()` - Find by name
+4. `save_contacts()` - Write to file
+5. `load_contacts()` - Read from file
+
+### Phase 3: Enhanced Features
+
+Add professional touches:
+1. Search by phone or email
+2. Edit existing contacts
+3. Delete contacts (with confirmation)
+4. Sort contacts alphabetically
+5. Handle edge cases gracefully
+
+## AI Partnership Guidelines
+
+### Effective Prompts for This Project
+
+✅ **Good Learning Prompts**:
+```
+"I'm building a contact book where each contact is a dictionary. 
+What fields should a contact dictionary have? Show me a simple example 
+structure with common fields."
+```
+
+```
+"I have a list of contact dictionaries. How do I search through them 
+to find all contacts with a specific name? Show me a simple function."
+```
+
+```
+"I need to save my contact list to a file. What's the simplest format 
+that preserves the dictionary structure and is human-readable?"
+```
+
+❌ **Avoid These Prompts**:
+- "Build a complete contact management system"
+- "Add database integration and cloud sync"
+- "Create a graphical address book application"
+
+### AI Learning Progression
+
+1. **Design Phase**: Structure planning
+   ```
+   "What information do people typically store for contacts? 
+   Help me design a simple dictionary structure."
+   ```
+
+2. **Implementation Phase**: Focused functions
+   ```
+   "I need a function that takes contact info as parameters 
+   and returns a properly formatted contact dictionary."
+   ```
+
+3. **Search Phase**: Finding contacts
+   ```
+   "Show me how to search a list of dictionaries for contacts 
+   where the name contains a search term."
+   ```
+
+4. **Storage Phase**: File handling
+   ```
+   "What's the simplest way to save a list of dictionaries 
+   to a text file and read it back?"
+   ```
+
+## Requirements Specification
+
+### Functional Requirements
+
+Your contact book must:
+
+1. **Contact Information**
+   - Name (required)
+   - Phone number
+   - Email address
+   - Address (optional)
+   - Notes (optional)
+
+2. **Core Functions**
+   - Add new contact
+   - View all contacts
+   - Search by name
+   - Save to file
+   - Load from file
+   - Quit program
+
+3. **User Experience**
+   - Clear menu system
+   - Formatted contact display
+   - Confirmation for important actions
+   - Helpful error messages
+   - Graceful handling of missing data
+
+4. **Data Persistence**
+   - Automatically load contacts on start
+   - Option to save before quitting
+   - Human-readable file format
+   - Handle missing file gracefully
+
+### Learning Requirements
+
+Your implementation should:
+- [ ] Use dictionaries for individual contacts
+- [ ] Use a list to store all contacts
+- [ ] Create separate functions for each operation
+- [ ] Demonstrate file I/O for persistence
+- [ ] Show good function organization
+
+## Sample Interaction
+
+Here's how your contact book might work:
+
+```
+📚 CONTACT BOOK MANAGER 📚
+Loaded 3 contacts from contacts.txt
+
+════════════════════════════════
+1. View All Contacts
+2. Add New Contact
+3. Search Contacts
+4. Edit Contact
+5. Delete Contact
+6. Save & Quit
+════════════════════════════════
+
+Choose option: 2
+
+ADD NEW CONTACT
+═══════════════
+Name (required): Sarah Chen
+Phone: 555-0123
+Email: sarah.chen@email.com
+Address (optional): 123 Main St, Boston
+Notes (optional): Met at Python conference
+
+✅ Contact added successfully!
+
+Choose option: 1
+
+ALL CONTACTS (4 total)
+═══════════════════════
+
+1. Chen, Sarah
+   📞 555-0123
+   ✉️  sarah.chen@email.com
+   🏠 123 Main St, Boston
+   📝 Met at Python conference
+
+2. Doe, John
+   📞 555-9876
+   ✉️  john.doe@email.com
+
+3. Smith, Alice
+   📞 555-5555
+   ✉️  alice@wonderland.com
+   🏠 456 Oak Ave
+   
+[...]
+
+Choose option: 3
+
+SEARCH CONTACTS
+═══════════════
+Enter search term: chen
+
+Found 1 contact(s):
+
+1. Chen, Sarah
+   📞 555-0123
+   ✉️  sarah.chen@email.com
+```
+
+## Development Approach
+
+### Step 1: Design Data Structure
+
+Start with a clear contact format:
+```python
+def create_contact(name, phone="", email="", address="", notes=""):
+    """Create a contact dictionary"""
+    return {
+        "name": name,
+        "phone": phone,
+        "email": email,
+        "address": address,
+        "notes": notes
+    }
+
+# Test the structure
+contact = create_contact("John Doe", "555-1234", "john@email.com")
+print(contact)
+```
+
+### Step 2: Build Core Functions
+
+Create essential operations:
+```python
+def add_contact(contacts):
+    """Add a new contact to the list"""
+    print("\nADD NEW CONTACT")
+    name = input("Name (required): ")
+    if not name:
+        print("Name is required!")
+        return
+    
+    phone = input("Phone: ")
+    email = input("Email: ")
+    
+    contact = create_contact(name, phone, email)
+    contacts.append(contact)
+    print("✅ Contact added!")
+
+def display_contact(contact, number=None):
+    """Display a single contact nicely formatted"""
+    if number:
+        print(f"\n{number}. {contact['name']}")
+    else:
+        print(f"\n{contact['name']}")
+    
+    if contact['phone']:
+        print(f"   📞 {contact['phone']}")
+    if contact['email']:
+        print(f"   ✉️  {contact['email']}")
+```
+
+### Step 3: Add Search Functionality
+
+Implement flexible searching:
+```python
+def search_contacts(contacts, search_term):
+    """Find contacts matching search term"""
+    search_term = search_term.lower()
+    results = []
+    
+    for contact in contacts:
+        if search_term in contact['name'].lower():
+            results.append(contact)
+        elif search_term in contact['phone']:
+            results.append(contact)
+        elif search_term in contact['email'].lower():
+            results.append(contact)
+    
+    return results
+```
+
+### Step 4: File Operations
+
+Save and load functionality:
+```python
+def save_contacts(contacts, filename="contacts.txt"):
+    """Save contacts to file"""
+    with open(filename, "w") as file:
+        for contact in contacts:
+            # Create a formatted line for each contact
+            line = f"{contact['name']}|{contact['phone']}|{contact['email']}|{contact['address']}|{contact['notes']}\n"
+            file.write(line)
+    print(f"Saved {len(contacts)} contacts!")
+
+def load_contacts(filename="contacts.txt"):
+    """Load contacts from file"""
+    contacts = []
+    try:
+        with open(filename, "r") as file:
+            for line in file:
+                parts = line.strip().split("|")
+                if len(parts) >= 2:  # At least name and phone
+                    contact = create_contact(
+                        parts[0],
+                        parts[1] if len(parts) > 1 else "",
+                        parts[2] if len(parts) > 2 else "",
+                        parts[3] if len(parts) > 3 else "",
+                        parts[4] if len(parts) > 4 else ""
+                    )
+                    contacts.append(contact)
+    except FileNotFoundError:
+        print("No existing contacts file found. Starting fresh!")
+    
+    return contacts
+```
+
+## Data Management Strategies
+
+### Handling Duplicates
+```python
+def contact_exists(contacts, name, phone):
+    """Check if contact already exists"""
+    for contact in contacts:
+        if contact['name'] == name and contact['phone'] == phone:
+            return True
+    return False
+```
+
+### Sorting Contacts
+```python
+def sort_contacts(contacts):
+    """Sort contacts alphabetically by name"""
+    return sorted(contacts, key=lambda x: x['name'])
+```
+
+### Validation
+```python
+def validate_phone(phone):
+    """Basic phone validation"""
+    # Remove common separators
+    cleaned = phone.replace("-", "").replace(" ", "").replace("(", "").replace(")", "")
+    return cleaned.isdigit() and len(cleaned) >= 10
+```
+
+## Debugging Strategy
+
+Common issues and solutions:
+
+### File Format Issues
+```python
+# Problem: Missing fields crash the program
+parts = line.split("|")
+contact['address'] = parts[3]  # IndexError if only 3 parts!
+
+# Solution: Safe access
+contact['address'] = parts[3] if len(parts) > 3 else ""
+```
+
+### Search Problems
+```python
+# Problem: Case-sensitive search
+if search_term in contact['name']:  # Won't find "john" in "John"
+
+# Solution: Normalize case
+if search_term.lower() in contact['name'].lower():
+```
+
+### Empty Data Display
+```python
+# Problem: Shows labels for empty fields
+print(f"Address: {contact['address']}")  # Shows "Address: "
+
+# Solution: Conditional display
+if contact['address']:
+    print(f"Address: {contact['address']}")
+```
+
+## Reflection Questions
+
+After completing the project:
+
+1. **Data Structure Reflection**
+   - Why are dictionaries perfect for contacts?
+   - How does the list of dictionaries pattern help?
+   - What other data would benefit from this structure?
+
+2. **Function Design Reflection**
+   - Which functions are most reusable?
+   - How do functions make the code clearer?
+   - Which function was hardest to design?
+
+3. **File Storage Reflection**
+   - What are the trade-offs of your file format?
+   - How could you make the format more robust?
+   - Why is human-readable format valuable?
+
+## Extension Challenges
+
+If you finish early, try these:
+
+### Challenge 1: Smart Search
+Enhance search to:
+- Find partial matches ("Joh" finds "John")
+- Search across all fields
+- Support multiple search terms
+
+### Challenge 2: Contact Groups
+Add the ability to:
+- Tag contacts with groups (Family, Work, Friends)
+- Filter by group
+- Show group statistics
+
+### Challenge 3: Import/Export
+Create functions to:
+- Export to CSV format
+- Import from CSV
+- Merge contact lists
+
+### Challenge 4: Backup System
+Implement:
+- Automatic backups before changes
+- Restore from backup
+- Multiple backup versions
+
+## Submission Checklist
+
+Before considering your project complete:
+
+- [ ] **Data Structure**: Clean dictionary design for contacts
+- [ ] **Core Functions**: Add, view, search all working
+- [ ] **File Persistence**: Saves and loads correctly
+- [ ] **User Experience**: Clear menus and formatting
+- [ ] **Error Handling**: Graceful handling of edge cases
+- [ ] **Code Organization**: Logical function separation
+- [ ] **Search Feature**: Can find contacts by name
+
+## Common Pitfalls and How to Avoid Them
+
+### Pitfall 1: Overcomplicated Structure
+**Problem**: Nested dictionaries within dictionaries
+**Solution**: Keep it flat and simple
+
+### Pitfall 2: Brittle File Format
+**Problem**: Program crashes if file format slightly wrong
+**Solution**: Defensive loading with defaults
+
+### Pitfall 3: Lost Data
+**Problem**: Forgetting to save before quit
+**Solution**: Prompt user or auto-save
+
+### Pitfall 4: Poor Search Experience
+**Problem**: Exact match only, case-sensitive
+**Solution**: Flexible, forgiving search
+
+## Project Learning Outcomes
+
+By completing this project, you've learned:
+- How to model real-world data with dictionaries
+- How to manage collections with lists
+- How to create a complete CRUD application
+- How to persist structured data in files
+- How to build user-friendly search functionality
+
+## Next Week Preview
+
+Great work! Next week, you'll build a Personal Journal that uses files to create a permanent record of entries. You'll learn about organizing time-based data and creating a reflective tool that grows more valuable over time.
+
+Your contact book demonstrates professional data management skills - organizing, searching, and persisting information effectively! 📚
