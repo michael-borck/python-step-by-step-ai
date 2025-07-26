@@ -1,0 +1,6 @@
+title: Details/Summary Collapsible Sections
+author: Python Step by Step
+version: 1.0.0
+contributes:
+  filters:
+    - details.lua

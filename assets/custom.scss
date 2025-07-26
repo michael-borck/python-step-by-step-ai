@@ -1,0 +1,305 @@
+/*-- scss:defaults --*/
+
+// Colors
+$primary: #2780e3;
+$secondary: #6c757d;
+$success: #28a745;
+$info: #17a2b8;
+$warning: #ffc107;
+$danger: #dc3545;
+
+// Typography
+$font-family-sans-serif: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+$font-family-monospace: "Source Code Pro", SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+$headings-font-weight: 600;
+
+// Code blocks
+$code-bg: #f8f9fa;
+$code-color: #212529;
+
+/*-- scss:rules --*/
+
+// Global styles
+body {
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+// Headings
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: $primary;
+  border-bottom: 3px solid $primary;
+  padding-bottom: 0.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+  color: darken($primary, 10%);
+}
+
+h3 {
+  font-size: 1.5rem;
+  color: darken($primary, 15%);
+}
+
+// Code blocks
+pre {
+  background-color: $code-bg;
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  padding: 1rem;
+  overflow-x: auto;
+  
+  code {
+    background-color: transparent;
+    padding: 0;
+  }
+}
+
+// Inline code
+code:not(pre code) {
+  background-color: lighten($code-bg, 2%);
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+  font-size: 0.875em;
+  color: $danger;
+}
+
+// Callout boxes
+.callout {
+  margin: 1.5rem 0;
+  
+  &.callout-note {
+    border-left-color: $info;
+    
+    .callout-icon::before {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%2317a2b8' viewBox='0 0 16 16'%3E%3Cpath d='M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z'/%3E%3Cpath d='m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z'/%3E%3C/svg%3E");
+    }
+  }
+  
+  &.callout-tip {
+    border-left-color: $success;
+    
+    .callout-icon::before {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%2328a745' viewBox='0 0 16 16'%3E%3Cpath d='M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z'/%3E%3Cpath d='M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z'/%3E%3C/svg%3E");
+    }
+  }
+  
+  &.callout-important {
+    border-left-color: $danger;
+    background-color: lighten($danger, 45%);
+    
+    .callout-icon::before {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23dc3545' viewBox='0 0 16 16'%3E%3Cpath d='M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z'/%3E%3Cpath d='M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995z'/%3E%3C/svg%3E");
+    }
+  }
+  
+  &.callout-warning {
+    border-left-color: $warning;
+    background-color: lighten($warning, 40%);
+    
+    .callout-icon::before {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23ffc107' viewBox='0 0 16 16'%3E%3Cpath d='M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z'/%3E%3C/svg%3E");
+    }
+  }
+}
+
+// Exercise levels
+.exercise-level {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  font-weight: 600;
+  margin-right: 0.5rem;
+  
+  &.level-1 {
+    background-color: $success;
+    color: white;
+  }
+  
+  &.level-2 {
+    background-color: $warning;
+    color: #212529;
+  }
+  
+  &.level-3 {
+    background-color: #fd7e14;
+    color: white;
+  }
+  
+  &.level-4 {
+    background-color: $danger;
+    color: white;
+  }
+  
+  &.level-5 {
+    background-color: #6f42c1;
+    color: white;
+  }
+}
+
+// Details/Summary elements
+details {
+  background-color: $code-bg;
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  padding: 0;
+  margin: 1rem 0;
+  
+  summary {
+    cursor: pointer;
+    font-weight: 600;
+    padding: 0.75rem 1rem;
+    background-color: darken($code-bg, 5%);
+    border-radius: 6px 6px 0 0;
+    user-select: none;
+    
+    &:hover {
+      background-color: darken($code-bg, 10%);
+    }
+    
+    &::marker,
+    &::-webkit-details-marker {
+      color: $primary;
+    }
+  }
+  
+  &[open] summary {
+    border-bottom: 1px solid #dee2e6;
+  }
+  
+  .details-content {
+    padding: 1rem;
+  }
+}
+
+// AI prompt boxes
+.ai-prompt {
+  position: relative;
+  background-color: #e3f2fd;
+  border-left: 4px solid #2196f3;
+  padding: 1rem;
+  margin: 1.5rem 0;
+  border-radius: 0 6px 6px 0;
+  
+  &::before {
+    content: "AI Prompt";
+    position: absolute;
+    top: -0.5rem;
+    left: 1rem;
+    background-color: white;
+    padding: 0 0.5rem;
+    font-weight: 600;
+    color: #2196f3;
+    font-size: 0.875rem;
+  }
+  
+  .copy-prompt-btn {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    padding: 0.25rem 0.75rem;
+    background-color: #2196f3;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.875rem;
+    
+    &:hover {
+      background-color: darken(#2196f3, 10%);
+    }
+  }
+}
+
+// Three Rules box
+.three-rules {
+  background-color: #fff3cd;
+  border: 2px solid $warning;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 2rem 0;
+  
+  h3 {
+    color: darken($warning, 20%);
+    margin-top: 0;
+  }
+  
+  ol {
+    margin-bottom: 0;
+    font-weight: 500;
+  }
+}
+
+// Reflection checkboxes
+.reflection-list {
+  list-style: none;
+  padding-left: 0;
+  
+  li {
+    padding: 0.5rem 0;
+    cursor: pointer;
+    user-select: none;
+    
+    &:hover {
+      background-color: $code-bg;
+      margin: 0 -0.5rem;
+      padding: 0.5rem;
+    }
+  }
+}
+
+// Chapter progress indicator
+.chapter-progress {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background-color: white;
+  border: 2px solid $primary;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  
+  button {
+    background-color: $primary;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    
+    &:hover {
+      background-color: darken($primary, 10%);
+    }
+    
+    &:disabled {
+      background-color: $success;
+      cursor: default;
+    }
+  }
+}
+
+// Print styles
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  details {
+    display: block;
+    
+    summary {
+      display: none;
+    }
+  }
+  
+  .ai-prompt .copy-prompt-btn {
+    display: none;
+  }
+}

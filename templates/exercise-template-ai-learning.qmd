@@ -1,0 +1,265 @@
+# Exercise Template: AI Learning Approach
+
+This template shows the new exercise types that support learning with AI as a partner.
+
+## Exercise Type 1: Concept Recognition
+
+**Purpose**: Identify patterns and concepts before touching code.
+
+```markdown
+### Exercise X.1: Concept Recognition
+
+Look at these three scenarios and identify the common pattern:
+
+Scenario A: [Real-world example]
+Scenario B: [Programming example without code]
+Scenario C: [Another domain example]
+
+What concept connects all three?
+
+<details>
+<summary>Show Answer</summary>
+They all demonstrate [concept] because [explanation of pattern].
+</details>
+```
+
+## Exercise Type 2: Prompt Engineering
+
+**Purpose**: Develop skill in communicating with AI for learning.
+
+```markdown
+### Exercise X.2: Prompt Evolution
+
+Starting with this initial prompt:
+```
+Show me [topic]
+```
+
+Evolve it through at least 4 iterations to get a clear, simple learning example. Document:
+1. Each prompt you tried
+2. What the AI gave you
+3. Why you refined it
+4. Your final prompt
+
+<details>
+<summary>Sample Evolution</summary>
+1. "Show me [topic]" → Too complex, included [unwanted features]
+2. "Show me simple [topic]" → Better, but still had [complexity]
+3. "Show me [topic] for beginners" → Good, but assumed [prior knowledge]
+4. "I'm learning [concept]. Show me the simplest possible example of [specific aspect]" → Perfect!
+</details>
+```
+
+## Exercise Type 3: Pattern Matching
+
+**Purpose**: Find core concepts within complex code.
+
+```markdown
+### Exercise X.3: Find the Core Pattern
+
+Ask AI for a "production-ready [topic] implementation". In the complex code it provides, identify:
+1. The core [concept] pattern
+2. What's essential vs what's "nice to have"
+3. How you could simplify it for learning
+
+<details>
+<summary>Guidance</summary>
+Look for:
+- The basic [concept] structure
+- Extra features AI added (error handling, optimization, etc.)
+- The simplest version that still demonstrates [concept]
+</details>
+```
+
+## Exercise Type 4: Build a Model
+
+**Purpose**: Create mental models and visual understanding.
+
+```markdown
+### Exercise X.4: Mental Model Building
+
+Create a diagram or model showing how [concept] works. You can:
+- Draw a flowchart
+- Create a real-world analogy
+- Build a step-by-step process model
+- Design a visual metaphor
+
+Share your model and explain why you chose this representation.
+
+<details>
+<summary>Example Models</summary>
+- Flowchart: [Shows decision/data flow]
+- Analogy: [Concept] is like [real-world thing] because...
+- Process: Step 1 → Step 2 → Step 3
+- Metaphor: Imagine [concept] as a [visual metaphor]
+</details>
+```
+
+## Exercise Type 5: Architect First
+
+**Purpose**: Design before implement, positioning student as architect.
+
+```markdown
+### Exercise X.5: Design First, Code Second
+
+Design a program that [requirements]. 
+
+Before writing any code or asking AI:
+1. Identify the inputs needed
+2. Describe the process/logic
+3. Define the expected outputs
+4. Sketch the flow (diagram or pseudocode)
+
+Only then, ask AI to implement YOUR design using: 
+```
+I've designed a program that [your description]. 
+Here's my design: [your design].
+Please implement this in Python, keeping it as simple as possible.
+```
+
+<details>
+<summary>Design Checklist</summary>
+- [ ] Clear inputs identified
+- [ ] Process steps defined
+- [ ] Output format specified
+- [ ] Edge cases considered
+- [ ] Simplest approach chosen
+</details>
+```
+
+## Exercise Type 6: AI Dialogue
+
+**Purpose**: Practice learning conversations with AI.
+
+```markdown
+### Exercise X.6: Learning Dialogue
+
+Have a learning conversation with AI about [concept]:
+
+1. Ask AI to explain [concept] without code
+2. Ask for a real-world analogy
+3. Request the simplest code example
+4. Ask AI to trace through the example
+5. Challenge AI to make it even simpler
+
+Document the conversation and identify which prompts were most helpful for your understanding.
+```
+
+## Exercise Type 7: Debug the Mental Model
+
+**Purpose**: Fix understanding, not just code.
+
+```markdown
+### Exercise X.7: Fix the Misunderstanding
+
+Here's a common misconception about [concept]:
+"[Incorrect mental model]"
+
+1. Why might someone think this?
+2. What's actually true?
+3. Create a prompt for AI that would help someone correct this misunderstanding
+4. Test your prompt and refine it
+
+<details>
+<summary>Effective Correction Approach</summary>
+The misconception comes from [source of confusion].
+The reality is [correct understanding].
+A good corrective prompt: "[suggested prompt]"
+</details>
+```
+
+## Exercise Type 8: Compare Approaches
+
+**Purpose**: See multiple solutions and understand trade-offs.
+
+```markdown
+### Exercise X.8: Multiple Perspectives
+
+Ask AI for three different ways to [solve problem using concept]:
+1. The simplest way
+2. The most readable way  
+3. The most efficient way
+
+Compare them:
+- What's the same in all three?
+- What's different and why?
+- Which would you choose for learning? For real use?
+
+<details>
+<summary>Comparison Framework</summary>
+Core similarity: All three must [fundamental requirement]
+Key differences:
+- Simple: Prioritizes [aspect]
+- Readable: Emphasizes [aspect]
+- Efficient: Optimizes [aspect]
+
+For learning: Choose [which and why]
+</details>
+```
+
+## Exercise Type 9: Teach Back
+
+**Purpose**: Verify understanding through explanation.
+
+```markdown
+### Exercise X.9: Explain to a Friend
+
+Imagine a friend asks: "What's [concept] in programming?"
+
+Write a explanation that:
+1. Uses no code initially
+2. Gives a relatable example
+3. Shows the simplest code possible
+4. Explains why it matters
+
+Test: Would someone with no programming knowledge understand?
+
+<details>
+<summary>Evaluation Criteria</summary>
+- [ ] Avoids jargon
+- [ ] Starts with familiar concepts
+- [ ] Builds up gradually
+- [ ] Shows practical relevance
+- [ ] Code is genuinely simple
+</details>
+```
+
+## Exercise Type 10: Evolution Challenge
+
+**Purpose**: Apply prompt evolution to solve problems.
+
+```markdown
+### Exercise X.10: Prompt Evolution Challenge
+
+Goal: Get AI to create [specific solution].
+
+Rules:
+1. Start with a two-word prompt
+2. Each iteration can only add/change 3-5 words
+3. Document why each change was made
+4. Reach the goal in fewest iterations
+
+Share:
+- Your prompt sequence
+- What you learned about communicating with AI
+- How this helps you understand [concept]
+
+<details>
+<summary>Strategy Hints</summary>
+- Start broad, then narrow
+- Add context about your learning level
+- Specify simplicity requirements
+- Include concrete examples
+- State what to avoid
+</details>
+```
+
+## Assessment Evolution
+
+These exercises support new assessment approaches:
+
+- **Early weeks**: Can you recognize the concept?
+- **Middle weeks**: Can you guide AI to explain/implement clearly?
+- **Later weeks**: Can you architect solutions and direct AI precisely?
+
+The focus shifts from "Can you write code?" to "Can you think clearly about problems and communicate solutions?"

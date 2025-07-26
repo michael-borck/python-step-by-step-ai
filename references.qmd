@@ -1,0 +1,6 @@
+# References {.unnumbered}
+
+The following works have informed the pedagogical approach and content of this book. For additional resources on learning Python and programming education in the age of AI, visit our companion website.
+
+::: {#refs}
+:::

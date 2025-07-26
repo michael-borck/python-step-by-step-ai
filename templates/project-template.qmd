@@ -1,0 +1,183 @@
+# Week [X] Project: [Project Name] {#sec-project-[slug]}
+
+::: {.callout-important}
+## Before You Start
+Make sure you've completed:
+- Chapter [X]: [Chapter Name]
+- Chapter [Y]: [Chapter Name]
+- Chapter [Z]: [Chapter Name]
+:::
+
+## Project Overview
+
+[Brief, exciting description of what they'll build and why it's cool]
+
+## What You'll Learn
+
+By completing this project, you'll practice:
+- [Skill 1 from recent chapters]
+- [Skill 2 from recent chapters]  
+- [Skill 3 from recent chapters]
+- Combining multiple concepts together
+
+## Requirements
+
+Your program should:
+
+1. **[Feature 1]**
+   - [Specific detail]
+   - [Specific detail]
+
+2. **[Feature 2]**
+   - [Specific detail]
+   - [Specific detail]
+
+3. **[Feature 3]**
+   - [Specific detail]
+   - [Specific detail]
+
+## Sample Output
+
+Here's what your program might look like when running:
+
+```
+[Example interaction showing all features]
+[User types something]
+[Program responds]
+[etc.]
+```
+
+## Getting Started
+
+### Step 1: Plan Your Program
+
+Before coding, write down:
+- What variables you'll need
+- What order things should happen in
+- What messages you'll display
+
+### Step 2: Start Simple
+
+Begin with the most basic version:
+
+```python
+# [Project name]
+# Start with just [simplest feature]
+```
+
+### Step 3: Add Features One at a Time
+
+Remember Rule #3: One new thing at a time!
+
+## Helpful Hints
+
+<details>
+<summary>Hint 1: Structure</summary>
+Think about your program in these sections:
+1. [Section 1]
+2. [Section 2]
+3. [Section 3]
+</details>
+
+<details>
+<summary>Hint 2: Common Issue</summary>
+If [common problem], remember that [solution concept from chapters].
+</details>
+
+<details>
+<summary>Hint 3: Testing</summary>
+Test your program with these inputs:
+- [Edge case 1]
+- [Edge case 2]
+- [Normal case]
+</details>
+
+## AI Usage Guidelines
+
+::: {.callout-warning}
+## Using AI Appropriately
+
+✅ **DO:**
+- Ask AI to explain error messages you don't understand
+- Request clarification on concepts from the chapters
+- Use AI to check if your solution has bugs
+
+❌ **DON'T:**
+- Ask AI to write the entire program
+- Copy-paste AI code without understanding it
+- Use features you haven't learned yet
+:::
+
+### Good AI Prompts for This Project
+
+If stuck, try these:
+```
+"I'm working on [specific part]. I've written [your code]. 
+I get this error: [error]. What concept from Chapter [X] 
+am I forgetting?"
+```
+
+```
+"My [feature] works but seems complicated. 
+Using only print(), variables, and input(), 
+how can I simplify this?"
+```
+
+## Extension Challenges (Optional)
+
+If you finish early and want more practice:
+
+1. **Easy Extension**: [Simple addition]
+2. **Medium Extension**: [Moderate addition]
+3. **Creative Extension**: [Open-ended creative addition]
+
+## Submission Checklist
+
+Before considering your project complete:
+
+- [ ] Program runs without errors
+- [ ] All requirements are met
+- [ ] You can explain every line of code
+- [ ] You've tested with different inputs
+- [ ] Code uses only concepts from completed chapters
+
+## Reflection Questions
+
+After completing this project, think about:
+
+1. What was the hardest part? Why?
+2. Which concept from the chapters was most useful?
+3. What would you do differently next time?
+4. What feature would you add if you knew more Python?
+
+## Common Mistakes to Avoid
+
+- **Mistake 1**: [Common error]
+  - Why it happens: [Explanation]
+  - How to avoid: [Solution]
+
+- **Mistake 2**: [Common error]
+  - Why it happens: [Explanation]
+  - How to avoid: [Solution]
+
+## Sample Solution
+
+::: {.callout-note collapse="true"}
+## View Solution (Try on your own first!)
+
+Here's one way to solve this project:
+
+```python
+# [Project Name]
+# [Solution code with comments explaining key decisions]
+```
+
+**Key decisions explained:**
+- [Why structured this way]
+- [Why used this approach]
+- [Alternative approaches]
+:::
+
+## Next Week
+
+Great job completing this project! Next week, you'll learn about [next concept] and build [next project type].

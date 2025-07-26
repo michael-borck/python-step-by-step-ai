@@ -1,0 +1,323 @@
+# Exercise Shortcode Templates
+
+These shortcodes make it easy to create consistent exercises throughout the book.
+
+## Basic Exercise
+
+```markdown
+::: {.exercise-container}
+::: {.exercise-level-badge .level-1-badge}
+Level 1: Trace
+:::
+
+### Exercise 1.1: Predict the Output {.exercise-title}
+
+::: {.exercise-task}
+#### Your Task
+Look at this code without running it:
+
+```python
+message = "Hello"
+name = "World"
+print(message + ", " + name + "!")
+```
+
+What will this code print?
+:::
+
+::: {.exercise-solution}
+<details>
+<summary>Show Answer</summary>
+<div class="exercise-solution-content">
+The code will print:
+```
+Hello, World!
+```
+
+**Explanation**: The code concatenates three strings together using the `+` operator.
+</div>
+</details>
+:::
+:::
+```
+
+## Exercise Set Template
+
+```markdown
+::: {.exercise-set}
+## Exercise Set 1: Understanding print() {.exercise-set-title}
+
+Practice using the print function in different ways. {.exercise-set-description}
+
+::: {.exercise-progress}
+::: {.exercise-progress-item .completed}
+::: {.exercise-progress-circle}
+1
+:::
+::: {.exercise-progress-label}
+Trace
+:::
+:::
+
+::: {.exercise-progress-item .current}
+::: {.exercise-progress-circle}
+2
+:::
+::: {.exercise-progress-label}
+Fix
+:::
+:::
+
+::: {.exercise-progress-item}
+::: {.exercise-progress-circle}
+3
+:::
+::: {.exercise-progress-label}
+Simplify
+:::
+:::
+
+::: {.exercise-progress-item}
+::: {.exercise-progress-circle}
+4
+:::
+::: {.exercise-progress-label}
+Explain
+:::
+:::
+
+::: {.exercise-progress-item}
+::: {.exercise-progress-circle}
+5
+:::
+::: {.exercise-progress-label}
+Apply
+:::
+:::
+:::
+
+[Insert individual exercises here]
+:::
+```
+
+## Level-Specific Templates
+
+### Level 1: Trace Template
+```markdown
+::: {.exercise-container}
+::: {.exercise-level-badge .level-1-badge}
+Level 1: Trace
+:::
+
+### {.exercise-title .exercise-type-trace}
+Trace Through the Code
+
+::: {.exercise-task}
+#### Your Task
+Predict what happens at each step:
+
+```python
+# Step-by-step code here
+```
+:::
+
+::: {.exercise-solution}
+<details>
+<summary>Show Step-by-Step Trace</summary>
+<div class="exercise-solution-content">
+Line 1: [explanation]
+Line 2: [explanation]
+...
+</div>
+</details>
+:::
+:::
+```
+
+### Level 2: Fix Template
+```markdown
+::: {.exercise-container}
+::: {.exercise-level-badge .level-2-badge}
+Level 2: Fix
+:::
+
+### {.exercise-title .exercise-type-fix}
+Debug the Code
+
+::: {.exercise-task}
+#### Your Task
+This code has an error. Find and fix it:
+
+```python
+# Broken code here
+```
+
+**Error message:**
+```
+# Error message here
+```
+:::
+
+::: {.exercise-hint}
+Check the [specific thing to look at]
+:::
+
+::: {.exercise-solution}
+<details>
+<summary>Show Solution</summary>
+<div class="exercise-solution-content">
+```python
+# Fixed code here
+```
+
+**What was wrong**: [Explanation]
+</div>
+</details>
+:::
+:::
+```
+
+### Level 3: Simplify Template
+```markdown
+::: {.exercise-container}
+::: {.exercise-level-badge .level-3-badge}
+Level 3: Simplify
+:::
+
+### {.exercise-title .exercise-type-simplify}
+Make It Simpler
+
+::: {.exercise-task}
+#### Your Task
+This code works but is overcomplicated. Simplify it:
+
+```python
+# Overcomplicated code here
+```
+:::
+
+::: {.exercise-solution}
+<details>
+<summary>Show Simplified Version</summary>
+<div class="exercise-solution-content">
+```python
+# Simplified code here
+```
+
+**What was removed**: [Explanation of simplifications]
+</div>
+</details>
+:::
+:::
+```
+
+### Level 4: Explain Template
+```markdown
+::: {.exercise-container}
+::: {.exercise-level-badge .level-4-badge}
+Level 4: Explain
+:::
+
+### {.exercise-title .exercise-type-explain}
+Explain in Plain English
+
+::: {.exercise-task}
+#### Your Task
+Explain this code to someone who has never programmed:
+
+```python
+# Code to explain
+```
+
+Write your explanation without using any programming terms.
+:::
+
+::: {.exercise-solution}
+<details>
+<summary>Show Sample Explanation</summary>
+<div class="exercise-solution-content">
+"This code is like [everyday analogy]. First, it [plain English explanation of first part]. Then it [explanation of second part]. Finally, it [explanation of result]."
+</div>
+</details>
+:::
+:::
+```
+
+### Level 5: Apply Template
+```markdown
+::: {.exercise-container}
+::: {.exercise-level-badge .level-5-badge}
+Level 5: Apply
+:::
+
+### {.exercise-title .exercise-type-apply}
+Create Your Own
+
+::: {.exercise-task}
+#### Your Task
+Create a program that [specific requirements].
+
+::: {.exercise-requirements}
+- Must use [concept 1]
+- Must include [concept 2]  
+- Should [behavior]
+- Cannot use [not-yet-learned concept]
+:::
+:::
+
+::: {.exercise-solution}
+<details>
+<summary>Show Sample Solution</summary>
+<div class="exercise-solution-content">
+```python
+# One possible solution
+```
+
+Note: Many correct solutions exist! The key is that it meets all requirements.
+</div>
+</details>
+:::
+:::
+```
+
+## Special Exercise Types
+
+### Code Comparison Exercise
+```markdown
+::: {.code-comparison}
+::: {.code-comparison-bad}
+```python
+# Don't do this
+```
+:::
+
+::: {.code-comparison-good}
+```python
+# Do this instead
+```
+:::
+:::
+```
+
+### Interactive Code Exercise
+```markdown
+::: {.code-with-output}
+```python {.sourceCode .interactive-code}
+# Interactive code here
+print("Hello, World!")
+```
+
+::: {.code-output}
+Hello, World!
+:::
+:::
+```
+
+### Traced Code Exercise
+```markdown
+```python {.traced-code}
+name = "Alice"      # Step 1
+age = 25            # Step 2  
+print(f"{name} is {age} years old")  # Step 3
+```
+```

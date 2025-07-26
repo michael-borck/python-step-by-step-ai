@@ -1,0 +1,213 @@
+/*-- scss:defaults --*/
+
+// Dark theme colors
+$primary: #4dabf7;
+$secondary: #868e96;
+$success: #51cf66;
+$info: #339af0;
+$warning: #ffd43b;
+$danger: #ff6b6b;
+
+// Dark backgrounds
+$body-bg: #1a1a1a;
+$body-color: #e9ecef;
+$code-bg: #2d2d2d;
+$code-color: #f8f9fa;
+
+/*-- scss:rules --*/
+
+// Dark theme specific overrides
+body {
+  background-color: $body-bg;
+  color: $body-color;
+}
+
+// Headings
+h1 {
+  color: $primary;
+  border-bottom-color: $primary;
+}
+
+h2 {
+  color: lighten($primary, 10%);
+}
+
+h3 {
+  color: lighten($primary, 15%);
+}
+
+// Code blocks
+pre {
+  background-color: $code-bg;
+  border-color: #495057;
+  
+  code {
+    color: $code-color;
+  }
+}
+
+// Inline code
+code:not(pre code) {
+  background-color: lighten($code-bg, 5%);
+  color: #ff79c6;
+}
+
+// Callout boxes - dark variants
+.callout {
+  background-color: rgba(255, 255, 255, 0.05);
+  
+  &.callout-note {
+    border-left-color: $info;
+    background-color: rgba(51, 154, 240, 0.1);
+  }
+  
+  &.callout-tip {
+    border-left-color: $success;
+    background-color: rgba(81, 207, 102, 0.1);
+  }
+  
+  &.callout-important {
+    border-left-color: $danger;
+    background-color: rgba(255, 107, 107, 0.1);
+  }
+  
+  &.callout-warning {
+    border-left-color: $warning;
+    background-color: rgba(255, 212, 59, 0.1);
+  }
+}
+
+// Details/Summary elements
+details {
+  background-color: lighten($body-bg, 5%);
+  border-color: #495057;
+  
+  summary {
+    background-color: lighten($body-bg, 8%);
+    
+    &:hover {
+      background-color: lighten($body-bg, 10%);
+    }
+  }
+}
+
+// AI prompt boxes
+.ai-prompt {
+  background-color: rgba(33, 150, 243, 0.1);
+  border-left-color: $info;
+  
+  &::before {
+    background-color: $body-bg;
+    color: $info;
+  }
+  
+  .copy-prompt-btn {
+    background-color: $info;
+    
+    &:hover {
+      background-color: darken($info, 10%);
+    }
+  }
+}
+
+// Three Rules box
+.three-rules {
+  background-color: rgba(255, 212, 59, 0.1);
+  border-color: $warning;
+  
+  h3 {
+    color: $warning;
+  }
+}
+
+// Reflection checkboxes
+.reflection-list {
+  li:hover {
+    background-color: lighten($body-bg, 5%);
+  }
+}
+
+// Links
+a {
+  color: $primary;
+  
+  &:hover {
+    color: lighten($primary, 10%);
+  }
+}
+
+// Tables
+table {
+  color: $body-color;
+  
+  th {
+    background-color: lighten($body-bg, 10%);
+    border-color: #495057;
+  }
+  
+  td {
+    border-color: #495057;
+  }
+  
+  tbody tr:hover {
+    background-color: lighten($body-bg, 5%);
+  }
+}
+
+// Chapter progress indicator
+.chapter-progress {
+  background-color: lighten($body-bg, 10%);
+  border-color: $primary;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+// Search
+.aa-Autocomplete {
+  .aa-Form {
+    background-color: lighten($body-bg, 10%);
+    border-color: #495057;
+  }
+  
+  .aa-Input {
+    color: $body-color;
+  }
+  
+  .aa-Panel {
+    background-color: lighten($body-bg, 10%);
+    border-color: #495057;
+  }
+}
+
+// Sidebar
+.sidebar {
+  background-color: lighten($body-bg, 5%);
+  border-right-color: #495057;
+  
+  .sidebar-item {
+    &:hover {
+      background-color: lighten($body-bg, 10%);
+    }
+    
+    &.active {
+      background-color: rgba($primary, 0.2);
+    }
+  }
+}
+
+// Navigation
+.navbar {
+  background-color: lighten($body-bg, 8%) !important;
+  border-bottom: 1px solid #495057;
+  
+  .navbar-brand {
+    color: $body-color !important;
+  }
+  
+  .navbar-nav .nav-link {
+    color: rgba($body-color, 0.8) !important;
+    
+    &:hover {
+      color: $body-color !important;
+    }
+  }
+}

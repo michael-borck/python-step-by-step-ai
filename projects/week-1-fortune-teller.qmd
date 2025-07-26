@@ -1,0 +1,50 @@
+# Week 1 Project: Fortune Teller {#sec-project-fortune-teller}
+
+::: {.callout-important}
+## Before You Start
+Make sure you've completed:
+- Chapter 1: Hello, Python!
+- Chapter 2: Variables
+- Chapter 3: Input
+:::
+
+## Project Overview
+
+Create a simple fortune teller program that asks for the user's name and gives them a personalized fortune.
+
+## Requirements
+
+Your program should:
+1. Display a welcome message
+2. Ask for the user's name
+3. Display a personalized fortune using their name
+
+## Starter Code
+
+```python
+# Fortune Teller Program
+# Your code here
+```
+
+## Sample Output
+
+```
+Welcome to the Fortune Teller!
+What is your name? Alice
+Alice, your fortune is: Great things await you this week!
+```
+
+::: {.callout-tip}
+## AI Usage Guidelines
+- You may ask AI to explain concepts you don't understand
+- Do NOT ask AI to write the entire program
+- If you get stuck, ask AI for hints, not solutions
+:::
+
+## Reflection
+
+After completing this project:
+- [ ] Your program runs without errors
+- [ ] It uses print() statements effectively
+- [ ] It stores the user's name in a variable
+- [ ] It displays a personalized message

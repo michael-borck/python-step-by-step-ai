@@ -1,0 +1,262 @@
+# Week [X] Project: [Project Name] {#sec-project-[slug]}
+
+::: {.callout-important}
+## Before You Start
+Make sure you've completed:
+- Chapter [X]: [Concept Name]
+- [Previous relevant chapters]
+
+You should understand:
+- [Concept 1]
+- [Concept 2]
+- [Concept 3]
+:::
+
+## Project Overview
+
+[Brief, exciting description of what they'll build and why it connects to real-world use]
+
+## The Problem to Solve
+
+[Present this as a real scenario, not just an exercise. Make it relatable.]
+
+## Architect Your Solution First
+
+Before writing any code or consulting AI, design your solution:
+
+### 1. Understand the Problem
+- What are the inputs?
+- What processing is needed?
+- What are the outputs?
+- What are the edge cases?
+
+### 2. Design Your Approach
+
+Create a design document that includes:
+- [ ] Input/Output specification
+- [ ] Process flow (diagram or steps)
+- [ ] Data organization plan
+- [ ] User interaction flow
+
+### 3. Identify Patterns
+
+Which programming patterns will you use?
+- [ ] Input → Process → Output
+- [ ] [Other patterns from previous chapters]
+- [ ] [Patterns specific to this problem]
+
+## Implementation Strategy
+
+### Phase 1: Core Functionality
+
+Start with the absolute minimum:
+1. [First essential feature]
+2. [Second essential feature]
+3. [Third essential feature]
+
+### Phase 2: Enhancement
+
+Once core works:
+1. [Enhancement 1]
+2. [Enhancement 2]
+
+### Phase 3: Polish
+
+If time allows:
+1. [Polish feature 1]
+2. [Polish feature 2]
+
+## AI Partnership Guidelines
+
+### Effective Prompts for This Project
+
+✅ **Good Learning Prompts**:
+```
+"I'm building a [project]. I've designed it to [your design]. 
+Show me how to implement [specific part] in the simplest way."
+```
+
+```
+"My [feature] works but seems complex. Here's my code: [code].
+How can I simplify this while keeping the same functionality?"
+```
+
+```
+"I'm getting this error: [error] when [doing what].
+Explain what's happening and how to fix it."
+```
+
+❌ **Avoid These Prompts**:
+- "Write a [entire project] for me"
+- "Make this code production-ready"
+- "Add all possible features"
+
+### AI Learning Progression
+
+1. **Design Phase**: Use AI to validate your approach
+   ```
+   "I'm planning to solve [problem] by [approach]. 
+   What am I missing or what should I consider?"
+   ```
+
+2. **Implementation Phase**: Use AI for specific components
+   ```
+   "I need to implement [specific feature]. 
+   What's the simplest approach using only [concepts I know]?"
+   ```
+
+3. **Debug Phase**: Use AI to understand errors
+   ```
+   "This error occurs when [condition]: [error].
+   Help me understand why and how to fix it."
+   ```
+
+4. **Refine Phase**: Use AI to simplify
+   ```
+   "This works but feels complicated: [code].
+   How can I make it clearer?"
+   ```
+
+## Requirements Specification
+
+### Functional Requirements
+
+Your program must:
+1. **[Feature 1]**
+   - Input: [specification]
+   - Process: [specification]
+   - Output: [specification]
+
+2. **[Feature 2]**
+   - [Detailed specification]
+
+3. **[Feature 3]**
+   - [Detailed specification]
+
+### Learning Requirements
+
+Your implementation should:
+- [ ] Use only concepts covered so far
+- [ ] Be as simple as possible
+- [ ] Include comments explaining your logic
+- [ ] Handle basic edge cases
+- [ ] Follow the patterns we've learned
+
+## Sample Interaction
+
+Here's how your program should work:
+
+```
+[Example interaction showing all features]
+[User types something]
+[Program responds]
+[Continue until demonstration is complete]
+```
+
+## Development Approach
+
+### Step 1: Start with Pseudocode
+
+Write your logic in plain English:
+```
+1. Get [input] from user
+2. Check if [condition]
+3. If yes, [action]
+4. If no, [other action]
+5. Show [output]
+```
+
+### Step 2: Implement One Feature at a Time
+
+Don't try to build everything at once:
+1. Make [feature 1] work
+2. Test it thoroughly
+3. Only then add [feature 2]
+4. Repeat
+
+### Step 3: Test Your Edge Cases
+
+What happens when:
+- [ ] User enters unexpected input?
+- [ ] [Specific edge case 1]?
+- [ ] [Specific edge case 2]?
+
+## Debugging Strategy
+
+When something doesn't work:
+
+1. **Identify**: What exactly isn't working?
+2. **Isolate**: Can you make a simpler version that shows the problem?
+3. **Understand**: Ask AI to explain the error, not just fix it
+4. **Fix**: Apply the understanding to solve it
+5. **Learn**: What pattern will help avoid this in the future?
+
+## Reflection Questions
+
+After completing the project:
+
+1. **Design Reflection**
+   - How did your final code differ from your initial design?
+   - What assumptions did you make that were wrong?
+   - What would you design differently next time?
+
+2. **AI Partnership Reflection**
+   - Which prompts gave you the most helpful responses?
+   - When did AI overcomplicate things?
+   - How did you simplify AI's suggestions?
+
+3. **Learning Reflection**
+   - What concept was most useful for this project?
+   - What new pattern did you discover?
+   - What would you want to learn next to improve this project?
+
+## Extension Challenges
+
+If you finish early:
+
+### Challenge 1: Simplification
+Can you make your code even simpler without losing functionality?
+
+### Challenge 2: User Experience
+Can you make the program more user-friendly without adding complexity?
+
+### Challenge 3: New Feature
+Can you add [specific feature] using only concepts you know?
+
+## Submission Checklist
+
+Before considering your project complete:
+
+- [ ] **Functionality**: All requirements work correctly
+- [ ] **Simplicity**: Code is as simple as possible
+- [ ] **Understanding**: You can explain every line
+- [ ] **Design**: Your initial design document is included
+- [ ] **Reflection**: You've answered the reflection questions
+- [ ] **Testing**: You've tested edge cases
+
+## Common Pitfalls and How to Avoid Them
+
+### Pitfall 1: Starting with AI
+**Problem**: Asking AI for the complete solution first
+**Solution**: Design first, implement second, use AI third
+
+### Pitfall 2: Feature Creep
+**Problem**: Adding features because AI makes it easy
+**Solution**: Stick to requirements, simplicity wins
+
+### Pitfall 3: Complexity Acceptance
+**Problem**: Accepting AI's complex solution because it works
+**Solution**: Always push for simpler, even if it takes more prompts
+
+## Project Learning Outcomes
+
+By completing this project, you've learned:
+- How to architect a solution before coding
+- How to guide AI as an implementation assistant
+- How to simplify complex solutions
+- How to debug systematically
+- How [specific concepts] work in practice
+
+## Next Week Preview
+
+Great job! Next week we'll explore [next concept], which will let you [what it enables]. Think about how you might extend this project with that new capability.

@@ -1,0 +1,75 @@
+# Git attributes for Python Step by Step book project
+
+# Auto detect text files and perform LF normalization
+* text=auto
+
+# Explicitly declare text files
+*.qmd text
+*.md text
+*.yml text
+*.yaml text
+*.json text
+*.txt text
+*.py text
+*.R text
+*.r text
+*.css text
+*.scss text
+*.js text
+*.html text
+*.xml text
+*.svg text
+*.bib text
+*.csl text
+*.lua text
+
+# Declare files that will always have CRLF line endings on checkout
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# Declare files that will always have LF line endings on checkout
+*.sh text eol=lf
+.gitattributes text eol=lf
+.gitignore text eol=lf
+Makefile text eol=lf
+
+# Binary files
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.pdf binary
+*.epub binary
+*.zip binary
+*.gz binary
+*.7z binary
+*.ttf binary
+*.otf binary
+*.woff binary
+*.woff2 binary
+*.eot binary
+
+# Diff settings
+*.qmd diff=markdown
+*.md diff=markdown
+
+# Language statistics
+# Vendor files - don't count towards language stats
+chicago-author-date.csl linguist-vendored
+assets/fonts/* linguist-vendored
+_extensions/*/template.qmd linguist-vendored
+
+# Documentation
+*.md linguist-documentation
+README.md linguist-documentation=false
+
+# Generated files
+_book/* linguist-generated
+_site/* linguist-generated
+*.html linguist-generated
+*.pdf linguist-generated
+
+# Configure merge drivers
+*.qmd merge=union
+CLAUDE.md merge=union

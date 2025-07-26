@@ -1,0 +1,141 @@
+project:
+  type: book
+  output-dir: _book
+  
+# Define profiles for different output formats
+profiles:
+  default:
+    - format: html
+  pdf:
+    - _quarto-pdf.yml
+  html:
+    - _quarto-html.yml
+  epub:
+    - _quarto-epub.yml
+
+book:
+  title: "Python Step by Step: Learning with AI"
+  subtitle: "Master Python by Learning How to Think With AI"
+  author: "Norah Jones"
+  date: "24/07/2025"
+  description: "A revolutionary approach to learning Python by partnering with AI to build mental models, understand concepts, and architect solutions."
+  cover-image: cover.png
+  site-url: https://pythonstepbystep.ai
+  repo-url: https://github.com/pythonstepbystep/book
+  repo-branch: main
+  repo-actions: [edit, issue]
+  
+  chapters:
+    - index.qmd
+    - part: "Part 0: Your AI Learning Partnership"
+      chapters:
+        - chapter-0-understanding-ai-partner.qmd
+    - part: "Part I: Computational Thinking (Weeks 1-4)"
+      chapters:
+        - chapter-1-input-process-output.qmd
+        - chapter-2-storing-information.qmd
+        - chapter-3-making-decisions.qmd
+        - chapter-4-repetition-patterns.qmd
+        - projects/week-1-temperature-converter.qmd
+        - projects/week-2-grade-calculator.qmd
+        - projects/week-3-shopping-list.qmd
+        - projects/week-4-word-game.qmd
+    - part: "Part II: Building Systems (Weeks 5-8)"
+      chapters:
+        - chapter-5-breaking-problems-apart.qmd
+        - chapter-6-organizing-complex-data.qmd
+        - chapter-7-programs-that-remember.qmd
+        - chapter-8-putting-it-together.qmd
+        - projects/week-5-calculator-functions.qmd
+        - projects/week-6-contact-book.qmd
+        - projects/week-7-note-taking-app.qmd
+        - projects/week-8-quiz-game-files.qmd
+    - part: "Part III: Real-World Programming (Weeks 9-12)"
+      chapters:
+        - chapter-9-working-with-data.qmd
+        - chapter-10-connected-programs.qmd
+        - chapter-11-interactive-systems.qmd
+        - chapter-12-becoming-architect.qmd
+        - projects/week-9-grade-analysis.qmd
+        - projects/week-10-weather-app.qmd
+        - projects/week-11-text-adventure.qmd
+        - projects/week-12-todo-gui.qmd
+    - part: "Part IV: Your Journey Forward"
+      chapters:
+        - chapter-13-next-steps.qmd
+    - summary.qmd
+    - references.qmd
+  
+  page-navigation: true
+  sidebar:
+    style: docked
+    search: true
+    collapse-level: 2
+    tools:
+      - icon: github
+        href: https://github.com/pythonstepbystep/book
+      - icon: chat-dots
+        text: AI Templates
+        href: resources/ai-templates.html
+
+bibliography: references.bib
+csl: chicago-author-date.csl
+
+format:
+  html:
+    theme: 
+      light: cosmo
+      dark: darkly
+    css: assets/custom.css
+    code-fold: false
+    code-tools: true
+    code-copy: hover
+    code-overflow: wrap
+    toc: true
+    toc-depth: 3
+    toc-expand: 2
+    number-sections: true
+    number-depth: 2
+    highlight-style: github
+    mainfont: "Source Sans Pro"
+    monofont: "Source Code Pro"
+    include-in-header:
+      - text: |
+          <script>
+          // Custom JavaScript for interactive elements
+          </script>
+    
+  pdf:
+    documentclass: scrreprt
+    classoption: [oneside]
+    papersize: letter
+    margin-left: 1in
+    margin-right: 1in
+    margin-top: 1in
+    margin-bottom: 1in
+    toc: true
+    toc-depth: 3
+    number-sections: true
+    number-depth: 2
+    highlight-style: github
+    monofont: "Source Code Pro"
+    mainfont: "Source Sans Pro"
+    pdf-engine: xelatex
+    keep-tex: false
+
+crossref:
+  chapters: true
+  fig-title: "Figure"
+  tbl-title: "Table"
+  
+execute:
+  echo: true
+  warning: false
+  error: false
+  cache: false
+
+filters:
+  - _extensions/details/details.lua
+
+
+

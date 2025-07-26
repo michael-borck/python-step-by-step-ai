@@ -1,0 +1,27 @@
+# <type>: <subject> (Max 50 chars)
+
+# <body> (Optional, wrap at 72 chars)
+
+# <footer> (Optional)
+
+# Type can be:
+#   feat     - New feature
+#   fix      - Bug fix
+#   docs     - Documentation changes
+#   style    - Formatting, missing semicolons, etc
+#   refactor - Code restructuring without changing behavior
+#   content  - Chapter or exercise content changes
+#   chore    - Maintenance tasks
+#   test     - Adding or modifying tests
+
+# Example:
+# content: Add Chapter 2 on variables
+#
+# - Created chapter-2-variables.qmd
+# - Added 5-level exercise progression
+# - Included common AI overcomplication example
+
+# Remember:
+# - Use present tense ("Add" not "Added")
+# - Capitalize first letter
+# - No period at the end of subject line

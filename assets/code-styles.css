@@ -1,0 +1,207 @@
+/* Enhanced Code Block Styling for Python Step by Step */
+
+/* Base code block styling */
+.sourceCode {
+  position: relative;
+  margin: 1.5rem 0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Python-specific syntax highlighting */
+.sourceCode.python {
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+}
+
+/* Line numbers */
+.sourceCode pre.numberSource {
+  padding-left: 3em;
+  border-left: 1px solid #ddd;
+}
+
+.sourceCode pre.numberSource code > span > a:first-child::before {
+  content: attr(title);
+  position: absolute;
+  left: -2.5em;
+  text-align: right;
+  width: 2em;
+  color: #999;
+  font-size: 0.9em;
+}
+
+/* Code annotations */
+.code-annotation-arrow {
+  color: #dc3545;
+  font-weight: bold;
+  font-family: monospace;
+}
+
+.code-annotation-text {
+  color: #6c757d;
+  font-style: italic;
+  font-size: 0.9em;
+  display: block;
+  margin-top: 0.5rem;
+  padding-left: 2rem;
+}
+
+/* Highlighted lines */
+.sourceCode .highlight-line {
+  background-color: #fff3cd;
+  display: block;
+  margin-right: -1em;
+  margin-left: -1em;
+  padding-right: 1em;
+  padding-left: 0.75em;
+  border-left: 0.25em solid #ffc107;
+}
+
+/* Code output blocks */
+.code-output {
+  background-color: #2d2d2d;
+  color: #f8f9fa;
+  padding: 1rem;
+  margin: 0;
+  border-radius: 0 0 8px 8px;
+  font-family: "Source Code Pro", monospace;
+  font-size: 0.9em;
+  line-height: 1.4;
+}
+
+.code-with-output .sourceCode {
+  margin-bottom: 0;
+  border-radius: 8px 8px 0 0;
+}
+
+/* Interactive code indicators */
+.interactive-code {
+  position: relative;
+}
+
+.interactive-code::before {
+  content: "▶ Try this code";
+  position: absolute;
+  top: -1.5rem;
+  right: 0;
+  background-color: #28a745;
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px 4px 0 0;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+/* Error message styling */
+.error-message {
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  border-radius: 6px;
+  color: #721c24;
+  padding: 1rem;
+  margin: 1rem 0;
+  font-family: "Source Code Pro", monospace;
+  font-size: 0.9em;
+}
+
+.error-message::before {
+  content: "⚠️ Error: ";
+  font-weight: bold;
+}
+
+/* Code comparison blocks */
+.code-comparison {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.code-comparison .sourceCode {
+  margin: 0;
+}
+
+.code-comparison-bad {
+  position: relative;
+}
+
+.code-comparison-bad::before {
+  content: "❌ Don't do this";
+  position: absolute;
+  top: -1.5rem;
+  left: 0;
+  color: #dc3545;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.code-comparison-good {
+  position: relative;
+}
+
+.code-comparison-good::before {
+  content: "✅ Do this instead";
+  position: absolute;
+  top: -1.5rem;
+  left: 0;
+  color: #28a745;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .code-comparison {
+    grid-template-columns: 1fr;
+  }
+  
+  .sourceCode {
+    font-size: 0.8em;
+  }
+}
+
+/* Print styles */
+@media print {
+  .sourceCode {
+    background-color: #f8f9fa !important;
+    border: 1px solid #000 !important;
+    page-break-inside: avoid;
+  }
+  
+  .code-output {
+    background-color: #f0f0f0 !important;
+    color: #000 !important;
+    border: 1px solid #000;
+  }
+}
+
+/* Syntax highlighting token styles */
+.sourceCode .kw { color: #007020; font-weight: bold; } /* Keyword */
+.sourceCode .dt { color: #902000; } /* DataType */
+.sourceCode .dv { color: #40a070; } /* DecVal */
+.sourceCode .bn { color: #40a070; } /* BaseN */
+.sourceCode .fl { color: #40a070; } /* Float */
+.sourceCode .ch { color: #4070a0; } /* Char */
+.sourceCode .st { color: #4070a0; } /* String */
+.sourceCode .co { color: #60a0b0; font-style: italic; } /* Comment */
+.sourceCode .ot { color: #007020; } /* Other */
+.sourceCode .al { color: #ff0000; font-weight: bold; } /* Alert */
+.sourceCode .fu { color: #06287e; } /* Function */
+.sourceCode .er { color: #ff0000; font-weight: bold; } /* Error */
+.sourceCode .wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+.sourceCode .cn { color: #880000; } /* Constant */
+.sourceCode .sc { color: #4070a0; } /* SpecialChar */
+.sourceCode .vs { color: #4070a0; } /* VerbatimString */
+.sourceCode .ss { color: #bb6688; } /* SpecialString */
+.sourceCode .im { } /* Import */
+.sourceCode .va { color: #19177c; } /* Variable */
+.sourceCode .cf { color: #007020; font-weight: bold; } /* ControlFlow */
+.sourceCode .op { color: #666666; } /* Operator */
+.sourceCode .bu { } /* BuiltIn */
+.sourceCode .ex { } /* Extension */
+.sourceCode .pp { color: #bc7a00; } /* Preprocessor */
+.sourceCode .at { color: #7d9029; } /* Attribute */
+.sourceCode .do { color: #ba2121; font-style: italic; } /* Documentation */
+.sourceCode .an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+.sourceCode .cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+.sourceCode .in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */

@@ -1,0 +1,172 @@
+# [Chapter Title]: [Concept Name] {#sec-[chapter-slug]}
+
+## The Concept First
+
+[Introduce the concept without any code. Use real-world analogies and examples. Make it clear why this concept matters in programming.]
+
+## Understanding Through Real Life
+
+[Provide 2-3 concrete, relatable examples from everyday life that demonstrate the concept. Show the pattern that connects them.]
+
+## Discovering [Concept] with Your AI Partner
+
+Let's explore this concept with AI. Remember, AI is excellent at showing patterns and variations.
+
+### Exploration 1: [Finding the Pattern]
+
+Ask your AI:
+```
+[Initial exploration prompt that reveals the concept]
+```
+
+[Guide student through what they should notice in AI's response]
+
+### Exploration 2: [Deepening Understanding]
+
+Now ask:
+```
+[More specific prompt that deepens understanding]
+```
+
+[Analysis of what this reveals]
+
+## From Concept to Code
+
+Now let's see how Python expresses this concept.
+
+### The Simplest Expression
+
+Ask your AI:
+```
+[Prompt for simplest possible code example]
+```
+
+[Show expected simple result and explain why it's simple]
+
+## Mental Model Building
+
+[Visual or conceptual model that helps students understand how this concept works. Use diagrams, analogies, or step-by-step breakdowns.]
+
+## Prompt Evolution Exercise
+
+This is how we refine our communication with AI:
+
+### Round 1: Too Vague
+```
+[Vague prompt]
+```
+[What goes wrong]
+
+### Round 2: More Specific
+```
+[Better prompt]
+```
+[How it improves]
+
+### Round 3: Learning-Focused
+```
+[Learning-oriented prompt]
+```
+[Why this works best]
+
+### Round 4: Concept Reinforcement
+```
+[Prompt that reinforces understanding]
+```
+
+## Common AI Complications
+
+When you ask AI about [concept], it often gives you:
+
+```python
+# Overly complex example
+```
+
+[Explain why AI tends to overcomplicate this concept]
+
+## The Learning Approach
+
+Instead, we build understanding step by step:
+
+### Level 1: See the Pattern
+```python
+# Simplest example with pattern visible
+```
+
+### Level 2: Understand Each Part
+[Break down each component]
+
+### Level 3: Trace It
+[Step-by-step trace through execution]
+
+## New Exercise Types
+
+### Exercise X.1: Concept Recognition
+[Exercise that tests pattern recognition without coding]
+
+### Exercise X.2: Prompt Engineering
+[Exercise focused on evolving prompts to get better AI responses]
+
+### Exercise X.3: Pattern Matching
+[Exercise identifying the concept in complex code]
+
+### Exercise X.4: Build a Model
+[Exercise creating mental models or diagrams]
+
+### Exercise X.5: Architect First
+[Exercise where student designs solution before any coding]
+
+## AI Partnership Patterns
+
+### Pattern 1: [Specific pattern for this concept]
+[How to use AI effectively for this topic]
+
+### Pattern 2: [Another pattern]
+[Another effective AI interaction]
+
+### Pattern 3: [Third pattern]
+[Final AI partnership technique]
+
+## Common Misconceptions
+
+### "[Misconception 1]"
+[Why it's wrong and the correct understanding]
+
+### "[Misconception 2]"
+[Correction and explanation]
+
+### "[Misconception 3]"
+[Truth behind the misconception]
+
+## Chapter Summary
+
+- [Key concept understanding]
+- [How AI helps learn this concept]
+- [Mental model takeaway]
+- [Connection to larger programming picture]
+- [What makes you an architect vs coder]
+
+## Reflection
+
+Before moving to Chapter [X+1], check that you:
+
+- [ ] Understand [concept] as a pattern, not just syntax
+- [ ] Can recognize [concept] in real-world scenarios
+- [ ] Practiced prompt evolution for [concept]
+- [ ] Built a mental model of how [concept] works
+- [ ] Can architect a solution using [concept] before coding
+
+## Your Learning Journal
+
+For this chapter, write:
+1. [Specific reflection prompt 1]
+2. [Specific reflection prompt 2]
+3. [Specific reflection prompt 3]
+4. [Specific reflection prompt 4]
+
+## AI Learning Progression
+
+You've now learned to:
+- [Skill gained in this chapter]
+- [How it builds on previous chapters]
+- [What it enables in future chapters]

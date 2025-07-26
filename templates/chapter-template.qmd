@@ -1,0 +1,239 @@
+# [Chapter Title]: [Concept Name] {#sec-[chapter-slug]}
+
+[Opening paragraph that connects to the student's current experience and explains why this concept matters in the age of AI.]
+
+## Your First Reality Check
+
+Before we start, let's try something. Open your AI assistant (ChatGPT, Claude, or whatever you're using) and type this prompt:
+
+```
+[AI prompt that will generate overly complex code]
+```
+
+The AI might give you something like this:
+
+```python
+# [Complex AI-generated code example]
+# This will be much more complicated than necessary
+```
+
+[Analysis of what the AI created and why it's overwhelming for beginners]
+
+Now try to change it. [Specific modification request]. Not sure where to start? That's the problem. The AI gave you a Ferrari, but you need to learn to walk first.
+
+## The Simplest [Concept]
+
+Let's start over. The simplest way to [do the core task] is:
+
+```python
+# Simple, clear example
+# One concept at a time
+```
+
+That's it. [Brief statement about simplicity]. When you run this code, Python [explains what happens]:
+
+```
+[Expected output]
+```
+
+Let's understand every single character:
+
+### [Component 1]
+
+```python
+# Code with annotation arrows
+#    ^
+#    explanation
+```
+
+[Detailed explanation of component 1]
+
+### [Component 2]
+
+[Continue pattern for each component]
+
+## Common AI Overcomplication #1
+
+Ask AI to "[common request]" and it might give you:
+
+```python
+# Overly complex AI version
+```
+
+But all you really need is:
+
+```python
+# Simple version
+```
+
+## The Simplification Game
+
+Let's play a game with your AI. Copy this prompt exactly:
+
+```
+I'm a complete beginner learning [concept]. 
+Here's what I know so far: [list from previous chapters]
+Please simplify this code to use ONLY what I know:
+
+[paste complex code here]
+```
+
+Keep asking it to simplify until the code makes sense to you.
+
+## Common Mistakes
+
+### Mistake 1: [Specific mistake]
+
+```python
+# Wrong way
+```
+
+**Error message:**
+```
+[Actual Python error]
+```
+
+**Fix:**
+```python
+# Right way
+```
+
+### Mistake 2: [Another mistake]
+
+[Continue pattern]
+
+## Your Learning Prompt
+
+When you're stuck, use this template with your AI:
+
+```
+I'm learning [concept] in Python.
+I understand: [what you know]
+I'm confused about: [specific question]
+Can you explain using ONLY these concepts: [list]
+```
+
+## Exercises
+
+### Level 1: Trace (Understand the Flow)
+
+Look at this code without running it:
+
+```python
+# Simple code to trace
+```
+
+**Your task:** Write down what you think will happen, step by step.
+
+<details>
+<summary>Answer</summary>
+[Step-by-step trace]
+</details>
+
+### Level 2: Fix (Debug the Broken)
+
+This code has an error:
+
+```python
+# Broken code
+```
+
+**Your task:** Find and fix the error.
+
+<details>
+<summary>Hint</summary>
+[Helpful hint without giving away answer]
+</details>
+
+<details>
+<summary>Answer</summary>
+```python
+# Fixed code
+```
+[Explanation of the fix]
+</details>
+
+### Level 3: Simplify (Make It Cleaner)
+
+Here's working but overcomplicated code:
+
+```python
+# Complex working code
+```
+
+**Your task:** Simplify it using only what you've learned.
+
+<details>
+<summary>Answer</summary>
+```python
+# Simplified version
+```
+</details>
+
+### Level 4: Explain (Teach It Back)
+
+```python
+# Code to explain
+```
+
+**Your task:** Explain this code to someone who has never programmed before. Use plain English, no jargon.
+
+<details>
+<summary>Sample Explanation</summary>
+[Clear, jargon-free explanation]
+</details>
+
+### Level 5: Apply (Use Your Knowledge)
+
+**Your task:** Create a program that [specific task using the concept].
+
+Requirements:
+- [Requirement 1]
+- [Requirement 2]
+- [Requirement 3]
+
+<details>
+<summary>Sample Solution</summary>
+```python
+# One possible solution
+```
+</details>
+
+## Fun Challenge (Optional)
+
+[Creative exercise that combines the concept with something fun]
+
+## Chapter Summary
+
+- [Key point 1 - the most essential thing]
+- [Key point 2]
+- [Key point 3]
+- [Key point 4]
+
+## Reflection
+
+Before moving to Chapter [X], check that you:
+
+- [ ] Can [core skill 1] from memory
+- [ ] Understand [key concept]
+- [ ] Successfully completed all five exercise levels
+- [ ] Can explain [concept] to someone else
+
+## Common Questions
+
+**Q: [Frequent beginner question]**
+A: [Clear, simple answer]
+
+**Q: [Another common question]**
+A: [Answer]
+
+::: {.callout-tip}
+## Remember the Three Rules
+1. No copy-paste without understanding
+2. Simple before complex
+3. One new thing at a time
+:::
+
+## Next Step
+
+In the next chapter, you'll learn [preview of next concept and how it builds on this one].

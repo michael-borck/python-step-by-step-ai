@@ -1,0 +1,199 @@
+# Exercise Template Guide
+
+This template shows the 5-level exercise progression system used throughout the book.
+
+## Level 1: Trace (Understand the Flow)
+
+**Purpose**: Build mental models by predicting what code will do without running it.
+
+**Format**:
+```markdown
+Look at this code without running it:
+
+\```python
+# Code to trace
+\```
+
+**Your task:** Write down what you think will happen, step by step.
+
+<details>
+<summary>Answer</summary>
+[Step-by-step trace with line numbers]
+</details>
+```
+
+**Example Types**:
+- Variable value tracking
+- Print statement output prediction  
+- Flow of execution
+- Order of operations
+
+## Level 2: Fix (Debug the Broken)
+
+**Purpose**: Develop debugging skills and error recognition.
+
+**Format**:
+```markdown
+This code has an error:
+
+\```python
+# Broken code
+\```
+
+**Your task:** Find and fix the error.
+
+<details>
+<summary>Hint</summary>
+[Helpful hint without giving away answer]
+</details>
+
+<details>
+<summary>Answer</summary>
+\```python
+# Fixed code
+\```
+[Explanation of what was wrong and why]
+</details>
+```
+
+**Common Error Types**:
+- Syntax errors (quotes, parentheses, colons)
+- Name errors (typos, case sensitivity)
+- Type errors (string vs number)
+- Logic errors (wrong operator, wrong order)
+
+## Level 3: Simplify (Make It Cleaner)
+
+**Purpose**: Recognize overcomplicated code and practice simplification.
+
+**Format**:
+```markdown
+Here's working but overcomplicated code:
+
+\```python
+# Complex working code (often AI-generated style)
+\```
+
+**Your task:** Simplify it using only what you've learned.
+
+<details>
+<summary>Answer</summary>
+\```python
+# Simplified version
+\```
+[Explanation of what was removed and why]
+</details>
+```
+
+**Simplification Patterns**:
+- Remove unnecessary variables
+- Eliminate redundant operations
+- Use direct approaches
+- Remove advanced features not yet learned
+
+## Level 4: Explain (Teach It Back)
+
+**Purpose**: Verify understanding through clear explanation.
+
+**Format**:
+```markdown
+\```python
+# Code to explain
+\```
+
+**Your task:** Explain this code to someone who has never programmed before. Use plain English, no jargon.
+
+<details>
+<summary>Sample Explanation</summary>
+[Clear, jargon-free explanation that a non-programmer would understand]
+</details>
+```
+
+**Good Explanation Includes**:
+- What the program does overall
+- What each line accomplishes
+- Why it's written this way
+- Real-world analogy if helpful
+
+## Level 5: Apply (Use Your Knowledge)
+
+**Purpose**: Creative application of learned concepts.
+
+**Format**:
+```markdown
+**Your task:** Create a program that [specific goal].
+
+Requirements:
+- Must use [concept 1]
+- Must include [concept 2]
+- Should [behavior requirement]
+- Cannot use [advanced concept not yet learned]
+
+<details>
+<summary>Sample Solution</summary>
+\```python
+# One possible solution with comments
+\```
+Note: Many correct solutions exist!
+</details>
+```
+
+**Application Types**:
+- Combine multiple concepts
+- Solve a mini real-world problem
+- Create something personally meaningful
+- Modify/extend previous examples
+
+## Exercise Difficulty Progression
+
+### Within Each Chapter:
+1. **First Exercise Set**: Very basic, almost trivial
+2. **Middle Exercise Sets**: Gradual complexity increase
+3. **Final Exercise Set**: Combines all chapter concepts
+
+### Across Chapters:
+- Early chapters: Focus on single concepts
+- Middle chapters: Combine 2-3 concepts
+- Later chapters: Integrate many concepts
+
+## Writing Good Exercises
+
+### Do:
+- Use relatable scenarios
+- Provide clear success criteria
+- Include edge cases in Level 5
+- Make errors realistic (what beginners actually do)
+- Keep solutions achievable with current knowledge
+
+### Don't:
+- Require concepts not yet taught
+- Make Level 1 too complex
+- Use programming jargon in Level 4
+- Create errors students wouldn't actually make
+- Make exercises feel like homework
+
+## Sample Exercise Formatting
+
+```markdown
+## Exercises
+
+### Exercise Set 1: [Basic Concept]
+
+#### Level 1: Trace
+[Exercise content]
+
+#### Level 2: Fix  
+[Exercise content]
+
+#### Level 3: Simplify
+[Exercise content]
+
+#### Level 4: Explain
+[Exercise content]
+
+#### Level 5: Apply
+[Exercise content]
+
+### Exercise Set 2: [Slightly Harder Concept]
+[Repeat pattern]
+```

@@ -1,0 +1,258 @@
+/* Enhanced Details/Summary Styling */
+
+/* Base details styling */
+details {
+  margin: 1rem 0;
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  overflow: hidden;
+  background-color: #f8f9fa;
+  transition: all 0.2s ease;
+}
+
+details[open] {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Summary styling */
+details summary {
+  cursor: pointer;
+  padding: 0.75rem 1rem;
+  font-weight: 600;
+  background-color: #e9ecef;
+  user-select: none;
+  position: relative;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.2s ease;
+}
+
+details summary:hover {
+  background-color: #dee2e6;
+}
+
+details summary:focus {
+  outline: 2px solid #2780e3;
+  outline-offset: -2px;
+}
+
+/* Custom arrow */
+details summary::before {
+  content: "▶";
+  display: inline-block;
+  margin-right: 0.5rem;
+  transition: transform 0.2s ease;
+  color: #6c757d;
+}
+
+details[open] summary::before {
+  transform: rotate(90deg);
+}
+
+/* Hide default arrow */
+details summary::-webkit-details-marker {
+  display: none;
+}
+
+details summary::marker {
+  display: none;
+}
+
+/* Content styling */
+details .details-content {
+  padding: 1rem;
+  animation: slideDown 0.2s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Exercise solution specific styling */
+details.exercise-solution {
+  border-color: #28a745;
+  background-color: #f8f9fa;
+}
+
+details.exercise-solution summary {
+  background-color: #e6f7e9;
+  color: #155724;
+}
+
+details.exercise-solution summary:hover {
+  background-color: #d4edda;
+}
+
+details.exercise-solution summary::before {
+  color: #28a745;
+}
+
+/* Hint styling */
+details.exercise-hint {
+  border-color: #2196f3;
+  background-color: #e7f3ff;
+}
+
+details.exercise-hint summary {
+  background-color: #cce5ff;
+  color: #004085;
+}
+
+details.exercise-hint summary:hover {
+  background-color: #b8daff;
+}
+
+details.exercise-hint summary::before {
+  color: #2196f3;
+}
+
+/* Nested details */
+details details {
+  margin: 0.5rem 0;
+  border: 1px solid #e9ecef;
+}
+
+details details summary {
+  padding: 0.5rem 0.75rem;
+  font-size: 0.9rem;
+  background-color: #f8f9fa;
+}
+
+/* Inline details for small content */
+details.inline-details {
+  display: inline-block;
+  margin: 0 0.25rem;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+  vertical-align: middle;
+}
+
+details.inline-details summary {
+  padding: 0.125rem 0.5rem;
+  font-size: 0.875rem;
+  background-color: #f8f9fa;
+}
+
+details.inline-details .details-content {
+  padding: 0.25rem 0.5rem;
+}
+
+/* Code within details */
+details pre {
+  margin: 0.5rem 0;
+  background-color: white;
+}
+
+details code:not(pre code) {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Multiple choice details */
+details.multiple-choice {
+  margin: 0.5rem 0;
+}
+
+details.multiple-choice summary {
+  padding: 0.5rem 1rem;
+  background-color: #f8f9fa;
+}
+
+details.multiple-choice summary.correct {
+  background-color: #d4edda;
+}
+
+details.multiple-choice summary.incorrect {
+  background-color: #f8d7da;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  details {
+    background-color: #2d3748;
+    border-color: #4a5568;
+  }
+  
+  details summary {
+    background-color: #4a5568;
+    color: #e2e8f0;
+  }
+  
+  details summary:hover {
+    background-color: #718096;
+  }
+  
+  details .details-content {
+    background-color: #2d3748;
+    color: #e2e8f0;
+  }
+  
+  details.exercise-solution {
+    background-color: #1a202c;
+    border-color: #48bb78;
+  }
+  
+  details.exercise-solution summary {
+    background-color: #2f855a;
+    color: #f0fff4;
+  }
+  
+  details.exercise-hint {
+    background-color: #1a202c;
+    border-color: #4299e1;
+  }
+  
+  details.exercise-hint summary {
+    background-color: #2b6cb0;
+    color: #ebf8ff;
+  }
+}
+
+/* Print styles */
+@media print {
+  details {
+    border: 1px solid #000;
+  }
+  
+  details summary {
+    display: none;
+  }
+  
+  details .details-content {
+    display: block !important;
+    animation: none;
+  }
+  
+  /* Add "Answer:" label for print */
+  details.exercise-solution .details-content::before {
+    content: "Answer: ";
+    font-weight: bold;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+}
+
+/* Accessibility improvements */
+details summary:focus-visible {
+  outline: 3px solid #2780e3;
+  outline-offset: 2px;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  details summary {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.95rem;
+  }
+  
+  details .details-content {
+    padding: 0.75rem;
+  }
+}
