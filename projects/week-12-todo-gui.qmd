@@ -1,0 +1,991 @@
+# Week 12 Project: Todo Application with GUI {#sec-project-todo-gui}
+
+::: {.callout-important}
+## Capstone Project - Before You Start
+This is your **final project** that demonstrates everything you've learned! Make sure you've completed:
+- All previous projects (Weeks 1-11)
+- Chapter 12: Interactive Systems  
+- Chapter 13: Becoming an Architect
+
+You should be ready to:
+- Design complete applications from scratch
+- Integrate multiple programming concepts
+- Work with AI as your implementation partner
+- Create professional-quality software
+:::
+
+## Project Overview
+
+This capstone project brings together **every skill** you've learned throughout the course. You'll build a complete Todo application with a graphical interface that demonstrates your journey from beginner to software architect.
+
+This isn't just about completing a project - it's about proving you can design, build, and refine real applications that solve real problems!
+
+## The Problem to Solve
+
+Everyone needs to manage tasks, but most todo apps are either too simple (just text files) or too complex (overwhelming features). Your todo application should:
+- Provide a clean, intuitive interface for managing tasks
+- Persist data between sessions reliably  
+- Support task organization and prioritization
+- Allow efficient task completion workflows
+- Demonstrate professional software architecture
+- Show your growth as a programmer
+
+## Architect Your Solution First
+
+Before writing any code or consulting AI, design your complete application:
+
+### 1. Define Your Requirements
+
+**Core Features (Must Have):**
+- Add new tasks with descriptions
+- Mark tasks as complete/incomplete
+- Delete tasks permanently
+- Save tasks to file automatically
+- Load saved tasks on startup
+- Clear, responsive interface
+
+**Enhanced Features (Nice to Have):**
+- Task priorities (High, Medium, Low)
+- Due dates for tasks
+- Task categories/tags
+- Search and filter capabilities
+- Statistics (total tasks, completed, etc.)
+
+**Not Included (Scope Control):**
+- Cloud synchronization
+- Multi-user support
+- Mobile app version
+- Advanced collaboration features
+
+### 2. Design Your Interface
+
+Sketch your application layout:
+```
+┌─────────────────────────────────────────────────────────────┐
+│  📋 Todo Manager - My Tasks                    [Save] [Load] │
+├─────────────────────────────────────────────────────────────┤
+│  Add New Task:                                              │
+│  ┌─────────────────────────────────────┐ ┌─────────────────┐ │
+│  │ Enter task description...           │ │ Priority: High ▼│ │
+│  └─────────────────────────────────────┘ └─────────────────┘ │
+│  [Add Task] [Clear]                                         │
+├─────────────────────────────────────────────────────────────┤
+│  Current Tasks:                              [Show: All ▼] │
+│  ┌─────────────────────────────────────────────────────────┐ │
+│  │ ☐ Finish Python course (Priority: High)                │ │
+│  │ ☑ Complete Week 11 project (Priority: Medium)          │ │
+│  │ ☐ Read about software architecture (Priority: Low)     │ │
+│  │ ☐ Practice with more Python projects (Priority: High)  │ │
+│  │                                                         │ │
+│  │                                                         │ │
+│  └─────────────────────────────────────────────────────────┘ │
+│  [Complete Selected] [Delete Selected] [Edit Selected]     │
+├─────────────────────────────────────────────────────────────┤
+│  Statistics: 4 total tasks | 1 completed | 3 remaining     │
+│  Progress: ████████████░░░░░░░░░░ 25%                       │
+└─────────────────────────────────────────────────────────────┘
+```
+
+### 3. Plan Your Data Structure
+
+Design how you'll store and manage tasks:
+```python
+# Task data structure
+task = {
+    'id': 1,
+    'description': 'Finish Python course',
+    'priority': 'High',
+    'completed': False,
+    'created_date': '2024-03-15',
+    'due_date': '2024-03-20',
+    'category': 'Learning'
+}
+
+# Application data structure
+todo_data = {
+    'tasks': [task1, task2, task3, ...],
+    'settings': {
+        'auto_save': True,
+        'show_completed': True,
+        'default_priority': 'Medium'
+    },
+    'statistics': {
+        'total_created': 15,
+        'total_completed': 8,
+        'current_streak': 3
+    }
+}
+```
+
+## Implementation Strategy
+
+### Phase 1: Core Data Management
+1. Task creation and storage
+2. Basic file save/load functionality
+3. Task completion toggling
+4. Simple data validation
+
+### Phase 2: Basic GUI
+1. Main window with task list
+2. Add task interface
+3. Complete/delete buttons
+4. Status display
+
+### Phase 3: Enhanced Interface
+1. Priority selection
+2. Task filtering and search
+3. Statistics dashboard
+4. Improved visual design
+
+### Phase 4: Polish and Architecture
+1. Error handling and validation
+2. User experience improvements
+3. Code organization and documentation
+4. Testing and refinement
+
+## AI Partnership Guidelines
+
+This is your chance to demonstrate mastery of AI collaboration!
+
+### Effective Architecture Prompts
+
+✅ **Good Learning Prompts**:
+```
+"I'm building a todo app with this data structure: [paste structure]
+I need a TaskManager class that handles adding, completing, and 
+deleting tasks. Show me a clean implementation with methods for 
+each operation."
+```
+
+```
+"My todo app needs to save/load from JSON. I have this data 
+structure: [paste]. Show me functions to safely save and load 
+this data with error handling."
+```
+
+```
+"I need a tkinter interface that displays a list of tasks with 
+checkboxes. Each task should show description and priority. 
+Show me how to create this with proper layout."
+```
+
+❌ **Avoid These Prompts**:
+- "Build a complete todo app with cloud sync"
+- "Add machine learning to predict task completion"
+- "Create a mobile app version"
+
+### AI Learning Progression
+
+1. **Architecture Phase**: System design
+   ```
+   "I want to build a todo app. Help me design the class structure
+   and data flow. What are the main components I'll need?"
+   ```
+
+2. **Implementation Phase**: Component building
+   ```
+   "Here's my TaskManager class design: [paste]. Help me implement
+   the add_task method with proper validation."
+   ```
+
+3. **Integration Phase**: Connecting pieces
+   ```
+   "I have separate Task, TaskManager, and GUI classes. Show me 
+   how to connect them so GUI updates when tasks change."
+   ```
+
+4. **Polish Phase**: Enhancement and refinement
+   ```
+   "My todo app works but needs better error handling. Show me 
+   how to validate user input and handle file errors gracefully."
+   ```
+
+## Requirements Specification
+
+### Functional Requirements
+
+Your todo application must:
+
+1. **Task Management**
+   - Create new tasks with descriptions
+   - Mark tasks as complete/incomplete
+   - Delete tasks permanently
+   - Edit existing task descriptions
+   - Assign priority levels to tasks
+
+2. **Data Persistence**
+   - Save all tasks to a JSON file
+   - Load tasks when application starts
+   - Auto-save when tasks change
+   - Handle file errors gracefully
+
+3. **User Interface**
+   - Display tasks in an organized list
+   - Provide clear add/edit/delete controls
+   - Show task completion status visually
+   - Display application statistics
+
+4. **User Experience**
+   - Respond to user actions immediately
+   - Provide feedback for operations
+   - Handle edge cases gracefully
+   - Maintain data integrity
+
+### Learning Requirements
+
+Your implementation should demonstrate:
+- [ ] Object-oriented design with classes
+- [ ] GUI programming with tkinter
+- [ ] File I/O and data persistence
+- [ ] Error handling and validation
+- [ ] Software architecture principles
+
+## Sample Interaction
+
+Here's how your todo application might work:
+
+```
+📋 TODO MANAGER - Starting Up...
+Loading saved tasks from: todo_data.json
+Found 3 existing tasks
+
+┌─────────────────────────────────────────────────────────────┐
+│  📋 TODO MANAGER                            [💾 Save] [📁 Load] │
+├─────────────────────────────────────────────────────────────┤
+│  Add New Task:                                              │
+│  Task: [________________________] Priority: [Medium ▼] [Add] │
+├─────────────────────────────────────────────────────────────┤
+│  📋 Current Tasks (3 total, 1 completed, 2 remaining):      │
+│                                                             │
+│  ☐ HIGH   | Finish Python Step by Step course              │
+│  ☑ MEDIUM | Complete Week 11 text adventure project         │
+│  ☐ LOW    | Read about software design patterns            │
+│                                                             │
+│  Selected: [Finish Python Step by Step course]             │
+│  [✓ Complete] [✏️ Edit] [🗑️ Delete]                          │
+├─────────────────────────────────────────────────────────────┤
+│  📊 Progress: ████████░░░░░░░░░░░░ 33% (1 of 3 completed)   │
+│  🎯 Today's Goal: Complete 2 tasks                          │
+└─────────────────────────────────────────────────────────────┘
+
+User clicks "✓ Complete" on first task...
+
+✅ Task completed: "Finish Python Step by Step course"
+📊 Progress updated: 66% complete!
+💾 Auto-saved to todo_data.json
+
+User adds new task: "Start Python Jumpstart course"
+
+➕ New task added: "Start Python Jumpstart course" (Priority: High)
+📊 Stats updated: 4 total tasks, 2 completed, 2 remaining
+💾 Auto-saved to todo_data.json
+```
+
+## Development Approach
+
+### Step 1: Task Data Management
+
+Start with the core data handling:
+```python
+import json
+from datetime import datetime
+from typing import List, Dict, Optional
+
+class Task:
+    """Represents a single todo task"""
+    
+    def __init__(self, description: str, priority: str = "Medium"):
+        self.id = self._generate_id()
+        self.description = description
+        self.priority = priority
+        self.completed = False
+        self.created_date = datetime.now().strftime("%Y-%m-%d")
+        self.due_date = None
+        self.category = "General"
+    
+    def _generate_id(self) -> int:
+        """Generate unique ID for task"""
+        return int(datetime.now().timestamp() * 1000000) % 1000000
+    
+    def complete(self):
+        """Mark task as completed"""
+        self.completed = True
+    
+    def uncomplete(self):
+        """Mark task as not completed"""
+        self.completed = False
+    
+    def to_dict(self) -> Dict:
+        """Convert task to dictionary for saving"""
+        return {
+            'id': self.id,
+            'description': self.description,
+            'priority': self.priority,
+            'completed': self.completed,
+            'created_date': self.created_date,
+            'due_date': self.due_date,
+            'category': self.category
+        }
+    
+    @classmethod
+    def from_dict(cls, data: Dict) -> 'Task':
+        """Create task from dictionary"""
+        task = cls(data['description'], data['priority'])
+        task.id = data['id']
+        task.completed = data['completed']
+        task.created_date = data['created_date']
+        task.due_date = data.get('due_date')
+        task.category = data.get('category', 'General')
+        return task
+    
+    def __str__(self) -> str:
+        status = "✓" if self.completed else "○"
+        return f"{status} {self.priority.upper()}: {self.description}"
+
+class TaskManager:
+    """Manages collection of tasks with persistence"""
+    
+    def __init__(self, filename: str = "todo_data.json"):
+        self.filename = filename
+        self.tasks: List[Task] = []
+        self.load_tasks()
+    
+    def add_task(self, description: str, priority: str = "Medium") -> Task:
+        """Add a new task"""
+        if not description.strip():
+            raise ValueError("Task description cannot be empty")
+        
+        task = Task(description.strip(), priority)
+        self.tasks.append(task)
+        self.save_tasks()
+        return task
+    
+    def complete_task(self, task_id: int) -> bool:
+        """Mark a task as complete"""
+        task = self.get_task_by_id(task_id)
+        if task:
+            task.complete()
+            self.save_tasks()
+            return True
+        return False
+    
+    def delete_task(self, task_id: int) -> bool:
+        """Delete a task permanently"""
+        task = self.get_task_by_id(task_id)
+        if task:
+            self.tasks.remove(task)
+            self.save_tasks()
+            return True
+        return False
+    
+    def get_task_by_id(self, task_id: int) -> Optional[Task]:
+        """Find task by ID"""
+        for task in self.tasks:
+            if task.id == task_id:
+                return task
+        return None
+    
+    def get_tasks(self, include_completed: bool = True) -> List[Task]:
+        """Get all tasks, optionally excluding completed ones"""
+        if include_completed:
+            return self.tasks.copy()
+        return [task for task in self.tasks if not task.completed]
+    
+    def get_statistics(self) -> Dict:
+        """Get task statistics"""
+        total = len(self.tasks)
+        completed = len([t for t in self.tasks if t.completed])
+        return {
+            'total': total,
+            'completed': completed,
+            'remaining': total - completed,
+            'completion_rate': (completed / total * 100) if total > 0 else 0
+        }
+    
+    def save_tasks(self):
+        """Save all tasks to JSON file"""
+        try:
+            data = {
+                'tasks': [task.to_dict() for task in self.tasks],
+                'saved_at': datetime.now().isoformat()
+            }
+            with open(self.filename, 'w') as f:
+                json.dump(data, f, indent=2)
+        except Exception as e:
+            print(f"Error saving tasks: {e}")
+    
+    def load_tasks(self):
+        """Load tasks from JSON file"""
+        try:
+            with open(self.filename, 'r') as f:
+                data = json.load(f)
+                self.tasks = [Task.from_dict(task_data) 
+                             for task_data in data.get('tasks', [])]
+        except FileNotFoundError:
+            # No existing file, start with empty task list
+            self.tasks = []
+        except Exception as e:
+            print(f"Error loading tasks: {e}")
+            self.tasks = []
+```
+
+### Step 2: Basic GUI Framework
+
+Create the main interface:
+```python
+import tkinter as tk
+from tkinter import ttk, messagebox
+from typing import Optional
+
+class TodoGUI:
+    """Main GUI application for Todo Manager"""
+    
+    def __init__(self, root: tk.Tk):
+        self.root = root
+        self.root.title("📋 Todo Manager")
+        self.root.geometry("700x600")
+        
+        # Initialize task manager
+        self.task_manager = TaskManager()
+        self.selected_task_id: Optional[int] = None
+        
+        # Create interface
+        self.create_widgets()
+        self.refresh_task_display()
+        
+        # Bind window close event
+        self.root.protocol("WM_DELETE_WINDOW", self.on_closing)
+    
+    def create_widgets(self):
+        """Create all GUI widgets"""
+        # Main container
+        main_frame = ttk.Frame(self.root, padding="10")
+        main_frame.grid(row=0, column=0, sticky=(tk.W, tk.E, tk.N, tk.S))
+        
+        # Configure grid weights
+        self.root.columnconfigure(0, weight=1)
+        self.root.rowconfigure(0, weight=1)
+        main_frame.columnconfigure(1, weight=1)
+        
+        # Title and controls
+        self.create_header(main_frame)
+        
+        # Add task section
+        self.create_add_section(main_frame)
+        
+        # Task list section
+        self.create_task_list(main_frame)
+        
+        # Control buttons
+        self.create_controls(main_frame)
+        
+        # Statistics section
+        self.create_statistics(main_frame)
+    
+    def create_header(self, parent):
+        """Create header with title and file controls"""
+        header_frame = ttk.Frame(parent)
+        header_frame.grid(row=0, column=0, columnspan=3, sticky=(tk.W, tk.E), pady=(0, 10))
+        
+        # Title
+        title_label = ttk.Label(header_frame, text="📋 Todo Manager", 
+                               font=('Arial', 16, 'bold'))
+        title_label.grid(row=0, column=0, sticky=tk.W)
+        
+        # File controls
+        file_frame = ttk.Frame(header_frame)
+        file_frame.grid(row=0, column=1, sticky=tk.E)
+        
+        ttk.Button(file_frame, text="💾 Save", 
+                  command=self.save_tasks).grid(row=0, column=0, padx=2)
+        ttk.Button(file_frame, text="📁 Load", 
+                  command=self.load_tasks).grid(row=0, column=1, padx=2)
+        
+        header_frame.columnconfigure(0, weight=1)
+    
+    def create_add_section(self, parent):
+        """Create task addition section"""
+        add_frame = ttk.LabelFrame(parent, text="Add New Task", padding="5")
+        add_frame.grid(row=1, column=0, columnspan=3, sticky=(tk.W, tk.E), pady=(0, 10))
+        add_frame.columnconfigure(0, weight=1)
+        
+        # Task entry
+        entry_frame = ttk.Frame(add_frame)
+        entry_frame.grid(row=0, column=0, sticky=(tk.W, tk.E))
+        entry_frame.columnconfigure(0, weight=1)
+        
+        ttk.Label(entry_frame, text="Task:").grid(row=0, column=0, sticky=tk.W)
+        self.task_entry = ttk.Entry(entry_frame, width=50)
+        self.task_entry.grid(row=0, column=1, sticky=(tk.W, tk.E), padx=(5, 10))
+        
+        # Priority selection
+        ttk.Label(entry_frame, text="Priority:").grid(row=0, column=2)
+        self.priority_var = tk.StringVar(value="Medium")
+        priority_combo = ttk.Combobox(entry_frame, textvariable=self.priority_var,
+                                     values=["High", "Medium", "Low"], 
+                                     state="readonly", width=10)
+        priority_combo.grid(row=0, column=3, padx=5)
+        
+        # Buttons
+        button_frame = ttk.Frame(add_frame)
+        button_frame.grid(row=1, column=0, sticky=tk.W, pady=5)
+        
+        ttk.Button(button_frame, text="Add Task", 
+                  command=self.add_task).grid(row=0, column=0, padx=(0, 5))
+        ttk.Button(button_frame, text="Clear", 
+                  command=self.clear_entry).grid(row=0, column=1)
+        
+        # Bind Enter key to add task
+        self.task_entry.bind('<Return>', lambda e: self.add_task())
+    
+    def create_task_list(self, parent):
+        """Create task list display"""
+        list_frame = ttk.LabelFrame(parent, text="Current Tasks", padding="5")
+        list_frame.grid(row=2, column=0, columnspan=3, sticky=(tk.W, tk.E, tk.N, tk.S), pady=(0, 10))
+        list_frame.columnconfigure(0, weight=1)
+        list_frame.rowconfigure(0, weight=1)
+        
+        # Task listbox with scrollbar
+        listbox_frame = ttk.Frame(list_frame)
+        listbox_frame.grid(row=0, column=0, sticky=(tk.W, tk.E, tk.N, tk.S))
+        listbox_frame.columnconfigure(0, weight=1)
+        listbox_frame.rowconfigure(0, weight=1)
+        
+        self.task_listbox = tk.Listbox(listbox_frame, height=12, 
+                                      font=('Courier', 10))
+        self.task_listbox.grid(row=0, column=0, sticky=(tk.W, tk.E, tk.N, tk.S))
+        
+        # Scrollbar
+        scrollbar = ttk.Scrollbar(listbox_frame, orient=tk.VERTICAL, 
+                                 command=self.task_listbox.yview)
+        scrollbar.grid(row=0, column=1, sticky=(tk.N, tk.S))
+        self.task_listbox.config(yscrollcommand=scrollbar.set)
+        
+        # Bind selection event
+        self.task_listbox.bind('<<ListboxSelect>>', self.on_task_select)
+    
+    def create_controls(self, parent):
+        """Create task control buttons"""
+        control_frame = ttk.Frame(parent)
+        control_frame.grid(row=3, column=0, columnspan=3, pady=(0, 10))
+        
+        ttk.Button(control_frame, text="✓ Complete Selected", 
+                  command=self.complete_selected).grid(row=0, column=0, padx=2)
+        ttk.Button(control_frame, text="○ Uncomplete Selected", 
+                  command=self.uncomplete_selected).grid(row=0, column=1, padx=2)
+        ttk.Button(control_frame, text="✏️ Edit Selected", 
+                  command=self.edit_selected).grid(row=0, column=2, padx=2)
+        ttk.Button(control_frame, text="🗑️ Delete Selected", 
+                  command=self.delete_selected).grid(row=0, column=3, padx=2)
+    
+    def create_statistics(self, parent):
+        """Create statistics display"""
+        stats_frame = ttk.LabelFrame(parent, text="Statistics", padding="5")
+        stats_frame.grid(row=4, column=0, columnspan=3, sticky=(tk.W, tk.E))
+        
+        self.stats_label = ttk.Label(stats_frame, text="No tasks yet")
+        self.stats_label.grid(row=0, column=0, sticky=tk.W)
+        
+        # Progress bar
+        self.progress_var = tk.DoubleVar()
+        self.progress_bar = ttk.Progressbar(stats_frame, variable=self.progress_var, 
+                                          maximum=100, length=300)
+        self.progress_bar.grid(row=1, column=0, sticky=(tk.W, tk.E), pady=5)
+        
+        stats_frame.columnconfigure(0, weight=1)
+    
+    def refresh_task_display(self):
+        """Refresh the task list display"""
+        # Clear current display
+        self.task_listbox.delete(0, tk.END)
+        
+        # Add all tasks
+        for task in self.task_manager.get_tasks():
+            status = "✓" if task.completed else "○"
+            priority_indicator = {
+                "High": "🔴",
+                "Medium": "🟡", 
+                "Low": "🟢"
+            }.get(task.priority, "⚪")
+            
+            display_text = f"{status} {priority_indicator} {task.priority.upper():<6} | {task.description}"
+            self.task_listbox.insert(tk.END, display_text)
+        
+        # Update statistics
+        self.update_statistics()
+    
+    def update_statistics(self):
+        """Update statistics display"""
+        stats = self.task_manager.get_statistics()
+        
+        stats_text = (f"📊 {stats['total']} total tasks | "
+                     f"{stats['completed']} completed | "
+                     f"{stats['remaining']} remaining")
+        self.stats_label.config(text=stats_text)
+        
+        # Update progress bar
+        self.progress_var.set(stats['completion_rate'])
+    
+    def add_task(self):
+        """Add a new task"""
+        description = self.task_entry.get().strip()
+        if not description:
+            messagebox.showwarning("Invalid Input", "Please enter a task description")
+            return
+        
+        try:
+            priority = self.priority_var.get()
+            self.task_manager.add_task(description, priority)
+            self.clear_entry()
+            self.refresh_task_display()
+            messagebox.showinfo("Success", f"Task added: {description}")
+        except Exception as e:
+            messagebox.showerror("Error", f"Failed to add task: {e}")
+    
+    def clear_entry(self):
+        """Clear the task entry field"""
+        self.task_entry.delete(0, tk.END)
+        self.priority_var.set("Medium")
+        self.task_entry.focus()
+    
+    def on_task_select(self, event):
+        """Handle task selection"""
+        selection = self.task_listbox.curselection()
+        if selection:
+            index = selection[0]
+            tasks = self.task_manager.get_tasks()
+            if 0 <= index < len(tasks):
+                self.selected_task_id = tasks[index].id
+    
+    def complete_selected(self):
+        """Mark selected task as complete"""
+        if self.selected_task_id:
+            if self.task_manager.complete_task(self.selected_task_id):
+                self.refresh_task_display()
+                messagebox.showinfo("Success", "Task marked as complete!")
+    
+    def uncomplete_selected(self):
+        """Mark selected task as incomplete"""
+        if self.selected_task_id:
+            task = self.task_manager.get_task_by_id(self.selected_task_id)
+            if task:
+                task.uncomplete()
+                self.task_manager.save_tasks()
+                self.refresh_task_display()
+                messagebox.showinfo("Success", "Task marked as incomplete!")
+    
+    def edit_selected(self):
+        """Edit selected task"""
+        if not self.selected_task_id:
+            messagebox.showwarning("No Selection", "Please select a task to edit")
+            return
+        
+        task = self.task_manager.get_task_by_id(self.selected_task_id)
+        if not task:
+            return
+        
+        # Create edit dialog
+        dialog = tk.Toplevel(self.root)
+        dialog.title("Edit Task")
+        dialog.geometry("400x200")
+        dialog.transient(self.root)
+        dialog.grab_set()
+        
+        # Center the dialog
+        dialog.geometry("+%d+%d" % (self.root.winfo_rootx() + 50, 
+                                   self.root.winfo_rooty() + 50))
+        
+        # Edit form
+        ttk.Label(dialog, text="Task Description:").pack(pady=5)
+        
+        edit_entry = ttk.Entry(dialog, width=50)
+        edit_entry.pack(pady=5)
+        edit_entry.insert(0, task.description)
+        edit_entry.focus()
+        
+        ttk.Label(dialog, text="Priority:").pack(pady=5)
+        
+        priority_var = tk.StringVar(value=task.priority)
+        priority_combo = ttk.Combobox(dialog, textvariable=priority_var,
+                                     values=["High", "Medium", "Low"], 
+                                     state="readonly")
+        priority_combo.pack(pady=5)
+        
+        def save_edit():
+            new_description = edit_entry.get().strip()
+            if new_description:
+                task.description = new_description
+                task.priority = priority_var.get()
+                self.task_manager.save_tasks()
+                self.refresh_task_display()
+                dialog.destroy()
+                messagebox.showinfo("Success", "Task updated!")
+            else:
+                messagebox.showwarning("Invalid Input", "Description cannot be empty")
+        
+        def cancel_edit():
+            dialog.destroy()
+        
+        # Buttons
+        button_frame = ttk.Frame(dialog)
+        button_frame.pack(pady=10)
+        
+        ttk.Button(button_frame, text="Save", command=save_edit).pack(side=tk.LEFT, padx=5)
+        ttk.Button(button_frame, text="Cancel", command=cancel_edit).pack(side=tk.LEFT, padx=5)
+        
+        # Bind Enter key to save
+        edit_entry.bind('<Return>', lambda e: save_edit())
+    
+    def delete_selected(self):
+        """Delete selected task"""
+        if not self.selected_task_id:
+            messagebox.showwarning("No Selection", "Please select a task to delete")
+            return
+        
+        task = self.task_manager.get_task_by_id(self.selected_task_id)
+        if not task:
+            return
+        
+        # Confirm deletion
+        if messagebox.askyesno("Confirm Delete", 
+                              f"Are you sure you want to delete:\n'{task.description}'?"):
+            if self.task_manager.delete_task(self.selected_task_id):
+                self.selected_task_id = None
+                self.refresh_task_display()
+                messagebox.showinfo("Success", "Task deleted!")
+    
+    def save_tasks(self):
+        """Manually save tasks"""
+        self.task_manager.save_tasks()
+        messagebox.showinfo("Saved", "Tasks saved successfully!")
+    
+    def load_tasks(self):
+        """Manually reload tasks"""
+        self.task_manager.load_tasks()
+        self.refresh_task_display()
+        messagebox.showinfo("Loaded", "Tasks reloaded from file!")
+    
+    def on_closing(self):
+        """Handle application closing"""
+        # Auto-save before closing
+        self.task_manager.save_tasks()
+        self.root.destroy()
+
+# Main application entry point
+def main():
+    """Run the Todo GUI application"""
+    root = tk.Tk()
+    app = TodoGUI(root)
+    root.mainloop()
+
+if __name__ == "__main__":
+    main()
+```
+
+## Advanced Features
+
+### Feature 1: Search and Filter
+
+```python
+def create_filter_section(self, parent):
+    """Create search and filter controls"""
+    filter_frame = ttk.LabelFrame(parent, text="Filter Tasks", padding="5")
+    filter_frame.grid(row=1, column=0, columnspan=3, sticky=(tk.W, tk.E), pady=5)
+    
+    # Search entry
+    ttk.Label(filter_frame, text="Search:").grid(row=0, column=0, padx=5)
+    self.search_var = tk.StringVar()
+    self.search_entry = ttk.Entry(filter_frame, textvariable=self.search_var, width=20)
+    self.search_entry.grid(row=0, column=1, padx=5)
+    self.search_var.trace('w', self.apply_filters)
+    
+    # Show completed checkbox
+    self.show_completed_var = tk.BooleanVar(value=True)
+    completed_check = ttk.Checkbutton(filter_frame, text="Show Completed",
+                                     variable=self.show_completed_var,
+                                     command=self.apply_filters)
+    completed_check.grid(row=0, column=2, padx=5)
+    
+    # Priority filter
+    ttk.Label(filter_frame, text="Priority:").grid(row=0, column=3, padx=5)
+    self.priority_filter_var = tk.StringVar(value="All")
+    priority_filter = ttk.Combobox(filter_frame, textvariable=self.priority_filter_var,
+                                  values=["All", "High", "Medium", "Low"], 
+                                  state="readonly", width=10)
+    priority_filter.grid(row=0, column=4, padx=5)
+    priority_filter.bind('<<ComboboxSelected>>', lambda e: self.apply_filters())
+
+def apply_filters(self):
+    """Apply search and filter criteria"""
+    search_term = self.search_var.get().lower()
+    show_completed = self.show_completed_var.get()
+    priority_filter = self.priority_filter_var.get()
+    
+    # Clear current display
+    self.task_listbox.delete(0, tk.END)
+    
+    # Filter and display tasks
+    for task in self.task_manager.get_tasks():
+        # Apply filters
+        if not show_completed and task.completed:
+            continue
+        
+        if priority_filter != "All" and task.priority != priority_filter:
+            continue
+        
+        if search_term and search_term not in task.description.lower():
+            continue
+        
+        # Display filtered task
+        status = "✓" if task.completed else "○"
+        priority_indicator = {
+            "High": "🔴", "Medium": "🟡", "Low": "🟢"
+        }.get(task.priority, "⚪")
+        
+        display_text = f"{status} {priority_indicator} {task.priority.upper():<6} | {task.description}"
+        self.task_listbox.insert(tk.END, display_text)
+```
+
+### Feature 2: Import/Export Functionality
+
+```python
+def create_import_export(self):
+    """Add import/export capabilities"""
+    
+    def export_to_text():
+        """Export tasks to readable text file"""
+        try:
+            with open("todo_export.txt", "w") as f:
+                f.write("TODO LIST EXPORT\n")
+                f.write("="*50 + "\n\n")
+                
+                stats = self.task_manager.get_statistics()
+                f.write(f"Total Tasks: {stats['total']}\n")
+                f.write(f"Completed: {stats['completed']}\n")
+                f.write(f"Remaining: {stats['remaining']}\n\n")
+                
+                # Group by status
+                f.write("PENDING TASKS:\n")
+                f.write("-" * 20 + "\n")
+                for task in self.task_manager.get_tasks():
+                    if not task.completed:
+                        f.write(f"• {task.priority.upper()}: {task.description}\n")
+                
+                f.write("\nCOMPLETED TASKS:\n")
+                f.write("-" * 20 + "\n")
+                for task in self.task_manager.get_tasks():
+                    if task.completed:
+                        f.write(f"✓ {task.priority.upper()}: {task.description}\n")
+                        
+            messagebox.showinfo("Export Complete", "Tasks exported to todo_export.txt")
+        except Exception as e:
+            messagebox.showerror("Export Error", f"Failed to export: {e}")
+    
+    def import_from_text():
+        """Import tasks from text file"""
+        # Implementation for importing tasks
+        pass
+```
+
+## Testing Your Todo Application
+
+### Test Scenarios
+
+1. **Basic Functionality**
+   - Add tasks with different priorities
+   - Mark tasks complete/incomplete
+   - Delete tasks
+   - Edit task descriptions
+
+2. **Data Persistence**
+   - Close and reopen application
+   - Verify all tasks are preserved
+   - Test with corrupted data file
+
+3. **Edge Cases**
+   - Empty task descriptions
+   - Very long task descriptions
+   - Special characters in tasks
+   - Deleting all tasks
+
+4. **User Interface**
+   - Resize window
+   - Select tasks with keyboard/mouse
+   - Use keyboard shortcuts
+   - Test all buttons and controls
+
+### Manual Testing Checklist
+
+```
+□ Add new task with each priority level
+□ Complete and uncomplete tasks
+□ Edit existing task descriptions
+□ Delete tasks with confirmation
+□ Search for specific tasks
+□ Filter by priority and completion
+□ Save and load task data
+□ Export tasks to text file
+□ Handle empty states gracefully
+□ Resize window - interface adapts
+□ Close and reopen - data persists
+□ Test with large number of tasks (50+)
+```
+
+## Common Pitfalls and Solutions
+
+### Pitfall 1: No Data Validation
+**Problem**: Application crashes with invalid input
+**Solution**: Validate all user input before processing
+
+### Pitfall 2: Poor User Feedback
+**Problem**: Users don't know if actions succeeded
+**Solution**: Show success/error messages for all operations
+
+### Pitfall 3: No Auto-Save
+**Problem**: Users lose data when app crashes
+**Solution**: Auto-save after every change
+
+### Pitfall 4: Complex Interface
+**Problem**: Too many features confuse users
+**Solution**: Keep interface simple and intuitive
+
+## Reflection Questions
+
+After completing your todo application:
+
+1. **Architecture Design**: How did planning first change your development process?
+
+2. **AI Partnership**: What did you learn about working with AI as an implementation partner?
+
+3. **User Experience**: What makes your application easy or difficult to use?
+
+4. **Code Organization**: How did you structure your code for maintainability?
+
+5. **Problem Solving**: What challenges surprised you during development?
+
+6. **Future Improvements**: What features would you add next?
+
+## Congratulations!
+
+You've built a complete, professional-quality application that demonstrates mastery of:
+
+- ✅ **Object-oriented programming** with classes and methods
+- ✅ **GUI development** with tkinter
+- ✅ **Data persistence** with JSON files
+- ✅ **Error handling** and user validation
+- ✅ **Software architecture** and design patterns
+- ✅ **AI partnership** for efficient development
+
+This capstone project proves you're ready for **Python Jumpstart** and advanced programming challenges. You've transformed from a complete beginner to a software architect who can design and build real applications!
+
+## Next Steps
+
+Your journey with Python is just beginning:
+
+1. **Enhance your todo app** with additional features
+2. **Start Python Jumpstart** for web development
+3. **Build more projects** using your new skills
+4. **Join programming communities** to continue learning
+5. **Teach others** what you've learned
+
+You're no longer learning to code - you're a programmer who builds solutions! 🚀
