@@ -1,0 +1,79 @@
+What is the correct way to create a function in Python?
+A) function myFunc():
+B) def myFunc():
+C) create myFunc():
+D) func myFunc():
+B
+10
+
+Which data structure uses key-value pairs?
+A) List
+B) Tuple
+C) Dictionary
+D) Set
+C
+20
+
+What keyword is used to create a loop that continues while a condition is true?
+A) for
+B) while
+C) during
+D) loop
+B
+10
+
+How do you add an item to the end of a list called 'mylist'?
+A) mylist.add(item)
+B) mylist.append(item)
+C) mylist.insert(item)
+D) mylist.push(item)
+B
+15
+
+What does the len() function do?
+A) Returns the length of an object
+B) Creates a new list
+C) Converts to string
+D) Calculates average
+A
+10
+
+Which operator is used for exponentiation in Python?
+A) ^
+B) **
+C) ^^
+D) exp
+B
+15
+
+What is the output of: print(type(5.0))?
+A) <class 'int'>
+B) <class 'float'>
+C) <class 'number'>
+D) <class 'decimal'>
+B
+20
+
+How do you open a file for reading in Python?
+A) file = open("file.txt", "r")
+B) file = read("file.txt")
+C) file = load("file.txt")
+D) file = get("file.txt")
+A
+20
+
+What method removes and returns the last item from a list?
+A) remove()
+B) delete()
+C) pop()
+D) drop()
+C
+15
+
+Which statement is used to handle exceptions in Python?
+A) try/except
+B) catch/throw
+C) error/handle
+D) test/fail
+A
+25
