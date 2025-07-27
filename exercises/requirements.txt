@@ -1,0 +1,20 @@
+# Python Step by Step: Exercise Requirements
+# Minimal dependencies to keep things simple for beginners
+
+# Testing framework for exercise validation
+pytest==7.4.3
+
+# For the Weather Dashboard project (Week 10)
+requests==2.31.0
+
+# For GUI projects (Weeks 11-12)  
+# Note: tkinter comes with Python, no install needed
+
+# For data projects (Week 9)
+# Using only standard library csv module
+
+# Optional: Code quality tools for advanced students
+# Uncomment if you want to use these:
+# black==23.11.0  # Code formatter
+# flake8==6.1.0   # Linter
+# mypy==1.7.1     # Type checker
