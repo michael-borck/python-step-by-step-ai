@@ -4,9 +4,39 @@
     "href": "index.html",
     "title": "Python Step by Step: Learning with AI",
     "section": "",
-    "text": "Preface\nThis is a Quarto book.\nTo learn more about Quarto books visit https://quarto.org/docs/books.",
+    "text": "Preface",
     "crumbs": [
       "Preface"
+    ]
+  },
+  {
+    "objectID": "index.html#a-revolutionary-approach-to-learning-python",
+    "href": "index.html#a-revolutionary-approach-to-learning-python",
+    "title": "Python Step by Step: Learning with AI",
+    "section": "A Revolutionary Approach to Learning Python",
+    "text": "A Revolutionary Approach to Learning Python\nWelcome to Python Step by Step: Learning with AI – a groundbreaking approach to programming education that embraces AI as your learning partner rather than avoiding it.\n\nWhy This Book Is Different\nTraditional programming books were written for a world where students coded alone. This book is written for our reality – where AI can generate code in seconds. But here’s the crucial insight: generating code isn’t the same as understanding programming.\nThis book teaches you to: - Think like a programmer, not just code like one - Architect solutions that AI can help you build - Understand concepts deeply, not just make things work - Partner with AI effectively, knowing when and how to use it\n\n\nAbout This Book’s Creation\nIn the spirit of transparency and demonstrating the very principles it teaches, this book was created through human-AI collaboration. Every chapter, example, and exercise represents a partnership between human expertise (Michael Borck) and AI assistance (Claude from Anthropic), with careful human oversight ensuring pedagogical effectiveness and accuracy.\nThis isn’t just a book about learning with AI – it’s a book created with AI, showing that when used thoughtfully, AI enhances rather than replaces human creativity and expertise.\n\n\nYour Learning Journey\nOver 12 weeks, you’ll progress from understanding basic computational concepts to architecting complex systems. More importantly, you’ll develop the critical skill for our era: knowing how to think about problems so clearly that you can guide AI to help you solve them.\nWelcome to the future of programming education. Let’s learn together.",
+    "crumbs": [
+      "Preface"
+    ]
+  },
+  {
+    "objectID": "acknowledgments.html",
+    "href": "acknowledgments.html",
+    "title": "Acknowledgments",
+    "section": "",
+    "text": "A Note on AI Collaboration\nThis book represents a unique collaboration between human expertise and artificial intelligence. In keeping with the book’s central philosophy of “Learning with AI,” the book itself was created using AI as a collaborative partner.",
+    "crumbs": [
+      "Acknowledgments"
+    ]
+  },
+  {
+    "objectID": "acknowledgments.html#a-note-on-ai-collaboration",
+    "href": "acknowledgments.html#a-note-on-ai-collaboration",
+    "title": "Acknowledgments",
+    "section": "",
+    "text": "How This Book Was Written\n\nHuman Direction: All conceptual frameworks, pedagogical approaches, and learning objectives were designed by Michael Borck\nAI Assistance: Claude (Anthropic) assisted with:\n\nDrafting and refining explanations\nGenerating code examples and exercises\nEnsuring consistency across chapters\nDeveloping practice problems and solutions\n\n\n\n\nTransparency and Learning\nJust as this book teaches you to work effectively with AI as a learning partner, it was created using the same principles. Every chapter, example, and exercise has been:\n\nCarefully reviewed and validated by human expertise\nTested for pedagogical effectiveness\nRefined through iterative human-AI collaboration\n\nThis transparent approach to AI collaboration serves as a meta-example of the book’s core message: AI is a powerful tool that, when used thoughtfully with human oversight, can enhance our ability to create, learn, and teach.\n\n\nTraditional Acknowledgments\nSpecial thanks to: - The Python community for creating such an accessible and powerful language - The educators and researchers exploring AI in education - Early readers and reviewers who provided valuable feedback - You, the reader, for embracing this new approach to learning programming\n\n“In the spirit of the book’s philosophy, this acknowledgment itself was written collaboratively with AI, demonstrating that transparency about AI use enhances rather than diminishes the value of human-AI collaboration.”",
+    "crumbs": [
+      "Acknowledgments"
     ]
   },
   {
