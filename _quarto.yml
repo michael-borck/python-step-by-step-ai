@@ -16,17 +16,18 @@ profiles:
 book:
   title: "Python Step by Step: Learning with AI"
   subtitle: "Master Python by Learning How to Think With AI"
-  author: "Norah Jones"
+  author: "Michael Borck"
   date: "24/07/2025"
   description: "A revolutionary approach to learning Python by partnering with AI to build mental models, understand concepts, and architect solutions."
   cover-image: cover.png
-  site-url: https://pythonstepbystep.ai
+  site-url: https://michael-borck.github.io/python-step-by-step-ai
   repo-url: https://github.com/pythonstepbystep/book
   repo-branch: main
   repo-actions: [edit, issue]
   
   chapters:
     - index.qmd
+    - acknowledgments.qmd
     - part: "Part 0: Your AI Learning Partnership"
       chapters:
         - chapter-0-understanding-ai-partner.qmd
@@ -99,31 +100,11 @@ format:
     number-sections: true
     number-depth: 2
     highlight-style: github
-    mainfont: "Source Sans Pro"
-    monofont: "Source Code Pro"
     include-in-header:
       - text: |
           <script>
           // Custom JavaScript for interactive elements
           </script>
-    
-  pdf:
-    documentclass: scrreprt
-    classoption: [oneside]
-    papersize: letter
-    margin-left: 1in
-    margin-right: 1in
-    margin-top: 1in
-    margin-bottom: 1in
-    toc: true
-    toc-depth: 3
-    number-sections: true
-    number-depth: 2
-    highlight-style: github
-    monofont: "Source Code Pro"
-    mainfont: "Source Sans Pro"
-    pdf-engine: xelatex
-    keep-tex: false
 
 crossref:
   chapters: true

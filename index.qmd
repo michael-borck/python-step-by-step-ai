@@ -1,5 +1,27 @@
 # Preface {.unnumbered}
 
-This is a Quarto book.
+## A Revolutionary Approach to Learning Python
 
-To learn more about Quarto books visit <https://quarto.org/docs/books>.
+Welcome to *Python Step by Step: Learning with AI* – a groundbreaking approach to programming education that embraces AI as your learning partner rather than avoiding it.
+
+### Why This Book Is Different
+
+Traditional programming books were written for a world where students coded alone. This book is written for our reality – where AI can generate code in seconds. But here's the crucial insight: **generating code isn't the same as understanding programming**.
+
+This book teaches you to:
+- **Think** like a programmer, not just code like one
+- **Architect** solutions that AI can help you build
+- **Understand** concepts deeply, not just make things work
+- **Partner** with AI effectively, knowing when and how to use it
+
+### About This Book's Creation
+
+In the spirit of transparency and demonstrating the very principles it teaches, this book was created through human-AI collaboration. Every chapter, example, and exercise represents a partnership between human expertise (Michael Borck) and AI assistance (Claude from Anthropic), with careful human oversight ensuring pedagogical effectiveness and accuracy.
+
+This isn't just a book *about* learning with AI – it's a book *created* with AI, showing that when used thoughtfully, AI enhances rather than replaces human creativity and expertise.
+
+### Your Learning Journey
+
+Over 12 weeks, you'll progress from understanding basic computational concepts to architecting complex systems. More importantly, you'll develop the critical skill for our era: knowing how to think about problems so clearly that you can guide AI to help you solve them.
+
+Welcome to the future of programming education. Let's learn together.

@@ -45,8 +45,8 @@ function Div(el)
       
     elseif FORMAT:match("latex") then
       -- LaTeX output: Use tcolorbox
-      local latex_start = string.format([[\begin{detailsbox}[%s]]], summary_text)
-      local latex_end = [[\end{detailsbox}]]
+      local latex_start = string.format("\\begin{detailsbox}[%s]", summary_text)
+      local latex_end = "\\end{detailsbox}"
       
       return {
         pandoc.RawBlock('latex', latex_start),
